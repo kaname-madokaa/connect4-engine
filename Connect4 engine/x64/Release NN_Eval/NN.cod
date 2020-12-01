@@ -48,6 +48,12 @@ rdata$r	SEGMENT
 ??_R2?$_Func_base@XAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@std@@8 DD imagerel ??_R1A@?0A@EA@?$_Func_base@XAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@std@@8 ; std::_Func_base<void,Eigen::Matrix<float,-1,-1,0,-1,-1> &>::`RTTI Base Class Array'
 	ORG $+3
 rdata$r	ENDS
+;	COMDAT ??_R0?AV<lambda_0c4b9ccd69cb5b6478f52b410967b1c8>@@@8
+data$r	SEGMENT
+??_R0?AV<lambda_0c4b9ccd69cb5b6478f52b410967b1c8>@@@8 DQ FLAT:??_7type_info@@6B@ ; <lambda_0c4b9ccd69cb5b6478f52b410967b1c8> `RTTI Type Descriptor'
+	DQ	0000000000000000H
+	DB	'.?AV<lambda_0c4b9ccd69cb5b6478f52b410967b1c8>@@', 00H
+data$r	ENDS
 ;	COMDAT ??_R3DenseLayer@@8
 rdata$r	SEGMENT
 ??_R3DenseLayer@@8 DD 00H				; DenseLayer::`RTTI Class Hierarchy Descriptor'
@@ -65,12 +71,6 @@ rdata$r	SEGMENT
 	DD	040H
 	DD	imagerel ??_R3?$_Func_base@XAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@std@@8
 rdata$r	ENDS
-;	COMDAT ??_R0?AV<lambda_0d61a938ce91d41dbf996c0d56740a7b>@@@8
-data$r	SEGMENT
-??_R0?AV<lambda_0d61a938ce91d41dbf996c0d56740a7b>@@@8 DQ FLAT:??_7type_info@@6B@ ; <lambda_0d61a938ce91d41dbf996c0d56740a7b> `RTTI Type Descriptor'
-	DQ	0000000000000000H
-	DB	'.?AV<lambda_0d61a938ce91d41dbf996c0d56740a7b>@@', 00H
-data$r	ENDS
 ;	COMDAT ??_R2DenseLayer@@8
 rdata$r	SEGMENT
 ??_R2DenseLayer@@8 DD imagerel ??_R1A@?0A@EA@DenseLayer@@8 ; DenseLayer::`RTTI Base Class Array'
@@ -87,6 +87,24 @@ rdata$r	SEGMENT
 	DD	040H
 	DD	imagerel ??_R3DenseLayer@@8
 rdata$r	ENDS
+;	COMDAT ??_R0?AV?$_Func_impl_no_alloc@V<lambda_0c4b9ccd69cb5b6478f52b410967b1c8>@@XAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@std@@@8
+data$r	SEGMENT
+??_R0?AV?$_Func_impl_no_alloc@V<lambda_0c4b9ccd69cb5b6478f52b410967b1c8>@@XAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@std@@@8 DQ FLAT:??_7type_info@@6B@ ; std::_Func_impl_no_alloc<<lambda_0c4b9ccd69cb5b6478f52b410967b1c8>,void,Eigen::Matrix<float,-1,-1,0,-1,-1> &> `RTTI Type Descriptor'
+	DQ	0000000000000000H
+	DB	'.?AV?$_Func_impl_no_alloc@V<lambda_0c4b9ccd69cb5b6478f52'
+	DB	'b410967b1c8>@@XAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@std'
+	DB	'@@', 00H
+data$r	ENDS
+;	COMDAT ??_7?$_Func_impl_no_alloc@V<lambda_0c4b9ccd69cb5b6478f52b410967b1c8>@@XAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@std@@6B@
+CONST	SEGMENT
+??_7?$_Func_impl_no_alloc@V<lambda_0c4b9ccd69cb5b6478f52b410967b1c8>@@XAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@std@@6B@ DQ FLAT:??_R4?$_Func_impl_no_alloc@V<lambda_0c4b9ccd69cb5b6478f52b410967b1c8>@@XAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@std@@6B@ ; std::_Func_impl_no_alloc<<lambda_0c4b9ccd69cb5b6478f52b410967b1c8>,void,Eigen::Matrix<float,-1,-1,0,-1,-1> &>::`vftable'
+	DQ	FLAT:?_Copy@?$_Func_impl_no_alloc@V<lambda_0c4b9ccd69cb5b6478f52b410967b1c8>@@XAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@std@@EEBAPEAV?$_Func_base@XAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@2@PEAX@Z
+	DQ	FLAT:?_Move@?$_Func_impl_no_alloc@V<lambda_0c4b9ccd69cb5b6478f52b410967b1c8>@@XAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@std@@EEAAPEAV?$_Func_base@XAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@2@PEAX@Z
+	DQ	FLAT:?_Do_call@?$_Func_impl_no_alloc@V<lambda_0c4b9ccd69cb5b6478f52b410967b1c8>@@XAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@std@@EEAAXAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@Z
+	DQ	FLAT:?_Target_type@?$_Func_impl_no_alloc@V<lambda_0c4b9ccd69cb5b6478f52b410967b1c8>@@XAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@std@@EEBAAEBVtype_info@@XZ
+	DQ	FLAT:?_Delete_this@?$_Func_impl_no_alloc@V<lambda_0c4b9ccd69cb5b6478f52b410967b1c8>@@XAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@std@@EEAAX_N@Z
+	DQ	FLAT:?_Get@?$_Func_impl_no_alloc@V<lambda_0c4b9ccd69cb5b6478f52b410967b1c8>@@XAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@std@@EEBAPEBXXZ
+CONST	ENDS
 ;	COMDAT ??_R4DenseLayer@@6B@
 rdata$r	SEGMENT
 ??_R4DenseLayer@@6B@ DD 01H				; DenseLayer::`RTTI Complete Object Locator'
@@ -110,16 +128,6 @@ rdata$r	SEGMENT
 	DD	01H
 	DD	imagerel ??_R2?$_Func_base@XAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@std@@8
 rdata$r	ENDS
-;	COMDAT ??_R1A@?0A@EA@?$_Func_impl_no_alloc@V<lambda_0d61a938ce91d41dbf996c0d56740a7b>@@XAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@std@@8
-rdata$r	SEGMENT
-??_R1A@?0A@EA@?$_Func_impl_no_alloc@V<lambda_0d61a938ce91d41dbf996c0d56740a7b>@@XAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@std@@8 DD imagerel ??_R0?AV?$_Func_impl_no_alloc@V<lambda_0d61a938ce91d41dbf996c0d56740a7b>@@XAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@std@@@8 ; std::_Func_impl_no_alloc<<lambda_0d61a938ce91d41dbf996c0d56740a7b>,void,Eigen::Matrix<float,-1,-1,0,-1,-1> &>::`RTTI Base Class Descriptor at (0,-1,0,64)'
-	DD	01H
-	DD	00H
-	DD	0ffffffffH
-	DD	00H
-	DD	040H
-	DD	imagerel ??_R3?$_Func_impl_no_alloc@V<lambda_0d61a938ce91d41dbf996c0d56740a7b>@@XAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@std@@8
-rdata$r	ENDS
 ;	COMDAT ??_R3?$_Func_impl_no_alloc@P6AXAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@ZXAEAV12@@std@@8
 rdata$r	SEGMENT
 ??_R3?$_Func_impl_no_alloc@P6AXAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@ZXAEAV12@@std@@8 DD 00H ; std::_Func_impl_no_alloc<void (__cdecl*)(Eigen::Matrix<float,-1,-1,0,-1,-1> &),void,Eigen::Matrix<float,-1,-1,0,-1,-1> &>::`RTTI Class Hierarchy Descriptor'
@@ -127,24 +135,22 @@ rdata$r	SEGMENT
 	DD	02H
 	DD	imagerel ??_R2?$_Func_impl_no_alloc@P6AXAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@ZXAEAV12@@std@@8
 rdata$r	ENDS
-;	COMDAT ??_7?$_Func_impl_no_alloc@V<lambda_0d61a938ce91d41dbf996c0d56740a7b>@@XAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@std@@6B@
-CONST	SEGMENT
-??_7?$_Func_impl_no_alloc@V<lambda_0d61a938ce91d41dbf996c0d56740a7b>@@XAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@std@@6B@ DQ FLAT:??_R4?$_Func_impl_no_alloc@V<lambda_0d61a938ce91d41dbf996c0d56740a7b>@@XAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@std@@6B@ ; std::_Func_impl_no_alloc<<lambda_0d61a938ce91d41dbf996c0d56740a7b>,void,Eigen::Matrix<float,-1,-1,0,-1,-1> &>::`vftable'
-	DQ	FLAT:?_Copy@?$_Func_impl_no_alloc@V<lambda_0d61a938ce91d41dbf996c0d56740a7b>@@XAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@std@@EEBAPEAV?$_Func_base@XAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@2@PEAX@Z
-	DQ	FLAT:?_Move@?$_Func_impl_no_alloc@V<lambda_0d61a938ce91d41dbf996c0d56740a7b>@@XAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@std@@EEAAPEAV?$_Func_base@XAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@2@PEAX@Z
-	DQ	FLAT:?_Do_call@?$_Func_impl_no_alloc@V<lambda_0d61a938ce91d41dbf996c0d56740a7b>@@XAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@std@@EEAAXAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@Z
-	DQ	FLAT:?_Target_type@?$_Func_impl_no_alloc@V<lambda_0d61a938ce91d41dbf996c0d56740a7b>@@XAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@std@@EEBAAEBVtype_info@@XZ
-	DQ	FLAT:?_Delete_this@?$_Func_impl_no_alloc@V<lambda_0d61a938ce91d41dbf996c0d56740a7b>@@XAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@std@@EEAAX_N@Z
-	DQ	FLAT:?_Get@?$_Func_impl_no_alloc@V<lambda_0d61a938ce91d41dbf996c0d56740a7b>@@XAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@std@@EEBAPEBXXZ
-CONST	ENDS
-;	COMDAT ??_R0?AV?$_Func_impl_no_alloc@V<lambda_0d61a938ce91d41dbf996c0d56740a7b>@@XAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@std@@@8
-data$r	SEGMENT
-??_R0?AV?$_Func_impl_no_alloc@V<lambda_0d61a938ce91d41dbf996c0d56740a7b>@@XAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@std@@@8 DQ FLAT:??_7type_info@@6B@ ; std::_Func_impl_no_alloc<<lambda_0d61a938ce91d41dbf996c0d56740a7b>,void,Eigen::Matrix<float,-1,-1,0,-1,-1> &> `RTTI Type Descriptor'
-	DQ	0000000000000000H
-	DB	'.?AV?$_Func_impl_no_alloc@V<lambda_0d61a938ce91d41dbf996'
-	DB	'c0d56740a7b>@@XAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@std'
-	DB	'@@', 00H
-data$r	ENDS
+;	COMDAT ??_R2?$_Func_impl_no_alloc@V<lambda_0c4b9ccd69cb5b6478f52b410967b1c8>@@XAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@std@@8
+rdata$r	SEGMENT
+??_R2?$_Func_impl_no_alloc@V<lambda_0c4b9ccd69cb5b6478f52b410967b1c8>@@XAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@std@@8 DD imagerel ??_R1A@?0A@EA@?$_Func_impl_no_alloc@V<lambda_0c4b9ccd69cb5b6478f52b410967b1c8>@@XAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@std@@8 ; std::_Func_impl_no_alloc<<lambda_0c4b9ccd69cb5b6478f52b410967b1c8>,void,Eigen::Matrix<float,-1,-1,0,-1,-1> &>::`RTTI Base Class Array'
+	DD	imagerel ??_R1A@?0A@EA@?$_Func_base@XAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@std@@8
+	ORG $+3
+rdata$r	ENDS
+;	COMDAT ??_R1A@?0A@EA@?$_Func_impl_no_alloc@V<lambda_0c4b9ccd69cb5b6478f52b410967b1c8>@@XAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@std@@8
+rdata$r	SEGMENT
+??_R1A@?0A@EA@?$_Func_impl_no_alloc@V<lambda_0c4b9ccd69cb5b6478f52b410967b1c8>@@XAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@std@@8 DD imagerel ??_R0?AV?$_Func_impl_no_alloc@V<lambda_0c4b9ccd69cb5b6478f52b410967b1c8>@@XAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@std@@@8 ; std::_Func_impl_no_alloc<<lambda_0c4b9ccd69cb5b6478f52b410967b1c8>,void,Eigen::Matrix<float,-1,-1,0,-1,-1> &>::`RTTI Base Class Descriptor at (0,-1,0,64)'
+	DD	01H
+	DD	00H
+	DD	0ffffffffH
+	DD	00H
+	DD	040H
+	DD	imagerel ??_R3?$_Func_impl_no_alloc@V<lambda_0c4b9ccd69cb5b6478f52b410967b1c8>@@XAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@std@@8
+rdata$r	ENDS
 ;	COMDAT ??_R0P6AXAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@Z@8
 data$r	SEGMENT
 ??_R0P6AXAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@Z@8 DQ FLAT:??_7type_info@@6B@ ; void (__cdecl*)(Eigen::Matrix<float,-1,-1,0,-1,-1> &) `RTTI Type Descriptor'
@@ -161,14 +167,12 @@ CONST	SEGMENT
 	DQ	FLAT:?_Delete_this@?$_Func_impl_no_alloc@P6AXAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@ZXAEAV12@@std@@EEAAX_N@Z
 	DQ	FLAT:?_Get@?$_Func_impl_no_alloc@P6AXAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@ZXAEAV12@@std@@EEBAPEBXXZ
 CONST	ENDS
-;	COMDAT ??_R4?$_Func_impl_no_alloc@V<lambda_0d61a938ce91d41dbf996c0d56740a7b>@@XAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@std@@6B@
+;	COMDAT ??_R3?$_Func_impl_no_alloc@V<lambda_0c4b9ccd69cb5b6478f52b410967b1c8>@@XAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@std@@8
 rdata$r	SEGMENT
-??_R4?$_Func_impl_no_alloc@V<lambda_0d61a938ce91d41dbf996c0d56740a7b>@@XAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@std@@6B@ DD 01H ; std::_Func_impl_no_alloc<<lambda_0d61a938ce91d41dbf996c0d56740a7b>,void,Eigen::Matrix<float,-1,-1,0,-1,-1> &>::`RTTI Complete Object Locator'
+??_R3?$_Func_impl_no_alloc@V<lambda_0c4b9ccd69cb5b6478f52b410967b1c8>@@XAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@std@@8 DD 00H ; std::_Func_impl_no_alloc<<lambda_0c4b9ccd69cb5b6478f52b410967b1c8>,void,Eigen::Matrix<float,-1,-1,0,-1,-1> &>::`RTTI Class Hierarchy Descriptor'
 	DD	00H
-	DD	00H
-	DD	imagerel ??_R0?AV?$_Func_impl_no_alloc@V<lambda_0d61a938ce91d41dbf996c0d56740a7b>@@XAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@std@@@8
-	DD	imagerel ??_R3?$_Func_impl_no_alloc@V<lambda_0d61a938ce91d41dbf996c0d56740a7b>@@XAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@std@@8
-	DD	imagerel ??_R4?$_Func_impl_no_alloc@V<lambda_0d61a938ce91d41dbf996c0d56740a7b>@@XAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@std@@6B@
+	DD	02H
+	DD	imagerel ??_R2?$_Func_impl_no_alloc@V<lambda_0c4b9ccd69cb5b6478f52b410967b1c8>@@XAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@std@@8
 rdata$r	ENDS
 ;	COMDAT ??_R4?$_Func_impl_no_alloc@P6AXAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@ZXAEAV12@@std@@6B@
 rdata$r	SEGMENT
@@ -178,6 +182,15 @@ rdata$r	SEGMENT
 	DD	imagerel ??_R0?AV?$_Func_impl_no_alloc@P6AXAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@ZXAEAV12@@std@@@8
 	DD	imagerel ??_R3?$_Func_impl_no_alloc@P6AXAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@ZXAEAV12@@std@@8
 	DD	imagerel ??_R4?$_Func_impl_no_alloc@P6AXAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@ZXAEAV12@@std@@6B@
+rdata$r	ENDS
+;	COMDAT ??_R4?$_Func_impl_no_alloc@V<lambda_0c4b9ccd69cb5b6478f52b410967b1c8>@@XAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@std@@6B@
+rdata$r	SEGMENT
+??_R4?$_Func_impl_no_alloc@V<lambda_0c4b9ccd69cb5b6478f52b410967b1c8>@@XAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@std@@6B@ DD 01H ; std::_Func_impl_no_alloc<<lambda_0c4b9ccd69cb5b6478f52b410967b1c8>,void,Eigen::Matrix<float,-1,-1,0,-1,-1> &>::`RTTI Complete Object Locator'
+	DD	00H
+	DD	00H
+	DD	imagerel ??_R0?AV?$_Func_impl_no_alloc@V<lambda_0c4b9ccd69cb5b6478f52b410967b1c8>@@XAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@std@@@8
+	DD	imagerel ??_R3?$_Func_impl_no_alloc@V<lambda_0c4b9ccd69cb5b6478f52b410967b1c8>@@XAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@std@@8
+	DD	imagerel ??_R4?$_Func_impl_no_alloc@V<lambda_0c4b9ccd69cb5b6478f52b410967b1c8>@@XAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@std@@6B@
 rdata$r	ENDS
 ;	COMDAT ??_R0?AV?$_Func_impl_no_alloc@P6AXAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@ZXAEAV12@@std@@@8
 data$r	SEGMENT
@@ -196,12 +209,6 @@ rdata$r	SEGMENT
 	DD	040H
 	DD	imagerel ??_R3?$_Func_impl_no_alloc@P6AXAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@ZXAEAV12@@std@@8
 rdata$r	ENDS
-;	COMDAT ??_R2?$_Func_impl_no_alloc@V<lambda_0d61a938ce91d41dbf996c0d56740a7b>@@XAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@std@@8
-rdata$r	SEGMENT
-??_R2?$_Func_impl_no_alloc@V<lambda_0d61a938ce91d41dbf996c0d56740a7b>@@XAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@std@@8 DD imagerel ??_R1A@?0A@EA@?$_Func_impl_no_alloc@V<lambda_0d61a938ce91d41dbf996c0d56740a7b>@@XAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@std@@8 ; std::_Func_impl_no_alloc<<lambda_0d61a938ce91d41dbf996c0d56740a7b>,void,Eigen::Matrix<float,-1,-1,0,-1,-1> &>::`RTTI Base Class Array'
-	DD	imagerel ??_R1A@?0A@EA@?$_Func_base@XAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@std@@8
-	ORG $+3
-rdata$r	ENDS
 ;	COMDAT ??_R0?AVDenseLayer@@@8
 data$r	SEGMENT
 ??_R0?AVDenseLayer@@@8 DQ FLAT:??_7type_info@@6B@	; DenseLayer `RTTI Type Descriptor'
@@ -215,13 +222,6 @@ CONST	SEGMENT
 	DQ	FLAT:?layerType@DenseLayer@@UEAADXZ
 	DQ	FLAT:?printWeights@DenseLayer@@UEAAXXZ
 CONST	ENDS
-;	COMDAT ??_R3?$_Func_impl_no_alloc@V<lambda_0d61a938ce91d41dbf996c0d56740a7b>@@XAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@std@@8
-rdata$r	SEGMENT
-??_R3?$_Func_impl_no_alloc@V<lambda_0d61a938ce91d41dbf996c0d56740a7b>@@XAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@std@@8 DD 00H ; std::_Func_impl_no_alloc<<lambda_0d61a938ce91d41dbf996c0d56740a7b>,void,Eigen::Matrix<float,-1,-1,0,-1,-1> &>::`RTTI Class Hierarchy Descriptor'
-	DD	00H
-	DD	02H
-	DD	imagerel ??_R2?$_Func_impl_no_alloc@V<lambda_0d61a938ce91d41dbf996c0d56740a7b>@@XAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@std@@8
-rdata$r	ENDS
 ;	COMDAT ??_C@_0BJ@DHFDPMIM@invalid?5vector?5subscript@
 CONST	SEGMENT
 ??_C@_0BJ@DHFDPMIM@invalid?5vector?5subscript@ DB 'invalid vector subscri'

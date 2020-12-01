@@ -30,7 +30,7 @@ int main()
 {
     std::cout << "engine started\n";
     search::init();
-    uci::selfplay(100000,4);
+    uci::selfplay(10000,4);
     uci::rate();
     uci::Loop();
 }
