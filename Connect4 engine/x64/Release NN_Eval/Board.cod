@@ -5,13 +5,12 @@ include listing.inc
 INCLUDELIB OLDNAMES
 
 PUBLIC	??_C@_0BC@EOODALEL@Unknown?5exception@		; `string'
-PUBLIC	??_C@_0P@GHFPNOJB@bad?5allocation@		; `string'
 PUBLIC	??_C@_0BF@KINCDENJ@bad?5array?5new?5length@	; `string'
-PUBLIC	??_C@_01CLKCMJKC@?5@				; `string'
 PUBLIC	??_C@_01EEMJAFIK@?6@				; `string'
 PUBLIC	??_C@_01OHGJGJJP@?$FL@				; `string'
 PUBLIC	??_C@_01MJMHLOMK@O@				; `string'
 PUBLIC	??_C@_01MMEEDKFM@X@				; `string'
+PUBLIC	??_C@_01CLKCMJKC@?5@				; `string'
 PUBLIC	??_C@_01LBDDMOBJ@?$FN@				; `string'
 PUBLIC	??_C@_0BI@MOMLKGFL@illegal?5access?5detected@	; `string'
 PUBLIC	??_C@_04LPNGBNLE@fuck@				; `string'
@@ -31,7 +30,6 @@ PUBLIC	??_R2exception@std@@8				; std::exception::`RTTI Base Class Array'
 PUBLIC	??_7exception@std@@6B@				; std::exception::`vftable'
 PUBLIC	??_R3exception@std@@8				; std::exception::`RTTI Class Hierarchy Descriptor'
 PUBLIC	_CT??_R0?AVbad_array_new_length@std@@@8??0bad_array_new_length@std@@QEAA@AEBV01@@Z24
-PUBLIC	_CTA2?AVbad_alloc@std@@
 PUBLIC	??_R4bad_alloc@std@@6B@				; std::bad_alloc::`RTTI Complete Object Locator'
 PUBLIC	??_R3bad_array_new_length@std@@8		; std::bad_array_new_length::`RTTI Class Hierarchy Descriptor'
 PUBLIC	_CT??_R0?AVbad_alloc@std@@@8??0bad_alloc@std@@QEAA@AEBV01@@Z24
@@ -43,7 +41,6 @@ PUBLIC	_CT??_R0?AVexception@std@@@8??0exception@std@@QEAA@AEBV01@@Z24
 PUBLIC	_CTA1?AVexception@std@@
 PUBLIC	_TI3?AVbad_array_new_length@std@@
 PUBLIC	??_R0?AVexception@std@@@8			; std::exception `RTTI Type Descriptor'
-PUBLIC	_TI2?AVbad_alloc@std@@
 PUBLIC	??_R0?AVbad_array_new_length@std@@@8		; std::bad_array_new_length `RTTI Type Descriptor'
 EXTRN	__imp_?rdstate@ios_base@std@@QEBAHXZ:PROC
 EXTRN	__imp_?good@ios_base@std@@QEBA_NXZ:PROC
@@ -58,11 +55,9 @@ EXTRN	__imp_?_Osfx@?$basic_ostream@DU?$char_traits@D@std@@@std@@QEAAXXZ:PROC
 EXTRN	__imp_?tie@?$basic_ios@DU?$char_traits@D@std@@@std@@QEBAPEAV?$basic_ostream@DU?$char_traits@D@std@@@2@XZ:PROC
 EXTRN	__imp_?sputc@?$basic_streambuf@DU?$char_traits@D@std@@@std@@QEAAHD@Z:PROC
 EXTRN	__imp_?sputn@?$basic_streambuf@DU?$char_traits@D@std@@@std@@QEAA_JPEBD_J@Z:PROC
-EXTRN	__imp_malloc:PROC
 EXTRN	__imp__invalid_parameter_noinfo_noreturn:PROC
 EXTRN	??_7type_info@@6B@:BYTE				; type_info::`vftable'
 EXTRN	__imp___std_terminate:PROC
-EXTRN	__imp_free:PROC
 EXTRN	??_U@YAPEAX_K@Z:PROC				; operator new[]
 EXTRN	??3@YAXPEAX_K@Z:PROC				; operator delete
 EXTRN	__imp___std_exception_copy:PROC
@@ -79,13 +74,6 @@ data$r	SEGMENT
 	DQ	0000000000000000H
 	DB	'.?AVbad_array_new_length@std@@', 00H
 data$r	ENDS
-;	COMDAT _TI2?AVbad_alloc@std@@
-xdata$x	SEGMENT
-_TI2?AVbad_alloc@std@@ DD 00H
-	DD	imagerel ??1bad_alloc@std@@UEAA@XZ
-	DD	00H
-	DD	imagerel _CTA2?AVbad_alloc@std@@
-xdata$x	ENDS
 ;	COMDAT ??_R0?AVexception@std@@@8
 data$r	SEGMENT
 ??_R0?AVexception@std@@@8 DQ FLAT:??_7type_info@@6B@	; std::exception `RTTI Type Descriptor'
@@ -170,12 +158,6 @@ rdata$r	SEGMENT
 	DD	imagerel ??_R3bad_alloc@std@@8
 	DD	imagerel ??_R4bad_alloc@std@@6B@
 rdata$r	ENDS
-;	COMDAT _CTA2?AVbad_alloc@std@@
-xdata$x	SEGMENT
-_CTA2?AVbad_alloc@std@@ DD 02H
-	DD	imagerel _CT??_R0?AVbad_alloc@std@@@8??0bad_alloc@std@@QEAA@AEBV01@@Z24
-	DD	imagerel _CT??_R0?AVexception@std@@@8??0exception@std@@QEAA@AEBV01@@Z24
-xdata$x	ENDS
 ;	COMDAT _CT??_R0?AVbad_array_new_length@std@@@8??0bad_array_new_length@std@@QEAA@AEBV01@@Z24
 xdata$x	SEGMENT
 _CT??_R0?AVbad_array_new_length@std@@@8??0bad_array_new_length@std@@QEAA@AEBV01@@Z24 DD 00H
@@ -299,6 +281,10 @@ CONST	ENDS
 CONST	SEGMENT
 ??_C@_01LBDDMOBJ@?$FN@ DB ']', 00H			; `string'
 CONST	ENDS
+;	COMDAT ??_C@_01CLKCMJKC@?5@
+CONST	SEGMENT
+??_C@_01CLKCMJKC@?5@ DB ' ', 00H			; `string'
+CONST	ENDS
 ;	COMDAT ??_C@_01MMEEDKFM@X@
 CONST	SEGMENT
 ??_C@_01MMEEDKFM@X@ DB 'X', 00H				; `string'
@@ -315,78 +301,98 @@ CONST	ENDS
 CONST	SEGMENT
 ??_C@_01EEMJAFIK@?6@ DB 0aH, 00H			; `string'
 CONST	ENDS
-;	COMDAT ??_C@_01CLKCMJKC@?5@
-CONST	SEGMENT
-??_C@_01CLKCMJKC@?5@ DB ' ', 00H			; `string'
-CONST	ENDS
 ;	COMDAT ??_C@_0BF@KINCDENJ@bad?5array?5new?5length@
 CONST	SEGMENT
 ??_C@_0BF@KINCDENJ@bad?5array?5new?5length@ DB 'bad array new length', 00H ; `string'
-CONST	ENDS
-;	COMDAT ??_C@_0P@GHFPNOJB@bad?5allocation@
-CONST	SEGMENT
-??_C@_0P@GHFPNOJB@bad?5allocation@ DB 'bad allocation', 00H ; `string'
 CONST	ENDS
 ;	COMDAT ??_C@_0BC@EOODALEL@Unknown?5exception@
 CONST	SEGMENT
 ??_C@_0BC@EOODALEL@Unknown?5exception@ DB 'Unknown exception', 00H ; `string'
 CONST	ENDS
 PUBLIC	??$packetOp@T__m128@@@?$scalar_constant_op@M@internal@Eigen@@QEBA?BT__m128@@XZ ; Eigen::internal::scalar_constant_op<float>::packetOp<__m128>
-PUBLIC	??R?$scalar_constant_op@M@internal@Eigen@@QEBA?BMXZ ; Eigen::internal::scalar_constant_op<float>::operator()
-PUBLIC	??0?$FixedInt@$0A@@internal@Eigen@@QEAA@XZ	; Eigen::internal::FixedInt<0>::FixedInt<0>
-PUBLIC	??0?$FixedInt@$01@internal@Eigen@@QEAA@XZ	; Eigen::internal::FixedInt<2>::FixedInt<2>
-PUBLIC	??0?$FixedInt@$02@internal@Eigen@@QEAA@XZ	; Eigen::internal::FixedInt<3>::FixedInt<3>
-PUBLIC	??$?R_J@?$nullary_wrapper@MU?$scalar_constant_op@M@internal@Eigen@@$00$0A@$0A@@internal@Eigen@@QEBAMAEBU?$scalar_constant_op@M@12@_J1@Z ; Eigen::internal::nullary_wrapper<float,Eigen::internal::scalar_constant_op<float>,1,0,0>::operator()<__int64>
+PUBLIC	??$pstoret@MT__m128@@$0A@@internal@Eigen@@YAXPEAMAEBT__m128@@@Z ; Eigen::internal::pstoret<float,__m128,0>
 PUBLIC	??$packetOp@T__m128@@_J@?$nullary_wrapper@MU?$scalar_constant_op@M@internal@Eigen@@$00$0A@$0A@@internal@Eigen@@QEBA?AT__m128@@AEBU?$scalar_constant_op@M@12@_J1@Z ; Eigen::internal::nullary_wrapper<float,Eigen::internal::scalar_constant_op<float>,1,0,0>::packetOp<__m128,__int64>
-PUBLIC	??$coeff@_J@?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@Eigen@@@internal@Eigen@@QEBAM_J@Z ; Eigen::internal::evaluator<Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,-1,-1,0,-1,-1> > >::coeff<__int64>
-PUBLIC	??$packet@$0BA@T__m128@@_J@?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@Eigen@@@internal@Eigen@@QEBA?AT__m128@@_J@Z ; Eigen::internal::evaluator<Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,-1,-1,0,-1,-1> > >::packet<16,__m128,__int64>
-PUBLIC	?rows@?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@Eigen@@QEBA_JXZ ; Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,-1,-1,0,-1,-1> >::rows
-PUBLIC	?cols@?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@Eigen@@QEBA_JXZ ; Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,-1,-1,0,-1,-1> >::cols
-PUBLIC	?assignCoeff@?$generic_dense_assignment_kernel@U?$evaluator@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@internal@Eigen@@U?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@Eigen@@@23@U?$assign_op@MM@23@$0A@@internal@Eigen@@QEAAX_J@Z ; Eigen::internal::generic_dense_assignment_kernel<Eigen::internal::evaluator<Eigen::Matrix<float,-1,-1,0,-1,-1> >,Eigen::internal::evaluator<Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,-1,-1,0,-1,-1> > >,Eigen::internal::assign_op<float,float>,0>::assignCoeff
-PUBLIC	??$run@V?$generic_dense_assignment_kernel@U?$evaluator@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@internal@Eigen@@U?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@Eigen@@@23@U?$assign_op@MM@23@$0A@@internal@Eigen@@@?$unaligned_dense_assignment_loop@$0A@@internal@Eigen@@SAXAEAV?$generic_dense_assignment_kernel@U?$evaluator@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@internal@Eigen@@U?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@Eigen@@@23@U?$assign_op@MM@23@$0A@@12@_J1@Z ; Eigen::internal::unaligned_dense_assignment_loop<0>::run<Eigen::internal::generic_dense_assignment_kernel<Eigen::internal::evaluator<Eigen::Matrix<float,-1,-1,0,-1,-1> >,Eigen::internal::evaluator<Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,-1,-1,0,-1,-1> > >,Eigen::internal::assign_op<float,float>,0> >
-PUBLIC	??$assignPacket@$0BA@$0BA@T__m128@@@?$generic_dense_assignment_kernel@U?$evaluator@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@internal@Eigen@@U?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@Eigen@@@23@U?$assign_op@MM@23@$0A@@internal@Eigen@@QEAAX_J@Z ; Eigen::internal::generic_dense_assignment_kernel<Eigen::internal::evaluator<Eigen::Matrix<float,-1,-1,0,-1,-1> >,Eigen::internal::evaluator<Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,-1,-1,0,-1,-1> > >,Eigen::internal::assign_op<float,float>,0>::assignPacket<16,16,__m128>
-PUBLIC	??$run@V?$generic_dense_assignment_kernel@U?$evaluator@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@internal@Eigen@@U?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@Eigen@@@23@U?$assign_op@MM@23@$0A@@internal@Eigen@@@?$unaligned_dense_assignment_loop@$00@internal@Eigen@@SAXAEAV?$generic_dense_assignment_kernel@U?$evaluator@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@internal@Eigen@@U?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@Eigen@@@23@U?$assign_op@MM@23@$0A@@12@_J1@Z ; Eigen::internal::unaligned_dense_assignment_loop<1>::run<Eigen::internal::generic_dense_assignment_kernel<Eigen::internal::evaluator<Eigen::Matrix<float,-1,-1,0,-1,-1> >,Eigen::internal::evaluator<Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,-1,-1,0,-1,-1> > >,Eigen::internal::assign_op<float,float>,0> >
-PUBLIC	??$resize_if_allowed@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@2@MM@internal@Eigen@@YAXAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@1@AEBV?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@1@AEBU?$assign_op@MM@01@@Z ; Eigen::internal::resize_if_allowed<Eigen::Matrix<float,-1,-1,0,-1,-1>,Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,-1,-1,0,-1,-1> >,float,float>
-PUBLIC	?functor@?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@Eigen@@QEBAAEBU?$scalar_constant_op@M@internal@2@XZ ; Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,-1,-1,0,-1,-1> >::functor
-PUBLIC	??0?$evaluator_base@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@Eigen@@@internal@Eigen@@QEAA@XZ ; Eigen::internal::evaluator_base<Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,-1,-1,0,-1,-1> > >::evaluator_base<Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,-1,-1,0,-1,-1> > >
-PUBLIC	?size@?$generic_dense_assignment_kernel@U?$evaluator@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@internal@Eigen@@U?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@Eigen@@@23@U?$assign_op@MM@23@$0A@@internal@Eigen@@QEBA_JXZ ; Eigen::internal::generic_dense_assignment_kernel<Eigen::internal::evaluator<Eigen::Matrix<float,-1,-1,0,-1,-1> >,Eigen::internal::evaluator<Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,-1,-1,0,-1,-1> > >,Eigen::internal::assign_op<float,float>,0>::size
-PUBLIC	?dstDataPtr@?$generic_dense_assignment_kernel@U?$evaluator@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@internal@Eigen@@U?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@Eigen@@@23@U?$assign_op@MM@23@$0A@@internal@Eigen@@QEBAPEBMXZ ; Eigen::internal::generic_dense_assignment_kernel<Eigen::internal::evaluator<Eigen::Matrix<float,-1,-1,0,-1,-1> >,Eigen::internal::evaluator<Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,-1,-1,0,-1,-1> > >,Eigen::internal::assign_op<float,float>,0>::dstDataPtr
-PUBLIC	??1?$evaluator_base@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@Eigen@@@internal@Eigen@@QEAA@XZ ; Eigen::internal::evaluator_base<Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,-1,-1,0,-1,-1> > >::~evaluator_base<Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,-1,-1,0,-1,-1> > >
-PUBLIC	??0?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@Eigen@@@internal@Eigen@@QEAA@AEBV?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@2@@Z ; Eigen::internal::evaluator<Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,-1,-1,0,-1,-1> > >::evaluator<Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,-1,-1,0,-1,-1> > >
-PUBLIC	??0?$generic_dense_assignment_kernel@U?$evaluator@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@internal@Eigen@@U?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@Eigen@@@23@U?$assign_op@MM@23@$0A@@internal@Eigen@@QEAA@AEAU?$evaluator@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@12@AEBU?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@Eigen@@@12@AEBU?$assign_op@MM@12@AEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@2@@Z ; Eigen::internal::generic_dense_assignment_kernel<Eigen::internal::evaluator<Eigen::Matrix<float,-1,-1,0,-1,-1> >,Eigen::internal::evaluator<Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,-1,-1,0,-1,-1> > >,Eigen::internal::assign_op<float,float>,0>::generic_dense_assignment_kernel<Eigen::internal::evaluator<Eigen::Matrix<float,-1,-1,0,-1,-1> >,Eigen::internal::evaluator<Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,-1,-1,0,-1,-1> > >,Eigen::internal::assign_op<float,float>,0>
-PUBLIC	?run@?$dense_assignment_loop@V?$generic_dense_assignment_kernel@U?$evaluator@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@internal@Eigen@@U?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@Eigen@@@23@U?$assign_op@MM@23@$0A@@internal@Eigen@@$02$0A@@internal@Eigen@@SAXAEAV?$generic_dense_assignment_kernel@U?$evaluator@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@internal@Eigen@@U?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@Eigen@@@23@U?$assign_op@MM@23@$0A@@23@@Z ; Eigen::internal::dense_assignment_loop<Eigen::internal::generic_dense_assignment_kernel<Eigen::internal::evaluator<Eigen::Matrix<float,-1,-1,0,-1,-1> >,Eigen::internal::evaluator<Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,-1,-1,0,-1,-1> > >,Eigen::internal::assign_op<float,float>,0>,3,0>::run
-PUBLIC	??1?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@Eigen@@@internal@Eigen@@QEAA@XZ ; Eigen::internal::evaluator<Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,-1,-1,0,-1,-1> > >::~evaluator<Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,-1,-1,0,-1,-1> > >
-PUBLIC	??$call_dense_assignment_loop@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@2@U?$assign_op@MM@internal@2@@internal@Eigen@@YAXAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@1@AEBV?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@1@AEBU?$assign_op@MM@01@@Z ; Eigen::internal::call_dense_assignment_loop<Eigen::Matrix<float,-1,-1,0,-1,-1>,Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,-1,-1,0,-1,-1> >,Eigen::internal::assign_op<float,float> >
-PUBLIC	??$pstoret@MT__m128@@$0BA@@internal@Eigen@@YAXPEAMAEBT__m128@@@Z ; Eigen::internal::pstoret<float,__m128,16>
-PUBLIC	?run@?$Assignment@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@2@U?$assign_op@MM@internal@2@UDense2Dense@52@X@internal@Eigen@@SAXAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@AEBV?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@3@AEBU?$assign_op@MM@23@@Z ; Eigen::internal::Assignment<Eigen::Matrix<float,-1,-1,0,-1,-1>,Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,-1,-1,0,-1,-1> >,Eigen::internal::assign_op<float,float>,Eigen::internal::Dense2Dense,void>::run
-PUBLIC	??$assignPacket@$0BA@T__m128@@@?$assign_op@MM@internal@Eigen@@QEBAXPEAMAEBT__m128@@@Z ; Eigen::internal::assign_op<float,float>::assignPacket<16,__m128>
-PUBLIC	??$call_assignment_no_alias@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@2@U?$assign_op@MM@internal@2@@internal@Eigen@@YAXAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@1@AEBV?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@1@AEBU?$assign_op@MM@01@@Z ; Eigen::internal::call_assignment_no_alias<Eigen::Matrix<float,-1,-1,0,-1,-1>,Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,-1,-1,0,-1,-1> >,Eigen::internal::assign_op<float,float> >
+PUBLIC	??$assignPacket@$0A@T__m128@@@?$assign_op@MM@internal@Eigen@@QEBAXPEAMAEBT__m128@@@Z ; Eigen::internal::assign_op<float,float>::assignPacket<0,__m128>
+PUBLIC	??$packet@$0BA@T__m128@@_J@?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@internal@Eigen@@QEBA?AT__m128@@_J0@Z ; Eigen::internal::evaluator<Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,6,21,0,6,21> > >::packet<16,__m128,__int64>
+PUBLIC	??R?$scalar_constant_op@M@internal@Eigen@@QEBA?BMXZ ; Eigen::internal::scalar_constant_op<float>::operator()
+PUBLIC	??$?R_J@?$nullary_wrapper@MU?$scalar_constant_op@M@internal@Eigen@@$00$0A@$0A@@internal@Eigen@@QEBAMAEBU?$scalar_constant_op@M@12@_J1@Z ; Eigen::internal::nullary_wrapper<float,Eigen::internal::scalar_constant_op<float>,1,0,0>::operator()<__int64>
+PUBLIC	??$assignPacket@$0A@$0BA@T__m128@@@?$generic_dense_assignment_kernel@U?$evaluator@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@internal@Eigen@@U?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@23@U?$assign_op@MM@23@$0A@@internal@Eigen@@QEAAX_J0@Z ; Eigen::internal::generic_dense_assignment_kernel<Eigen::internal::evaluator<Eigen::Matrix<float,6,21,0,6,21> >,Eigen::internal::evaluator<Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,6,21,0,6,21> > >,Eigen::internal::assign_op<float,float>,0>::assignPacket<0,16,__m128>
+PUBLIC	?value@?$variable_if_dynamic@_J$05@internal@Eigen@@SA_JXZ ; Eigen::internal::variable_if_dynamic<__int64,6>::value
+PUBLIC	?value@?$variable_if_dynamic@_J$0BF@@internal@Eigen@@SA_JXZ ; Eigen::internal::variable_if_dynamic<__int64,21>::value
+PUBLIC	?rows@?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@QEBA_JXZ ; Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,6,21,0,6,21> >::rows
+PUBLIC	?cols@?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@QEBA_JXZ ; Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,6,21,0,6,21> >::cols
+PUBLIC	??$coeff@_J@?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@internal@Eigen@@QEBAM_J0@Z ; Eigen::internal::evaluator<Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,6,21,0,6,21> > >::coeff<__int64>
+PUBLIC	??$assignPacketByOuterInner@$0A@$0BA@T__m128@@@?$generic_dense_assignment_kernel@U?$evaluator@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@internal@Eigen@@U?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@23@U?$assign_op@MM@23@$0A@@internal@Eigen@@QEAAX_J0@Z ; Eigen::internal::generic_dense_assignment_kernel<Eigen::internal::evaluator<Eigen::Matrix<float,6,21,0,6,21> >,Eigen::internal::evaluator<Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,6,21,0,6,21> > >,Eigen::internal::assign_op<float,float>,0>::assignPacketByOuterInner<0,16,__m128>
+PUBLIC	??$resize_if_allowed@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@2@MM@internal@Eigen@@YAXAEAV?$Matrix@M$05$0BF@$0A@$05$0BF@@1@AEBV?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@1@AEBU?$assign_op@MM@01@@Z ; Eigen::internal::resize_if_allowed<Eigen::Matrix<float,6,21,0,6,21>,Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,6,21,0,6,21> >,float,float>
+PUBLIC	?run@?$copy_using_evaluator_innervec_CompleteUnrolling@V?$generic_dense_assignment_kernel@U?$evaluator@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@internal@Eigen@@U?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@23@U?$assign_op@MM@23@$0A@@internal@Eigen@@$0HM@$0HM@@internal@Eigen@@SAXAEAV?$generic_dense_assignment_kernel@U?$evaluator@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@internal@Eigen@@U?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@23@U?$assign_op@MM@23@$0A@@23@@Z ; Eigen::internal::copy_using_evaluator_innervec_CompleteUnrolling<Eigen::internal::generic_dense_assignment_kernel<Eigen::internal::evaluator<Eigen::Matrix<float,6,21,0,6,21> >,Eigen::internal::evaluator<Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,6,21,0,6,21> > >,Eigen::internal::assign_op<float,float>,0>,124,124>::run
+PUBLIC	?run@?$copy_using_evaluator_innervec_CompleteUnrolling@V?$generic_dense_assignment_kernel@U?$evaluator@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@internal@Eigen@@U?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@23@U?$assign_op@MM@23@$0A@@internal@Eigen@@$0HI@$0HM@@internal@Eigen@@SAXAEAV?$generic_dense_assignment_kernel@U?$evaluator@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@internal@Eigen@@U?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@23@U?$assign_op@MM@23@$0A@@23@@Z ; Eigen::internal::copy_using_evaluator_innervec_CompleteUnrolling<Eigen::internal::generic_dense_assignment_kernel<Eigen::internal::evaluator<Eigen::Matrix<float,6,21,0,6,21> >,Eigen::internal::evaluator<Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,6,21,0,6,21> > >,Eigen::internal::assign_op<float,float>,0>,120,124>::run
+PUBLIC	?run@?$copy_using_evaluator_innervec_CompleteUnrolling@V?$generic_dense_assignment_kernel@U?$evaluator@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@internal@Eigen@@U?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@23@U?$assign_op@MM@23@$0A@@internal@Eigen@@$0HE@$0HM@@internal@Eigen@@SAXAEAV?$generic_dense_assignment_kernel@U?$evaluator@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@internal@Eigen@@U?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@23@U?$assign_op@MM@23@$0A@@23@@Z ; Eigen::internal::copy_using_evaluator_innervec_CompleteUnrolling<Eigen::internal::generic_dense_assignment_kernel<Eigen::internal::evaluator<Eigen::Matrix<float,6,21,0,6,21> >,Eigen::internal::evaluator<Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,6,21,0,6,21> > >,Eigen::internal::assign_op<float,float>,0>,116,124>::run
+PUBLIC	?run@?$copy_using_evaluator_innervec_CompleteUnrolling@V?$generic_dense_assignment_kernel@U?$evaluator@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@internal@Eigen@@U?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@23@U?$assign_op@MM@23@$0A@@internal@Eigen@@$0HA@$0HM@@internal@Eigen@@SAXAEAV?$generic_dense_assignment_kernel@U?$evaluator@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@internal@Eigen@@U?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@23@U?$assign_op@MM@23@$0A@@23@@Z ; Eigen::internal::copy_using_evaluator_innervec_CompleteUnrolling<Eigen::internal::generic_dense_assignment_kernel<Eigen::internal::evaluator<Eigen::Matrix<float,6,21,0,6,21> >,Eigen::internal::evaluator<Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,6,21,0,6,21> > >,Eigen::internal::assign_op<float,float>,0>,112,124>::run
+PUBLIC	?run@?$copy_using_evaluator_innervec_CompleteUnrolling@V?$generic_dense_assignment_kernel@U?$evaluator@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@internal@Eigen@@U?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@23@U?$assign_op@MM@23@$0A@@internal@Eigen@@$0GM@$0HM@@internal@Eigen@@SAXAEAV?$generic_dense_assignment_kernel@U?$evaluator@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@internal@Eigen@@U?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@23@U?$assign_op@MM@23@$0A@@23@@Z ; Eigen::internal::copy_using_evaluator_innervec_CompleteUnrolling<Eigen::internal::generic_dense_assignment_kernel<Eigen::internal::evaluator<Eigen::Matrix<float,6,21,0,6,21> >,Eigen::internal::evaluator<Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,6,21,0,6,21> > >,Eigen::internal::assign_op<float,float>,0>,108,124>::run
+PUBLIC	?run@?$copy_using_evaluator_innervec_CompleteUnrolling@V?$generic_dense_assignment_kernel@U?$evaluator@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@internal@Eigen@@U?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@23@U?$assign_op@MM@23@$0A@@internal@Eigen@@$0GI@$0HM@@internal@Eigen@@SAXAEAV?$generic_dense_assignment_kernel@U?$evaluator@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@internal@Eigen@@U?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@23@U?$assign_op@MM@23@$0A@@23@@Z ; Eigen::internal::copy_using_evaluator_innervec_CompleteUnrolling<Eigen::internal::generic_dense_assignment_kernel<Eigen::internal::evaluator<Eigen::Matrix<float,6,21,0,6,21> >,Eigen::internal::evaluator<Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,6,21,0,6,21> > >,Eigen::internal::assign_op<float,float>,0>,104,124>::run
+PUBLIC	?run@?$copy_using_evaluator_innervec_CompleteUnrolling@V?$generic_dense_assignment_kernel@U?$evaluator@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@internal@Eigen@@U?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@23@U?$assign_op@MM@23@$0A@@internal@Eigen@@$0GE@$0HM@@internal@Eigen@@SAXAEAV?$generic_dense_assignment_kernel@U?$evaluator@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@internal@Eigen@@U?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@23@U?$assign_op@MM@23@$0A@@23@@Z ; Eigen::internal::copy_using_evaluator_innervec_CompleteUnrolling<Eigen::internal::generic_dense_assignment_kernel<Eigen::internal::evaluator<Eigen::Matrix<float,6,21,0,6,21> >,Eigen::internal::evaluator<Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,6,21,0,6,21> > >,Eigen::internal::assign_op<float,float>,0>,100,124>::run
+PUBLIC	?run@?$copy_using_evaluator_innervec_CompleteUnrolling@V?$generic_dense_assignment_kernel@U?$evaluator@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@internal@Eigen@@U?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@23@U?$assign_op@MM@23@$0A@@internal@Eigen@@$0GA@$0HM@@internal@Eigen@@SAXAEAV?$generic_dense_assignment_kernel@U?$evaluator@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@internal@Eigen@@U?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@23@U?$assign_op@MM@23@$0A@@23@@Z ; Eigen::internal::copy_using_evaluator_innervec_CompleteUnrolling<Eigen::internal::generic_dense_assignment_kernel<Eigen::internal::evaluator<Eigen::Matrix<float,6,21,0,6,21> >,Eigen::internal::evaluator<Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,6,21,0,6,21> > >,Eigen::internal::assign_op<float,float>,0>,96,124>::run
+PUBLIC	?run@?$copy_using_evaluator_innervec_CompleteUnrolling@V?$generic_dense_assignment_kernel@U?$evaluator@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@internal@Eigen@@U?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@23@U?$assign_op@MM@23@$0A@@internal@Eigen@@$0FM@$0HM@@internal@Eigen@@SAXAEAV?$generic_dense_assignment_kernel@U?$evaluator@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@internal@Eigen@@U?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@23@U?$assign_op@MM@23@$0A@@23@@Z ; Eigen::internal::copy_using_evaluator_innervec_CompleteUnrolling<Eigen::internal::generic_dense_assignment_kernel<Eigen::internal::evaluator<Eigen::Matrix<float,6,21,0,6,21> >,Eigen::internal::evaluator<Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,6,21,0,6,21> > >,Eigen::internal::assign_op<float,float>,0>,92,124>::run
+PUBLIC	?run@?$copy_using_evaluator_innervec_CompleteUnrolling@V?$generic_dense_assignment_kernel@U?$evaluator@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@internal@Eigen@@U?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@23@U?$assign_op@MM@23@$0A@@internal@Eigen@@$0FI@$0HM@@internal@Eigen@@SAXAEAV?$generic_dense_assignment_kernel@U?$evaluator@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@internal@Eigen@@U?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@23@U?$assign_op@MM@23@$0A@@23@@Z ; Eigen::internal::copy_using_evaluator_innervec_CompleteUnrolling<Eigen::internal::generic_dense_assignment_kernel<Eigen::internal::evaluator<Eigen::Matrix<float,6,21,0,6,21> >,Eigen::internal::evaluator<Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,6,21,0,6,21> > >,Eigen::internal::assign_op<float,float>,0>,88,124>::run
+PUBLIC	?run@?$copy_using_evaluator_innervec_CompleteUnrolling@V?$generic_dense_assignment_kernel@U?$evaluator@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@internal@Eigen@@U?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@23@U?$assign_op@MM@23@$0A@@internal@Eigen@@$0FE@$0HM@@internal@Eigen@@SAXAEAV?$generic_dense_assignment_kernel@U?$evaluator@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@internal@Eigen@@U?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@23@U?$assign_op@MM@23@$0A@@23@@Z ; Eigen::internal::copy_using_evaluator_innervec_CompleteUnrolling<Eigen::internal::generic_dense_assignment_kernel<Eigen::internal::evaluator<Eigen::Matrix<float,6,21,0,6,21> >,Eigen::internal::evaluator<Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,6,21,0,6,21> > >,Eigen::internal::assign_op<float,float>,0>,84,124>::run
+PUBLIC	?run@?$copy_using_evaluator_innervec_CompleteUnrolling@V?$generic_dense_assignment_kernel@U?$evaluator@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@internal@Eigen@@U?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@23@U?$assign_op@MM@23@$0A@@internal@Eigen@@$0FA@$0HM@@internal@Eigen@@SAXAEAV?$generic_dense_assignment_kernel@U?$evaluator@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@internal@Eigen@@U?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@23@U?$assign_op@MM@23@$0A@@23@@Z ; Eigen::internal::copy_using_evaluator_innervec_CompleteUnrolling<Eigen::internal::generic_dense_assignment_kernel<Eigen::internal::evaluator<Eigen::Matrix<float,6,21,0,6,21> >,Eigen::internal::evaluator<Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,6,21,0,6,21> > >,Eigen::internal::assign_op<float,float>,0>,80,124>::run
+PUBLIC	?run@?$copy_using_evaluator_innervec_CompleteUnrolling@V?$generic_dense_assignment_kernel@U?$evaluator@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@internal@Eigen@@U?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@23@U?$assign_op@MM@23@$0A@@internal@Eigen@@$0EM@$0HM@@internal@Eigen@@SAXAEAV?$generic_dense_assignment_kernel@U?$evaluator@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@internal@Eigen@@U?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@23@U?$assign_op@MM@23@$0A@@23@@Z ; Eigen::internal::copy_using_evaluator_innervec_CompleteUnrolling<Eigen::internal::generic_dense_assignment_kernel<Eigen::internal::evaluator<Eigen::Matrix<float,6,21,0,6,21> >,Eigen::internal::evaluator<Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,6,21,0,6,21> > >,Eigen::internal::assign_op<float,float>,0>,76,124>::run
+PUBLIC	?run@?$copy_using_evaluator_innervec_CompleteUnrolling@V?$generic_dense_assignment_kernel@U?$evaluator@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@internal@Eigen@@U?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@23@U?$assign_op@MM@23@$0A@@internal@Eigen@@$0EI@$0HM@@internal@Eigen@@SAXAEAV?$generic_dense_assignment_kernel@U?$evaluator@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@internal@Eigen@@U?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@23@U?$assign_op@MM@23@$0A@@23@@Z ; Eigen::internal::copy_using_evaluator_innervec_CompleteUnrolling<Eigen::internal::generic_dense_assignment_kernel<Eigen::internal::evaluator<Eigen::Matrix<float,6,21,0,6,21> >,Eigen::internal::evaluator<Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,6,21,0,6,21> > >,Eigen::internal::assign_op<float,float>,0>,72,124>::run
+PUBLIC	?run@?$copy_using_evaluator_innervec_CompleteUnrolling@V?$generic_dense_assignment_kernel@U?$evaluator@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@internal@Eigen@@U?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@23@U?$assign_op@MM@23@$0A@@internal@Eigen@@$0EE@$0HM@@internal@Eigen@@SAXAEAV?$generic_dense_assignment_kernel@U?$evaluator@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@internal@Eigen@@U?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@23@U?$assign_op@MM@23@$0A@@23@@Z ; Eigen::internal::copy_using_evaluator_innervec_CompleteUnrolling<Eigen::internal::generic_dense_assignment_kernel<Eigen::internal::evaluator<Eigen::Matrix<float,6,21,0,6,21> >,Eigen::internal::evaluator<Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,6,21,0,6,21> > >,Eigen::internal::assign_op<float,float>,0>,68,124>::run
+PUBLIC	?run@?$copy_using_evaluator_innervec_CompleteUnrolling@V?$generic_dense_assignment_kernel@U?$evaluator@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@internal@Eigen@@U?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@23@U?$assign_op@MM@23@$0A@@internal@Eigen@@$0EA@$0HM@@internal@Eigen@@SAXAEAV?$generic_dense_assignment_kernel@U?$evaluator@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@internal@Eigen@@U?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@23@U?$assign_op@MM@23@$0A@@23@@Z ; Eigen::internal::copy_using_evaluator_innervec_CompleteUnrolling<Eigen::internal::generic_dense_assignment_kernel<Eigen::internal::evaluator<Eigen::Matrix<float,6,21,0,6,21> >,Eigen::internal::evaluator<Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,6,21,0,6,21> > >,Eigen::internal::assign_op<float,float>,0>,64,124>::run
+PUBLIC	?run@?$copy_using_evaluator_innervec_CompleteUnrolling@V?$generic_dense_assignment_kernel@U?$evaluator@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@internal@Eigen@@U?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@23@U?$assign_op@MM@23@$0A@@internal@Eigen@@$0DM@$0HM@@internal@Eigen@@SAXAEAV?$generic_dense_assignment_kernel@U?$evaluator@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@internal@Eigen@@U?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@23@U?$assign_op@MM@23@$0A@@23@@Z ; Eigen::internal::copy_using_evaluator_innervec_CompleteUnrolling<Eigen::internal::generic_dense_assignment_kernel<Eigen::internal::evaluator<Eigen::Matrix<float,6,21,0,6,21> >,Eigen::internal::evaluator<Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,6,21,0,6,21> > >,Eigen::internal::assign_op<float,float>,0>,60,124>::run
+PUBLIC	?run@?$copy_using_evaluator_innervec_CompleteUnrolling@V?$generic_dense_assignment_kernel@U?$evaluator@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@internal@Eigen@@U?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@23@U?$assign_op@MM@23@$0A@@internal@Eigen@@$0DI@$0HM@@internal@Eigen@@SAXAEAV?$generic_dense_assignment_kernel@U?$evaluator@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@internal@Eigen@@U?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@23@U?$assign_op@MM@23@$0A@@23@@Z ; Eigen::internal::copy_using_evaluator_innervec_CompleteUnrolling<Eigen::internal::generic_dense_assignment_kernel<Eigen::internal::evaluator<Eigen::Matrix<float,6,21,0,6,21> >,Eigen::internal::evaluator<Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,6,21,0,6,21> > >,Eigen::internal::assign_op<float,float>,0>,56,124>::run
+PUBLIC	?run@?$copy_using_evaluator_innervec_CompleteUnrolling@V?$generic_dense_assignment_kernel@U?$evaluator@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@internal@Eigen@@U?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@23@U?$assign_op@MM@23@$0A@@internal@Eigen@@$0DE@$0HM@@internal@Eigen@@SAXAEAV?$generic_dense_assignment_kernel@U?$evaluator@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@internal@Eigen@@U?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@23@U?$assign_op@MM@23@$0A@@23@@Z ; Eigen::internal::copy_using_evaluator_innervec_CompleteUnrolling<Eigen::internal::generic_dense_assignment_kernel<Eigen::internal::evaluator<Eigen::Matrix<float,6,21,0,6,21> >,Eigen::internal::evaluator<Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,6,21,0,6,21> > >,Eigen::internal::assign_op<float,float>,0>,52,124>::run
+PUBLIC	?run@?$copy_using_evaluator_innervec_CompleteUnrolling@V?$generic_dense_assignment_kernel@U?$evaluator@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@internal@Eigen@@U?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@23@U?$assign_op@MM@23@$0A@@internal@Eigen@@$0DA@$0HM@@internal@Eigen@@SAXAEAV?$generic_dense_assignment_kernel@U?$evaluator@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@internal@Eigen@@U?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@23@U?$assign_op@MM@23@$0A@@23@@Z ; Eigen::internal::copy_using_evaluator_innervec_CompleteUnrolling<Eigen::internal::generic_dense_assignment_kernel<Eigen::internal::evaluator<Eigen::Matrix<float,6,21,0,6,21> >,Eigen::internal::evaluator<Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,6,21,0,6,21> > >,Eigen::internal::assign_op<float,float>,0>,48,124>::run
+PUBLIC	?run@?$copy_using_evaluator_innervec_CompleteUnrolling@V?$generic_dense_assignment_kernel@U?$evaluator@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@internal@Eigen@@U?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@23@U?$assign_op@MM@23@$0A@@internal@Eigen@@$0CM@$0HM@@internal@Eigen@@SAXAEAV?$generic_dense_assignment_kernel@U?$evaluator@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@internal@Eigen@@U?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@23@U?$assign_op@MM@23@$0A@@23@@Z ; Eigen::internal::copy_using_evaluator_innervec_CompleteUnrolling<Eigen::internal::generic_dense_assignment_kernel<Eigen::internal::evaluator<Eigen::Matrix<float,6,21,0,6,21> >,Eigen::internal::evaluator<Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,6,21,0,6,21> > >,Eigen::internal::assign_op<float,float>,0>,44,124>::run
+PUBLIC	?run@?$copy_using_evaluator_innervec_CompleteUnrolling@V?$generic_dense_assignment_kernel@U?$evaluator@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@internal@Eigen@@U?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@23@U?$assign_op@MM@23@$0A@@internal@Eigen@@$0CI@$0HM@@internal@Eigen@@SAXAEAV?$generic_dense_assignment_kernel@U?$evaluator@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@internal@Eigen@@U?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@23@U?$assign_op@MM@23@$0A@@23@@Z ; Eigen::internal::copy_using_evaluator_innervec_CompleteUnrolling<Eigen::internal::generic_dense_assignment_kernel<Eigen::internal::evaluator<Eigen::Matrix<float,6,21,0,6,21> >,Eigen::internal::evaluator<Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,6,21,0,6,21> > >,Eigen::internal::assign_op<float,float>,0>,40,124>::run
+PUBLIC	?run@?$copy_using_evaluator_innervec_CompleteUnrolling@V?$generic_dense_assignment_kernel@U?$evaluator@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@internal@Eigen@@U?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@23@U?$assign_op@MM@23@$0A@@internal@Eigen@@$0CE@$0HM@@internal@Eigen@@SAXAEAV?$generic_dense_assignment_kernel@U?$evaluator@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@internal@Eigen@@U?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@23@U?$assign_op@MM@23@$0A@@23@@Z ; Eigen::internal::copy_using_evaluator_innervec_CompleteUnrolling<Eigen::internal::generic_dense_assignment_kernel<Eigen::internal::evaluator<Eigen::Matrix<float,6,21,0,6,21> >,Eigen::internal::evaluator<Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,6,21,0,6,21> > >,Eigen::internal::assign_op<float,float>,0>,36,124>::run
+PUBLIC	?run@?$copy_using_evaluator_innervec_CompleteUnrolling@V?$generic_dense_assignment_kernel@U?$evaluator@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@internal@Eigen@@U?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@23@U?$assign_op@MM@23@$0A@@internal@Eigen@@$0CA@$0HM@@internal@Eigen@@SAXAEAV?$generic_dense_assignment_kernel@U?$evaluator@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@internal@Eigen@@U?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@23@U?$assign_op@MM@23@$0A@@23@@Z ; Eigen::internal::copy_using_evaluator_innervec_CompleteUnrolling<Eigen::internal::generic_dense_assignment_kernel<Eigen::internal::evaluator<Eigen::Matrix<float,6,21,0,6,21> >,Eigen::internal::evaluator<Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,6,21,0,6,21> > >,Eigen::internal::assign_op<float,float>,0>,32,124>::run
+PUBLIC	?run@?$copy_using_evaluator_innervec_CompleteUnrolling@V?$generic_dense_assignment_kernel@U?$evaluator@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@internal@Eigen@@U?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@23@U?$assign_op@MM@23@$0A@@internal@Eigen@@$0BM@$0HM@@internal@Eigen@@SAXAEAV?$generic_dense_assignment_kernel@U?$evaluator@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@internal@Eigen@@U?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@23@U?$assign_op@MM@23@$0A@@23@@Z ; Eigen::internal::copy_using_evaluator_innervec_CompleteUnrolling<Eigen::internal::generic_dense_assignment_kernel<Eigen::internal::evaluator<Eigen::Matrix<float,6,21,0,6,21> >,Eigen::internal::evaluator<Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,6,21,0,6,21> > >,Eigen::internal::assign_op<float,float>,0>,28,124>::run
+PUBLIC	?run@?$copy_using_evaluator_innervec_CompleteUnrolling@V?$generic_dense_assignment_kernel@U?$evaluator@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@internal@Eigen@@U?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@23@U?$assign_op@MM@23@$0A@@internal@Eigen@@$0BI@$0HM@@internal@Eigen@@SAXAEAV?$generic_dense_assignment_kernel@U?$evaluator@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@internal@Eigen@@U?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@23@U?$assign_op@MM@23@$0A@@23@@Z ; Eigen::internal::copy_using_evaluator_innervec_CompleteUnrolling<Eigen::internal::generic_dense_assignment_kernel<Eigen::internal::evaluator<Eigen::Matrix<float,6,21,0,6,21> >,Eigen::internal::evaluator<Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,6,21,0,6,21> > >,Eigen::internal::assign_op<float,float>,0>,24,124>::run
+PUBLIC	?run@?$copy_using_evaluator_innervec_CompleteUnrolling@V?$generic_dense_assignment_kernel@U?$evaluator@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@internal@Eigen@@U?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@23@U?$assign_op@MM@23@$0A@@internal@Eigen@@$0BE@$0HM@@internal@Eigen@@SAXAEAV?$generic_dense_assignment_kernel@U?$evaluator@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@internal@Eigen@@U?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@23@U?$assign_op@MM@23@$0A@@23@@Z ; Eigen::internal::copy_using_evaluator_innervec_CompleteUnrolling<Eigen::internal::generic_dense_assignment_kernel<Eigen::internal::evaluator<Eigen::Matrix<float,6,21,0,6,21> >,Eigen::internal::evaluator<Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,6,21,0,6,21> > >,Eigen::internal::assign_op<float,float>,0>,20,124>::run
+PUBLIC	?run@?$copy_using_evaluator_innervec_CompleteUnrolling@V?$generic_dense_assignment_kernel@U?$evaluator@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@internal@Eigen@@U?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@23@U?$assign_op@MM@23@$0A@@internal@Eigen@@$0BA@$0HM@@internal@Eigen@@SAXAEAV?$generic_dense_assignment_kernel@U?$evaluator@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@internal@Eigen@@U?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@23@U?$assign_op@MM@23@$0A@@23@@Z ; Eigen::internal::copy_using_evaluator_innervec_CompleteUnrolling<Eigen::internal::generic_dense_assignment_kernel<Eigen::internal::evaluator<Eigen::Matrix<float,6,21,0,6,21> >,Eigen::internal::evaluator<Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,6,21,0,6,21> > >,Eigen::internal::assign_op<float,float>,0>,16,124>::run
 PUBLIC	?assignCoeff@?$assign_op@MM@internal@Eigen@@QEBAXAEAMAEBM@Z ; Eigen::internal::assign_op<float,float>::assignCoeff
-PUBLIC	?coeffRef@?$evaluator@V?$PlainObjectBase@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@Eigen@@@internal@Eigen@@QEAAAEAM_J@Z ; Eigen::internal::evaluator<Eigen::PlainObjectBase<Eigen::Matrix<float,-1,-1,0,-1,-1> > >::coeffRef
-PUBLIC	??$first_aligned@$0BA@M_J@internal@Eigen@@YA_JPEBM_J@Z ; Eigen::internal::first_aligned<16,float,__int64>
-PUBLIC	??$call_assignment@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@2@U?$assign_op@MM@internal@2@@internal@Eigen@@YAXAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@1@AEBV?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@1@AEBU?$assign_op@MM@01@PEAX@Z ; Eigen::internal::call_assignment<Eigen::Matrix<float,-1,-1,0,-1,-1>,Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,-1,-1,0,-1,-1> >,Eigen::internal::assign_op<float,float> >
-PUBLIC	?const_cast_derived@?$EigenBase@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@Eigen@@QEBAAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@2@XZ ; Eigen::EigenBase<Eigen::Matrix<float,-1,-1,0,-1,-1> >::const_cast_derived
-PUBLIC	??$call_assignment@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@2@@internal@Eigen@@YAXAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@1@AEBV?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@1@@Z ; Eigen::internal::call_assignment<Eigen::Matrix<float,-1,-1,0,-1,-1>,Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,-1,-1,0,-1,-1> > >
-PUBLIC	??0?$DenseBase@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@Eigen@@@Eigen@@IEAA@XZ ; Eigen::DenseBase<Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,-1,-1,0,-1,-1> > >::DenseBase<Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,-1,-1,0,-1,-1> > >
+PUBLIC	?run@?$copy_using_evaluator_innervec_CompleteUnrolling@V?$generic_dense_assignment_kernel@U?$evaluator@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@internal@Eigen@@U?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@23@U?$assign_op@MM@23@$0A@@internal@Eigen@@$0M@$0HM@@internal@Eigen@@SAXAEAV?$generic_dense_assignment_kernel@U?$evaluator@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@internal@Eigen@@U?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@23@U?$assign_op@MM@23@$0A@@23@@Z ; Eigen::internal::copy_using_evaluator_innervec_CompleteUnrolling<Eigen::internal::generic_dense_assignment_kernel<Eigen::internal::evaluator<Eigen::Matrix<float,6,21,0,6,21> >,Eigen::internal::evaluator<Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,6,21,0,6,21> > >,Eigen::internal::assign_op<float,float>,0>,12,124>::run
+PUBLIC	?assignCoeff@?$generic_dense_assignment_kernel@U?$evaluator@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@internal@Eigen@@U?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@23@U?$assign_op@MM@23@$0A@@internal@Eigen@@QEAAX_J0@Z ; Eigen::internal::generic_dense_assignment_kernel<Eigen::internal::evaluator<Eigen::Matrix<float,6,21,0,6,21> >,Eigen::internal::evaluator<Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,6,21,0,6,21> > >,Eigen::internal::assign_op<float,float>,0>::assignCoeff
+PUBLIC	?rowIndexByOuterInner@?$generic_dense_assignment_kernel@U?$evaluator@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@internal@Eigen@@U?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@23@U?$assign_op@MM@23@$0A@@internal@Eigen@@SA_J_J0@Z ; Eigen::internal::generic_dense_assignment_kernel<Eigen::internal::evaluator<Eigen::Matrix<float,6,21,0,6,21> >,Eigen::internal::evaluator<Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,6,21,0,6,21> > >,Eigen::internal::assign_op<float,float>,0>::rowIndexByOuterInner
+PUBLIC	?colIndexByOuterInner@?$generic_dense_assignment_kernel@U?$evaluator@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@internal@Eigen@@U?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@23@U?$assign_op@MM@23@$0A@@internal@Eigen@@SA_J_J0@Z ; Eigen::internal::generic_dense_assignment_kernel<Eigen::internal::evaluator<Eigen::Matrix<float,6,21,0,6,21> >,Eigen::internal::evaluator<Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,6,21,0,6,21> > >,Eigen::internal::assign_op<float,float>,0>::colIndexByOuterInner
+PUBLIC	?run@?$copy_using_evaluator_innervec_CompleteUnrolling@V?$generic_dense_assignment_kernel@U?$evaluator@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@internal@Eigen@@U?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@23@U?$assign_op@MM@23@$0A@@internal@Eigen@@$07$0HM@@internal@Eigen@@SAXAEAV?$generic_dense_assignment_kernel@U?$evaluator@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@internal@Eigen@@U?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@23@U?$assign_op@MM@23@$0A@@23@@Z ; Eigen::internal::copy_using_evaluator_innervec_CompleteUnrolling<Eigen::internal::generic_dense_assignment_kernel<Eigen::internal::evaluator<Eigen::Matrix<float,6,21,0,6,21> >,Eigen::internal::evaluator<Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,6,21,0,6,21> > >,Eigen::internal::assign_op<float,float>,0>,8,124>::run
+PUBLIC	?run@?$copy_using_evaluator_DefaultTraversal_CompleteUnrolling@V?$generic_dense_assignment_kernel@U?$evaluator@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@internal@Eigen@@U?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@23@U?$assign_op@MM@23@$0A@@internal@Eigen@@$0HO@$0HO@@internal@Eigen@@SAXAEAV?$generic_dense_assignment_kernel@U?$evaluator@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@internal@Eigen@@U?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@23@U?$assign_op@MM@23@$0A@@23@@Z ; Eigen::internal::copy_using_evaluator_DefaultTraversal_CompleteUnrolling<Eigen::internal::generic_dense_assignment_kernel<Eigen::internal::evaluator<Eigen::Matrix<float,6,21,0,6,21> >,Eigen::internal::evaluator<Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,6,21,0,6,21> > >,Eigen::internal::assign_op<float,float>,0>,126,126>::run
+PUBLIC	?assignCoeffByOuterInner@?$generic_dense_assignment_kernel@U?$evaluator@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@internal@Eigen@@U?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@23@U?$assign_op@MM@23@$0A@@internal@Eigen@@QEAAX_J0@Z ; Eigen::internal::generic_dense_assignment_kernel<Eigen::internal::evaluator<Eigen::Matrix<float,6,21,0,6,21> >,Eigen::internal::evaluator<Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,6,21,0,6,21> > >,Eigen::internal::assign_op<float,float>,0>::assignCoeffByOuterInner
+PUBLIC	?run@?$copy_using_evaluator_DefaultTraversal_CompleteUnrolling@V?$generic_dense_assignment_kernel@U?$evaluator@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@internal@Eigen@@U?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@23@U?$assign_op@MM@23@$0A@@internal@Eigen@@$0HN@$0HO@@internal@Eigen@@SAXAEAV?$generic_dense_assignment_kernel@U?$evaluator@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@internal@Eigen@@U?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@23@U?$assign_op@MM@23@$0A@@23@@Z ; Eigen::internal::copy_using_evaluator_DefaultTraversal_CompleteUnrolling<Eigen::internal::generic_dense_assignment_kernel<Eigen::internal::evaluator<Eigen::Matrix<float,6,21,0,6,21> >,Eigen::internal::evaluator<Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,6,21,0,6,21> > >,Eigen::internal::assign_op<float,float>,0>,125,126>::run
+PUBLIC	?run@?$copy_using_evaluator_innervec_CompleteUnrolling@V?$generic_dense_assignment_kernel@U?$evaluator@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@internal@Eigen@@U?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@23@U?$assign_op@MM@23@$0A@@internal@Eigen@@$03$0HM@@internal@Eigen@@SAXAEAV?$generic_dense_assignment_kernel@U?$evaluator@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@internal@Eigen@@U?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@23@U?$assign_op@MM@23@$0A@@23@@Z ; Eigen::internal::copy_using_evaluator_innervec_CompleteUnrolling<Eigen::internal::generic_dense_assignment_kernel<Eigen::internal::evaluator<Eigen::Matrix<float,6,21,0,6,21> >,Eigen::internal::evaluator<Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,6,21,0,6,21> > >,Eigen::internal::assign_op<float,float>,0>,4,124>::run
+PUBLIC	?functor@?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@QEBAAEBU?$scalar_constant_op@M@internal@2@XZ ; Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,6,21,0,6,21> >::functor
+PUBLIC	??0?$evaluator_base@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@internal@Eigen@@QEAA@XZ ; Eigen::internal::evaluator_base<Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,6,21,0,6,21> > >::evaluator_base<Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,6,21,0,6,21> > >
+PUBLIC	?run@?$copy_using_evaluator_innervec_CompleteUnrolling@V?$generic_dense_assignment_kernel@U?$evaluator@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@internal@Eigen@@U?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@23@U?$assign_op@MM@23@$0A@@internal@Eigen@@$0A@$0HM@@internal@Eigen@@SAXAEAV?$generic_dense_assignment_kernel@U?$evaluator@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@internal@Eigen@@U?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@23@U?$assign_op@MM@23@$0A@@23@@Z ; Eigen::internal::copy_using_evaluator_innervec_CompleteUnrolling<Eigen::internal::generic_dense_assignment_kernel<Eigen::internal::evaluator<Eigen::Matrix<float,6,21,0,6,21> >,Eigen::internal::evaluator<Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,6,21,0,6,21> > >,Eigen::internal::assign_op<float,float>,0>,0,124>::run
+PUBLIC	?run@?$copy_using_evaluator_DefaultTraversal_CompleteUnrolling@V?$generic_dense_assignment_kernel@U?$evaluator@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@internal@Eigen@@U?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@23@U?$assign_op@MM@23@$0A@@internal@Eigen@@$0HM@$0HO@@internal@Eigen@@SAXAEAV?$generic_dense_assignment_kernel@U?$evaluator@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@internal@Eigen@@U?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@23@U?$assign_op@MM@23@$0A@@23@@Z ; Eigen::internal::copy_using_evaluator_DefaultTraversal_CompleteUnrolling<Eigen::internal::generic_dense_assignment_kernel<Eigen::internal::evaluator<Eigen::Matrix<float,6,21,0,6,21> >,Eigen::internal::evaluator<Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,6,21,0,6,21> > >,Eigen::internal::assign_op<float,float>,0>,124,126>::run
+PUBLIC	?const_cast_derived@?$EigenBase@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@Eigen@@QEBAAEAV?$Matrix@M$05$0BF@$0A@$05$0BF@@2@XZ ; Eigen::EigenBase<Eigen::Matrix<float,6,21,0,6,21> >::const_cast_derived
+PUBLIC	??1?$evaluator_base@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@internal@Eigen@@QEAA@XZ ; Eigen::internal::evaluator_base<Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,6,21,0,6,21> > >::~evaluator_base<Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,6,21,0,6,21> > >
+PUBLIC	??0?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@internal@Eigen@@QEAA@AEBV?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@2@@Z ; Eigen::internal::evaluator<Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,6,21,0,6,21> > >::evaluator<Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,6,21,0,6,21> > >
+PUBLIC	??0?$generic_dense_assignment_kernel@U?$evaluator@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@internal@Eigen@@U?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@23@U?$assign_op@MM@23@$0A@@internal@Eigen@@QEAA@AEAU?$evaluator@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@12@AEBU?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@12@AEBU?$assign_op@MM@12@AEAV?$Matrix@M$05$0BF@$0A@$05$0BF@@2@@Z ; Eigen::internal::generic_dense_assignment_kernel<Eigen::internal::evaluator<Eigen::Matrix<float,6,21,0,6,21> >,Eigen::internal::evaluator<Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,6,21,0,6,21> > >,Eigen::internal::assign_op<float,float>,0>::generic_dense_assignment_kernel<Eigen::internal::evaluator<Eigen::Matrix<float,6,21,0,6,21> >,Eigen::internal::evaluator<Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,6,21,0,6,21> > >,Eigen::internal::assign_op<float,float>,0>
+PUBLIC	?run@?$dense_assignment_loop@V?$generic_dense_assignment_kernel@U?$evaluator@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@internal@Eigen@@U?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@23@U?$assign_op@MM@23@$0A@@internal@Eigen@@$02$01@internal@Eigen@@SAXAEAV?$generic_dense_assignment_kernel@U?$evaluator@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@internal@Eigen@@U?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@23@U?$assign_op@MM@23@$0A@@23@@Z ; Eigen::internal::dense_assignment_loop<Eigen::internal::generic_dense_assignment_kernel<Eigen::internal::evaluator<Eigen::Matrix<float,6,21,0,6,21> >,Eigen::internal::evaluator<Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,6,21,0,6,21> > >,Eigen::internal::assign_op<float,float>,0>,3,2>::run
+PUBLIC	??1?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@internal@Eigen@@QEAA@XZ ; Eigen::internal::evaluator<Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,6,21,0,6,21> > >::~evaluator<Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,6,21,0,6,21> > >
+PUBLIC	??$call_dense_assignment_loop@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@2@U?$assign_op@MM@internal@2@@internal@Eigen@@YAXAEAV?$Matrix@M$05$0BF@$0A@$05$0BF@@1@AEBV?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@1@AEBU?$assign_op@MM@01@@Z ; Eigen::internal::call_dense_assignment_loop<Eigen::Matrix<float,6,21,0,6,21>,Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,6,21,0,6,21> >,Eigen::internal::assign_op<float,float> >
+PUBLIC	?run@?$Assignment@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@2@U?$assign_op@MM@internal@2@UDense2Dense@52@X@internal@Eigen@@SAXAEAV?$Matrix@M$05$0BF@$0A@$05$0BF@@3@AEBV?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@3@AEBU?$assign_op@MM@23@@Z ; Eigen::internal::Assignment<Eigen::Matrix<float,6,21,0,6,21>,Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,6,21,0,6,21> >,Eigen::internal::assign_op<float,float>,Eigen::internal::Dense2Dense,void>::run
+PUBLIC	??$call_assignment_no_alias@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@2@U?$assign_op@MM@internal@2@@internal@Eigen@@YAXAEAV?$Matrix@M$05$0BF@$0A@$05$0BF@@1@AEBV?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@1@AEBU?$assign_op@MM@01@@Z ; Eigen::internal::call_assignment_no_alias<Eigen::Matrix<float,6,21,0,6,21>,Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,6,21,0,6,21> >,Eigen::internal::assign_op<float,float> >
+PUBLIC	??$call_assignment@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@2@U?$assign_op@MM@internal@2@@internal@Eigen@@YAXAEAV?$Matrix@M$05$0BF@$0A@$05$0BF@@1@AEBV?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@1@AEBU?$assign_op@MM@01@PEAX@Z ; Eigen::internal::call_assignment<Eigen::Matrix<float,6,21,0,6,21>,Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,6,21,0,6,21> >,Eigen::internal::assign_op<float,float> >
+PUBLIC	??$call_assignment@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@2@@internal@Eigen@@YAXAEAV?$Matrix@M$05$0BF@$0A@$05$0BF@@1@AEBV?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@1@@Z ; Eigen::internal::call_assignment<Eigen::Matrix<float,6,21,0,6,21>,Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,6,21,0,6,21> > >
+PUBLIC	??0?$DenseBase@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@Eigen@@IEAA@XZ ; Eigen::DenseBase<Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,6,21,0,6,21> > >::DenseBase<Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,6,21,0,6,21> > >
+PUBLIC	??0?$variable_if_dynamic@_J$05@internal@Eigen@@QEAA@_J@Z ; Eigen::internal::variable_if_dynamic<__int64,6>::variable_if_dynamic<__int64,6>
+PUBLIC	??0?$variable_if_dynamic@_J$0BF@@internal@Eigen@@QEAA@_J@Z ; Eigen::internal::variable_if_dynamic<__int64,21>::variable_if_dynamic<__int64,21>
 PUBLIC	??0?$scalar_constant_op@M@internal@Eigen@@QEAA@AEBU012@@Z ; Eigen::internal::scalar_constant_op<float>::scalar_constant_op<float>
-PUBLIC	??0?$MatrixBase@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@Eigen@@@Eigen@@IEAA@XZ ; Eigen::MatrixBase<Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,-1,-1,0,-1,-1> > >::MatrixBase<Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,-1,-1,0,-1,-1> > >
-PUBLIC	?derived@?$EigenBase@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@Eigen@@@Eigen@@QEBAAEBV?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@2@XZ ; Eigen::EigenBase<Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,-1,-1,0,-1,-1> > >::derived
-PUBLIC	??0?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@Eigen@@QEAA@_J0AEBU?$scalar_constant_op@M@internal@1@@Z ; Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,-1,-1,0,-1,-1> >::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,-1,-1,0,-1,-1> >
-PUBLIC	??$_set@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@Eigen@@@?$PlainObjectBase@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@Eigen@@IEAAAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@1@AEBV?$DenseBase@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@Eigen@@@1@@Z ; Eigen::PlainObjectBase<Eigen::Matrix<float,-1,-1,0,-1,-1> >::_set<Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,-1,-1,0,-1,-1> > >
-PUBLIC	??$NullaryExpr@U?$scalar_constant_op@M@internal@Eigen@@@?$DenseBase@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@Eigen@@SA?BV?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@1@_J0AEBU?$scalar_constant_op@M@internal@1@@Z ; Eigen::DenseBase<Eigen::Matrix<float,-1,-1,0,-1,-1> >::NullaryExpr<Eigen::internal::scalar_constant_op<float> >
+PUBLIC	??0?$MatrixBase@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@Eigen@@IEAA@XZ ; Eigen::MatrixBase<Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,6,21,0,6,21> > >::MatrixBase<Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,6,21,0,6,21> > >
+PUBLIC	?derived@?$EigenBase@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@Eigen@@QEBAAEBV?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@2@XZ ; Eigen::EigenBase<Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,6,21,0,6,21> > >::derived
+PUBLIC	??0?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@QEAA@_J0AEBU?$scalar_constant_op@M@internal@1@@Z ; Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,6,21,0,6,21> >::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,6,21,0,6,21> >
+PUBLIC	??$_set@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@?$PlainObjectBase@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@Eigen@@IEAAAEAV?$Matrix@M$05$0BF@$0A@$05$0BF@@1@AEBV?$DenseBase@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@1@@Z ; Eigen::PlainObjectBase<Eigen::Matrix<float,6,21,0,6,21> >::_set<Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,6,21,0,6,21> > >
+PUBLIC	??$NullaryExpr@U?$scalar_constant_op@M@internal@Eigen@@@?$DenseBase@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@Eigen@@SA?BV?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@1@_J0AEBU?$scalar_constant_op@M@internal@1@@Z ; Eigen::DenseBase<Eigen::Matrix<float,6,21,0,6,21> >::NullaryExpr<Eigen::internal::scalar_constant_op<float> >
 PUBLIC	??0?$scalar_constant_op@M@internal@Eigen@@QEAA@AEBM@Z ; Eigen::internal::scalar_constant_op<float>::scalar_constant_op<float>
-PUBLIC	??$?4V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@Eigen@@@?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@QEAAAEAV01@AEBV?$DenseBase@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@Eigen@@@1@@Z ; Eigen::Matrix<float,-1,-1,0,-1,-1>::operator=<Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,-1,-1,0,-1,-1> > >
-PUBLIC	?Constant@?$DenseBase@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@Eigen@@SA?BV?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@2@_J0AEBM@Z ; Eigen::DenseBase<Eigen::Matrix<float,-1,-1,0,-1,-1> >::Constant
+PUBLIC	??$?4V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@QEAAAEAV01@AEBV?$DenseBase@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@1@@Z ; Eigen::Matrix<float,6,21,0,6,21>::operator=<Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<float>,Eigen::Matrix<float,6,21,0,6,21> > >
+PUBLIC	?Constant@?$DenseBase@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@Eigen@@SA?BV?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@2@_J0AEBM@Z ; Eigen::DenseBase<Eigen::Matrix<float,6,21,0,6,21> >::Constant
 PUBLIC	??$_Copy_memmove@PEAUPoint@@PEAU1@@std@@YAPEAUPoint@@PEAU1@00@Z ; std::_Copy_memmove<Point *,Point *>
 PUBLIC	??$_Allocate_manually_vector_aligned@U_Default_allocate_traits@std@@@std@@YAPEAX_K@Z ; std::_Allocate_manually_vector_aligned<std::_Default_allocate_traits>
-PUBLIC	??$construct_elements_of_array@M@internal@Eigen@@YAPEAMPEAM_K@Z ; Eigen::internal::construct_elements_of_array<float>
-PUBLIC	??$conditional_aligned_malloc@$00@internal@Eigen@@YAPEAX_K@Z ; Eigen::internal::conditional_aligned_malloc<1>
-PUBLIC	??$check_size_for_overflow@M@internal@Eigen@@YAX_K@Z ; Eigen::internal::check_size_for_overflow<float>
 PUBLIC	??$_Seek_wrapped@PEAIAEAPEAI@std@@YAXAEAPEAI0@Z	; std::_Seek_wrapped<unsigned int *,unsigned int * &>
-PUBLIC	??$conditional_aligned_free@$00@internal@Eigen@@YAXPEAX@Z ; Eigen::internal::conditional_aligned_free<1>
-PUBLIC	??$destruct_elements_of_array@M@internal@Eigen@@YAXPEAM_K@Z ; Eigen::internal::destruct_elements_of_array<float>
-PUBLIC	?setConstant@?$DenseBase@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@Eigen@@QEAAAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@2@AEBM@Z ; Eigen::DenseBase<Eigen::Matrix<float,-1,-1,0,-1,-1> >::setConstant
-PUBLIC	?value@?$variable_if_dynamic@_J$0?0@internal@Eigen@@QEBA_JXZ ; Eigen::internal::variable_if_dynamic<__int64,-1>::value
+PUBLIC	?setConstant@?$DenseBase@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@Eigen@@QEAAAEAV?$Matrix@M$05$0BF@$0A@$05$0BF@@2@AEBM@Z ; Eigen::DenseBase<Eigen::Matrix<float,6,21,0,6,21> >::setConstant
 PUBLIC	?derived@?$BaseExpr@V?$SymbolExpr@Usymbolic_last_tag@internal@Eigen@@@symbolic@Eigen@@@symbolic@Eigen@@QEBAAEBV?$SymbolExpr@Usymbolic_last_tag@internal@Eigen@@@23@XZ ; Eigen::symbolic::BaseExpr<Eigen::symbolic::SymbolExpr<Eigen::internal::symbolic_last_tag> >::derived
 PUBLIC	??0?$AddExpr@V?$SymbolExpr@Usymbolic_last_tag@internal@Eigen@@@symbolic@Eigen@@V?$ValueExpr@V?$FixedInt@$00@internal@Eigen@@@23@@symbolic@Eigen@@QEAA@AEBV?$SymbolExpr@Usymbolic_last_tag@internal@Eigen@@@12@AEBV?$ValueExpr@V?$FixedInt@$00@internal@Eigen@@@12@@Z ; Eigen::symbolic::AddExpr<Eigen::symbolic::SymbolExpr<Eigen::internal::symbolic_last_tag>,Eigen::symbolic::ValueExpr<Eigen::internal::FixedInt<1> > >::AddExpr<Eigen::symbolic::SymbolExpr<Eigen::internal::symbolic_last_tag>,Eigen::symbolic::ValueExpr<Eigen::internal::FixedInt<1> > >
 PUBLIC	??0?$ValueExpr@V?$FixedInt@$00@internal@Eigen@@@symbolic@Eigen@@QEAA@XZ ; Eigen::symbolic::ValueExpr<Eigen::internal::FixedInt<1> >::ValueExpr<Eigen::internal::FixedInt<1> >
@@ -395,13 +401,14 @@ PUBLIC	?_Umove@?$vector@UPoint@@V?$allocator@UPoint@@@std@@@std@@AEAAPEAUPoint@@
 PUBLIC	?_Calculate_growth@?$vector@UPoint@@V?$allocator@UPoint@@@std@@@std@@AEBA_K_K@Z ; std::vector<Point,std::allocator<Point> >::_Calculate_growth
 PUBLIC	??0?$_Vector_val@U?$_Simple_types@UPoint@@@std@@@std@@QEAA@XZ ; std::_Vector_val<std::_Simple_types<Point> >::_Vector_val<std::_Simple_types<Point> >
 PUBLIC	??0?$FixedInt@$00@internal@Eigen@@QEAA@XZ	; Eigen::internal::FixedInt<1>::FixedInt<1>
+PUBLIC	??$ignore_unused_variable@_J@internal@Eigen@@YAXAEB_J@Z ; Eigen::internal::ignore_unused_variable<__int64>
 PUBLIC	??$_Get_unwrapped@AEBQEAUPoint@@@std@@YAPEAUPoint@@AEBQEAU1@@Z ; std::_Get_unwrapped<Point * const &>
 PUBLIC	??$_Uninitialized_move@PEAUPoint@@V?$allocator@UPoint@@@std@@@std@@YAPEAUPoint@@QEAU1@0PEAU1@AEAV?$allocator@UPoint@@@0@@Z ; std::_Uninitialized_move<Point *,std::allocator<Point> >
+PUBLIC	??$check_static_allocation_size@M$0HO@@internal@Eigen@@YAXXZ ; Eigen::internal::check_static_allocation_size<float,126>
 PUBLIC	??$_Get_size_of_n@$07@std@@YA_K_K@Z		; std::_Get_size_of_n<8>
 PUBLIC	??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z	; std::_Deallocate<16,0>
 PUBLIC	??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z ; std::_Allocate<16,std::_Default_allocate_traits,0>
 PUBLIC	??$_Destroy_range@V?$allocator@UPoint@@@std@@@std@@YAXPEAUPoint@@QEAU1@AEAV?$allocator@UPoint@@@0@@Z ; std::_Destroy_range<std::allocator<Point> >
-PUBLIC	??$conditional_aligned_new_auto@M$00@internal@Eigen@@YAPEAM_K@Z ; Eigen::internal::conditional_aligned_new_auto<float,1>
 PUBLIC	??$_Get_unwrapped_n@AEAPEAI_K@std@@YAPEAIAEAPEAI_K@Z ; std::_Get_unwrapped_n<unsigned int * &,unsigned __int64>
 PUBLIC	??$fill_n@PEAI_KI@std@@YAPEAIPEAI_KAEBI@Z	; std::fill_n<unsigned int *,unsigned __int64,unsigned int>
 PUBLIC	??$?0$$V@?$_Compressed_pair@V?$allocator@UPoint@@@std@@V?$_Vector_val@U?$_Simple_types@UPoint@@@std@@@2@$00@std@@QEAA@U_Zero_then_variadic_args_t@1@@Z ; std::_Compressed_pair<std::allocator<Point>,std::_Vector_val<std::_Simple_types<Point> >,1>::_Compressed_pair<std::allocator<Point>,std::_Vector_val<std::_Simple_types<Point> >,1><>
@@ -411,27 +418,32 @@ PUBLIC	??$forward@UPoint@@@std@@YA$$QEAUPoint@@AEAU1@@Z ; std::forward<Point>
 PUBLIC	??$move@AEAUPoint@@@std@@YA$$QEAUPoint@@AEAU1@@Z ; std::move<Point &>
 PUBLIC	??$destroy@UPoint@@@?$_Default_allocator_traits@V?$allocator@UPoint@@@std@@@std@@SAXAEAV?$allocator@UPoint@@@1@QEAUPoint@@@Z ; std::_Default_allocator_traits<std::allocator<Point> >::destroy<Point>
 PUBLIC	??$_Unfancy@UPoint@@@std@@YAPEAUPoint@@PEAU1@@Z	; std::_Unfancy<Point>
-PUBLIC	??$conditional_aligned_delete_auto@M$00@internal@Eigen@@YAXPEAM_K@Z ; Eigen::internal::conditional_aligned_delete_auto<float,1>
-PUBLIC	??$run@_J@?$check_rows_cols_for_overflow@$0?0@internal@Eigen@@SAX_J0@Z ; Eigen::internal::check_rows_cols_for_overflow<-1>::run<__int64>
+PUBLIC	??$run@_J@?$check_rows_cols_for_overflow@$0HO@@internal@Eigen@@SAX_J0@Z ; Eigen::internal::check_rows_cols_for_overflow<126>::run<__int64>
 PUBLIC	??$min@_K@std@@YAAEB_KAEB_K0@Z			; std::min<unsigned __int64>
 PUBLIC	??$min@I@std@@YAAEBIAEBI0@Z			; std::min<unsigned int>
-PUBLIC	?setZero@?$DenseBase@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@Eigen@@QEAAAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@2@XZ ; Eigen::DenseBase<Eigen::Matrix<float,-1,-1,0,-1,-1> >::setZero
+PUBLIC	?setZero@?$DenseBase@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@Eigen@@QEAAAEAV?$Matrix@M$05$0BF@$0A@$05$0BF@@2@XZ ; Eigen::DenseBase<Eigen::Matrix<float,6,21,0,6,21> >::setZero
 PUBLIC	??$?H$00@?$BaseExpr@V?$SymbolExpr@Usymbolic_last_tag@internal@Eigen@@@symbolic@Eigen@@@symbolic@Eigen@@QEBA?AV?$AddExpr@V?$SymbolExpr@Usymbolic_last_tag@internal@Eigen@@@symbolic@Eigen@@V?$ValueExpr@V?$FixedInt@$00@internal@Eigen@@@23@@12@V?$FixedInt@$00@internal@2@@Z ; Eigen::symbolic::BaseExpr<Eigen::symbolic::SymbolExpr<Eigen::internal::symbolic_last_tag> >::operator+<1>
 PUBLIC	??$?6U?$char_traits@D@std@@@std@@YAAEAV?$basic_ostream@DU?$char_traits@D@std@@@0@AEAV10@PEBD@Z ; std::operator<<<std::char_traits<char> >
-PUBLIC	??0?$variable_if_dynamic@_J$0?0@internal@Eigen@@QEAA@_J@Z ; Eigen::internal::variable_if_dynamic<__int64,-1>::variable_if_dynamic<__int64,-1>
-PUBLIC	?innerSize@?$DenseBase@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@Eigen@@QEBA_JXZ ; Eigen::DenseBase<Eigen::Matrix<float,-1,-1,0,-1,-1> >::innerSize
-PUBLIC	?data@?$DenseStorage@M$0?0$0?0$0?0$0A@@Eigen@@QEBAPEBMXZ ; Eigen::DenseStorage<float,-1,-1,-1,0>::data
-PUBLIC	?data@?$DenseStorage@M$0?0$0?0$0?0$0A@@Eigen@@QEAAPEAMXZ ; Eigen::DenseStorage<float,-1,-1,-1,0>::data
-PUBLIC	?outerStride@?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@QEBA_JXZ ; Eigen::Matrix<float,-1,-1,0,-1,-1>::outerStride
-PUBLIC	?outerStride@?$DenseCoeffsBase@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@$02@Eigen@@QEBA_JXZ ; Eigen::DenseCoeffsBase<Eigen::Matrix<float,-1,-1,0,-1,-1>,3>::outerStride
-PUBLIC	?data@?$PlainObjectBase@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@Eigen@@QEBAPEBMXZ ; Eigen::PlainObjectBase<Eigen::Matrix<float,-1,-1,0,-1,-1> >::data
-PUBLIC	?data@?$PlainObjectBase@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@Eigen@@QEAAPEAMXZ ; Eigen::PlainObjectBase<Eigen::Matrix<float,-1,-1,0,-1,-1> >::data
-PUBLIC	??0?$evaluator_base@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@internal@Eigen@@QEAA@XZ ; Eigen::internal::evaluator_base<Eigen::Matrix<float,-1,-1,0,-1,-1> >::evaluator_base<Eigen::Matrix<float,-1,-1,0,-1,-1> >
-PUBLIC	??0?$plainobjectbase_evaluator_data@M$0?0@internal@Eigen@@QEAA@PEBM_J@Z ; Eigen::internal::plainobjectbase_evaluator_data<float,-1>::plainobjectbase_evaluator_data<float,-1>
+PUBLIC	?rows@?$DenseStorage@M$0HO@$05$0BF@$0A@@Eigen@@SA_JXZ ; Eigen::DenseStorage<float,126,6,21,0>::rows
+PUBLIC	?cols@?$DenseStorage@M$0HO@$05$0BF@$0A@@Eigen@@SA_JXZ ; Eigen::DenseStorage<float,126,6,21,0>::cols
+PUBLIC	?rows@?$PlainObjectBase@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@Eigen@@QEBA_JXZ ; Eigen::PlainObjectBase<Eigen::Matrix<float,6,21,0,6,21> >::rows
+PUBLIC	?cols@?$PlainObjectBase@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@Eigen@@QEBA_JXZ ; Eigen::PlainObjectBase<Eigen::Matrix<float,6,21,0,6,21> >::cols
+PUBLIC	?rows@?$EigenBase@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@Eigen@@QEBA_JXZ ; Eigen::EigenBase<Eigen::Matrix<float,6,21,0,6,21> >::rows
+PUBLIC	?cols@?$EigenBase@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@Eigen@@QEBA_JXZ ; Eigen::EigenBase<Eigen::Matrix<float,6,21,0,6,21> >::cols
+PUBLIC	?size@?$EigenBase@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@Eigen@@QEBA_JXZ ; Eigen::EigenBase<Eigen::Matrix<float,6,21,0,6,21> >::size
+PUBLIC	?innerSize@?$DenseBase@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@Eigen@@QEBA_JXZ ; Eigen::DenseBase<Eigen::Matrix<float,6,21,0,6,21> >::innerSize
+PUBLIC	?derived@?$EigenBase@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@Eigen@@QEBAAEBV?$Matrix@M$05$0BF@$0A@$05$0BF@@2@XZ ; Eigen::EigenBase<Eigen::Matrix<float,6,21,0,6,21> >::derived
+PUBLIC	?data@?$DenseStorage@M$0HO@$05$0BF@$0A@@Eigen@@QEBAPEBMXZ ; Eigen::DenseStorage<float,126,6,21,0>::data
+PUBLIC	?outerStride@?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@QEBA_JXZ ; Eigen::Matrix<float,6,21,0,6,21>::outerStride
+PUBLIC	?outerStride@?$DenseCoeffsBase@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@$02@Eigen@@QEBA_JXZ ; Eigen::DenseCoeffsBase<Eigen::Matrix<float,6,21,0,6,21>,3>::outerStride
+PUBLIC	?data@?$PlainObjectBase@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@Eigen@@QEBAPEBMXZ ; Eigen::PlainObjectBase<Eigen::Matrix<float,6,21,0,6,21> >::data
+PUBLIC	??0?$evaluator_base@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@internal@Eigen@@QEAA@XZ ; Eigen::internal::evaluator_base<Eigen::Matrix<float,6,21,0,6,21> >::evaluator_base<Eigen::Matrix<float,6,21,0,6,21> >
+PUBLIC	??0?$plainobjectbase_evaluator_data@M$05@internal@Eigen@@QEAA@PEBM_J@Z ; Eigen::internal::plainobjectbase_evaluator_data<float,6>::plainobjectbase_evaluator_data<float,6>
 PUBLIC	?_Umove_if_noexcept1@?$vector@UPoint@@V?$allocator@UPoint@@@std@@@std@@AEAAXPEAUPoint@@00U?$integral_constant@_N$00@2@@Z ; std::vector<Point,std::allocator<Point> >::_Umove_if_noexcept1
 PUBLIC	?_Get_first@?$_Compressed_pair@V?$allocator@UPoint@@@std@@V?$_Vector_val@U?$_Simple_types@UPoint@@@std@@@2@$00@std@@QEBAAEBV?$allocator@UPoint@@@2@XZ ; std::_Compressed_pair<std::allocator<Point>,std::_Vector_val<std::_Simple_types<Point> >,1>::_Get_first
-PUBLIC	??0?$evaluator@V?$PlainObjectBase@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@Eigen@@@internal@Eigen@@QEAA@AEBV?$PlainObjectBase@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@2@@Z ; Eigen::internal::evaluator<Eigen::PlainObjectBase<Eigen::Matrix<float,-1,-1,0,-1,-1> > >::evaluator<Eigen::PlainObjectBase<Eigen::Matrix<float,-1,-1,0,-1,-1> > >
-PUBLIC	?outerStride@?$plainobjectbase_evaluator_data@M$0?0@internal@Eigen@@QEBA_JXZ ; Eigen::internal::plainobjectbase_evaluator_data<float,-1>::outerStride
+PUBLIC	??0?$plain_array@M$0HO@$0A@$0A@@internal@Eigen@@QEAA@XZ ; Eigen::internal::plain_array<float,126,0,0>::plain_array<float,126,0,0>
+PUBLIC	??0?$evaluator@V?$PlainObjectBase@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@Eigen@@@internal@Eigen@@QEAA@AEBV?$PlainObjectBase@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@2@@Z ; Eigen::internal::evaluator<Eigen::PlainObjectBase<Eigen::Matrix<float,6,21,0,6,21> > >::evaluator<Eigen::PlainObjectBase<Eigen::Matrix<float,6,21,0,6,21> > >
+PUBLIC	?outerStride@?$plainobjectbase_evaluator_data@M$05@internal@Eigen@@QEBA_JXZ ; Eigen::internal::plainobjectbase_evaluator_data<float,6>::outerStride
 PUBLIC	?deallocate@?$allocator@UPoint@@@std@@QEAAXQEAUPoint@@_K@Z ; std::allocator<Point>::deallocate
 PUBLIC	?allocate@?$allocator@UPoint@@@std@@QEAAPEAUPoint@@_K@Z ; std::allocator<Point>::allocate
 PUBLIC	?max_size@?$_Default_allocator_traits@V?$allocator@UPoint@@@std@@@std@@SA_KAEBV?$allocator@UPoint@@@2@@Z ; std::_Default_allocator_traits<std::allocator<Point> >::max_size
@@ -439,17 +451,17 @@ PUBLIC	?_Umove_if_noexcept@?$vector@UPoint@@V?$allocator@UPoint@@@std@@@std@@AEA
 PUBLIC	?_Change_array@?$vector@UPoint@@V?$allocator@UPoint@@@std@@@std@@AEAAXQEAUPoint@@_K1@Z ; std::vector<Point,std::allocator<Point> >::_Change_array
 PUBLIC	?_Getal@?$vector@UPoint@@V?$allocator@UPoint@@@std@@@std@@AEBAAEBV?$allocator@UPoint@@@2@XZ ; std::vector<Point,std::allocator<Point> >::_Getal
 PUBLIC	?_Get_first@?$_Compressed_pair@V?$allocator@UPoint@@@std@@V?$_Vector_val@U?$_Simple_types@UPoint@@@std@@@2@$00@std@@QEAAAEAV?$allocator@UPoint@@@2@XZ ; std::_Compressed_pair<std::allocator<Point>,std::_Vector_val<std::_Simple_types<Point> >,1>::_Get_first
-PUBLIC	?derived@?$EigenBase@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@Eigen@@QEBAAEBV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@2@XZ ; Eigen::EigenBase<Eigen::Matrix<float,-1,-1,0,-1,-1> >::derived
-PUBLIC	??0?$DenseBase@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@Eigen@@IEAA@XZ ; Eigen::DenseBase<Eigen::Matrix<float,-1,-1,0,-1,-1> >::DenseBase<Eigen::Matrix<float,-1,-1,0,-1,-1> >
-PUBLIC	??0?$DenseStorage@M$0?0$0?0$0?0$0A@@Eigen@@QEAA@XZ ; Eigen::DenseStorage<float,-1,-1,-1,0>::DenseStorage<float,-1,-1,-1,0>
-PUBLIC	??1?$evaluator_base@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@internal@Eigen@@QEAA@XZ ; Eigen::internal::evaluator_base<Eigen::Matrix<float,-1,-1,0,-1,-1> >::~evaluator_base<Eigen::Matrix<float,-1,-1,0,-1,-1> >
-PUBLIC	?coeffRef@?$evaluator@V?$PlainObjectBase@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@Eigen@@@internal@Eigen@@QEAAAEAM_J0@Z ; Eigen::internal::evaluator<Eigen::PlainObjectBase<Eigen::Matrix<float,-1,-1,0,-1,-1> > >::coeffRef
-PUBLIC	??0?$evaluator@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@internal@Eigen@@QEAA@AEBV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@2@@Z ; Eigen::internal::evaluator<Eigen::Matrix<float,-1,-1,0,-1,-1> >::evaluator<Eigen::Matrix<float,-1,-1,0,-1,-1> >
+PUBLIC	?derived@?$EigenBase@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@Eigen@@QEAAAEAV?$Matrix@M$05$0BF@$0A@$05$0BF@@2@XZ ; Eigen::EigenBase<Eigen::Matrix<float,6,21,0,6,21> >::derived
+PUBLIC	??0?$DenseBase@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@Eigen@@IEAA@XZ ; Eigen::DenseBase<Eigen::Matrix<float,6,21,0,6,21> >::DenseBase<Eigen::Matrix<float,6,21,0,6,21> >
+PUBLIC	??0?$DenseStorage@M$0HO@$05$0BF@$0A@@Eigen@@QEAA@XZ ; Eigen::DenseStorage<float,126,6,21,0>::DenseStorage<float,126,6,21,0>
 PUBLIC	??0_Sentry_base@?$basic_ostream@DU?$char_traits@D@std@@@std@@QEAA@AEAV12@@Z ; std::basic_ostream<char,std::char_traits<char> >::_Sentry_base::_Sentry_base
 PUBLIC	??1_Sentry_base@?$basic_ostream@DU?$char_traits@D@std@@@std@@QEAA@XZ ; std::basic_ostream<char,std::char_traits<char> >::_Sentry_base::~_Sentry_base
-PUBLIC	??1?$evaluator@V?$PlainObjectBase@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@Eigen@@@internal@Eigen@@QEAA@XZ ; Eigen::internal::evaluator<Eigen::PlainObjectBase<Eigen::Matrix<float,-1,-1,0,-1,-1> > >::~evaluator<Eigen::PlainObjectBase<Eigen::Matrix<float,-1,-1,0,-1,-1> > >
-PUBLIC	??1?$evaluator@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@internal@Eigen@@QEAA@XZ ; Eigen::internal::evaluator<Eigen::Matrix<float,-1,-1,0,-1,-1> >::~evaluator<Eigen::Matrix<float,-1,-1,0,-1,-1> >
-PUBLIC	??0?$MatrixBase@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@Eigen@@IEAA@XZ ; Eigen::MatrixBase<Eigen::Matrix<float,-1,-1,0,-1,-1> >::MatrixBase<Eigen::Matrix<float,-1,-1,0,-1,-1> >
+PUBLIC	??1?$evaluator_base@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@internal@Eigen@@QEAA@XZ ; Eigen::internal::evaluator_base<Eigen::Matrix<float,6,21,0,6,21> >::~evaluator_base<Eigen::Matrix<float,6,21,0,6,21> >
+PUBLIC	?coeffRef@?$evaluator@V?$PlainObjectBase@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@Eigen@@@internal@Eigen@@QEAAAEAM_J0@Z ; Eigen::internal::evaluator<Eigen::PlainObjectBase<Eigen::Matrix<float,6,21,0,6,21> > >::coeffRef
+PUBLIC	??0?$evaluator@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@internal@Eigen@@QEAA@AEBV?$Matrix@M$05$0BF@$0A@$05$0BF@@2@@Z ; Eigen::internal::evaluator<Eigen::Matrix<float,6,21,0,6,21> >::evaluator<Eigen::Matrix<float,6,21,0,6,21> >
+PUBLIC	??1?$evaluator@V?$PlainObjectBase@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@Eigen@@@internal@Eigen@@QEAA@XZ ; Eigen::internal::evaluator<Eigen::PlainObjectBase<Eigen::Matrix<float,6,21,0,6,21> > >::~evaluator<Eigen::PlainObjectBase<Eigen::Matrix<float,6,21,0,6,21> > >
+PUBLIC	??1?$evaluator@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@internal@Eigen@@QEAA@XZ ; Eigen::internal::evaluator<Eigen::Matrix<float,6,21,0,6,21> >::~evaluator<Eigen::Matrix<float,6,21,0,6,21> >
+PUBLIC	??0?$MatrixBase@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@Eigen@@IEAA@XZ ; Eigen::MatrixBase<Eigen::Matrix<float,6,21,0,6,21> >::MatrixBase<Eigen::Matrix<float,6,21,0,6,21> >
 PUBLIC	?length@?$_Narrow_char_traits@DH@std@@SA_KQEBD@Z ; std::_Narrow_char_traits<char,int>::length
 PUBLIC	?eq_int_type@?$_Narrow_char_traits@DH@std@@SA_NAEBH0@Z ; std::_Narrow_char_traits<char,int>::eq_int_type
 PUBLIC	?eof@?$_Narrow_char_traits@DH@std@@SAHXZ	; std::_Narrow_char_traits<char,int>::eof
@@ -461,15 +473,10 @@ PUBLIC	?_Tidy@?$vector@UPoint@@V?$allocator@UPoint@@@std@@@std@@AEAAXXZ ; std::v
 PUBLIC	?_Xlength@?$vector@UPoint@@V?$allocator@UPoint@@@std@@@std@@CAXXZ ; std::vector<Point,std::allocator<Point> >::_Xlength
 PUBLIC	?_Orphan_range@?$vector@UPoint@@V?$allocator@UPoint@@@std@@@std@@AEBAXPEAUPoint@@0@Z ; std::vector<Point,std::allocator<Point> >::_Orphan_range
 PUBLIC	?_Getal@?$vector@UPoint@@V?$allocator@UPoint@@@std@@@std@@AEAAAEAV?$allocator@UPoint@@@2@XZ ; std::vector<Point,std::allocator<Point> >::_Getal
-PUBLIC	?derived@?$EigenBase@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@Eigen@@QEAAAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@2@XZ ; Eigen::EigenBase<Eigen::Matrix<float,-1,-1,0,-1,-1> >::derived
-PUBLIC	?rows@?$EigenBase@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@Eigen@@QEBA_JXZ ; Eigen::EigenBase<Eigen::Matrix<float,-1,-1,0,-1,-1> >::rows
-PUBLIC	?cols@?$EigenBase@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@Eigen@@QEBA_JXZ ; Eigen::EigenBase<Eigen::Matrix<float,-1,-1,0,-1,-1> >::cols
-PUBLIC	?coeffRef@?$DenseCoeffsBase@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@$00@Eigen@@QEAAAEAM_J0@Z ; Eigen::DenseCoeffsBase<Eigen::Matrix<float,-1,-1,0,-1,-1>,1>::coeffRef
-PUBLIC	?rows@?$DenseStorage@M$0?0$0?0$0?0$0A@@Eigen@@QEBA_JXZ ; Eigen::DenseStorage<float,-1,-1,-1,0>::rows
-PUBLIC	?cols@?$DenseStorage@M$0?0$0?0$0?0$0A@@Eigen@@QEBA_JXZ ; Eigen::DenseStorage<float,-1,-1,-1,0>::cols
-PUBLIC	?resize@?$DenseStorage@M$0?0$0?0$0?0$0A@@Eigen@@QEAAX_J00@Z ; Eigen::DenseStorage<float,-1,-1,-1,0>::resize
-PUBLIC	??0?$PlainObjectBase@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@Eigen@@IEAA@XZ ; Eigen::PlainObjectBase<Eigen::Matrix<float,-1,-1,0,-1,-1> >::PlainObjectBase<Eigen::Matrix<float,-1,-1,0,-1,-1> >
-PUBLIC	?_check_template_params@?$PlainObjectBase@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@Eigen@@SAXXZ ; Eigen::PlainObjectBase<Eigen::Matrix<float,-1,-1,0,-1,-1> >::_check_template_params
+PUBLIC	?coeffRef@?$DenseCoeffsBase@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@$00@Eigen@@QEAAAEAM_J0@Z ; Eigen::DenseCoeffsBase<Eigen::Matrix<float,6,21,0,6,21>,1>::coeffRef
+PUBLIC	?resize@?$DenseStorage@M$0HO@$05$0BF@$0A@@Eigen@@QEAAX_J00@Z ; Eigen::DenseStorage<float,126,6,21,0>::resize
+PUBLIC	??0?$PlainObjectBase@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@Eigen@@IEAA@XZ ; Eigen::PlainObjectBase<Eigen::Matrix<float,6,21,0,6,21> >::PlainObjectBase<Eigen::Matrix<float,6,21,0,6,21> >
+PUBLIC	?_check_template_params@?$PlainObjectBase@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@Eigen@@SAXXZ ; Eigen::PlainObjectBase<Eigen::Matrix<float,6,21,0,6,21> >::_check_template_params
 PUBLIC	??0sentry@?$basic_ostream@DU?$char_traits@D@std@@@std@@QEAA@AEAV12@@Z ; std::basic_ostream<char,std::char_traits<char> >::sentry::sentry
 PUBLIC	??1sentry@?$basic_ostream@DU?$char_traits@D@std@@@std@@QEAA@XZ ; std::basic_ostream<char,std::char_traits<char> >::sentry::~sentry
 PUBLIC	??Bsentry@?$basic_ostream@DU?$char_traits@D@std@@@std@@QEBA_NXZ ; std::basic_ostream<char,std::char_traits<char> >::sentry::operator bool
@@ -490,13 +497,9 @@ PUBLIC	?clear@?$vector@UPoint@@V?$allocator@UPoint@@@std@@@std@@QEAAXXZ ; std::v
 PUBLIC	?size@?$vector@UPoint@@V?$allocator@UPoint@@@std@@@std@@QEBA_KXZ ; std::vector<Point,std::allocator<Point> >::size
 PUBLIC	??A?$vector@UPoint@@V?$allocator@UPoint@@@std@@@std@@QEAAAEAUPoint@@_K@Z ; std::vector<Point,std::allocator<Point> >::operator[]
 PUBLIC	?back@?$vector@UPoint@@V?$allocator@UPoint@@@std@@@std@@QEAAAEAUPoint@@XZ ; std::vector<Point,std::allocator<Point> >::back
-PUBLIC	?size@?$EigenBase@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@Eigen@@QEBA_JXZ ; Eigen::EigenBase<Eigen::Matrix<float,-1,-1,0,-1,-1> >::size
-PUBLIC	??R?$DenseCoeffsBase@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@$00@Eigen@@QEAAAEAM_J0@Z ; Eigen::DenseCoeffsBase<Eigen::Matrix<float,-1,-1,0,-1,-1>,1>::operator()
-PUBLIC	??1?$DenseStorage@M$0?0$0?0$0?0$0A@@Eigen@@QEAA@XZ ; Eigen::DenseStorage<float,-1,-1,-1,0>::~DenseStorage<float,-1,-1,-1,0>
-PUBLIC	?rows@?$PlainObjectBase@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@Eigen@@QEBA_JXZ ; Eigen::PlainObjectBase<Eigen::Matrix<float,-1,-1,0,-1,-1> >::rows
-PUBLIC	?cols@?$PlainObjectBase@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@Eigen@@QEBA_JXZ ; Eigen::PlainObjectBase<Eigen::Matrix<float,-1,-1,0,-1,-1> >::cols
-PUBLIC	?resize@?$PlainObjectBase@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@Eigen@@QEAAX_J0@Z ; Eigen::PlainObjectBase<Eigen::Matrix<float,-1,-1,0,-1,-1> >::resize
-PUBLIC	??0?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@QEAA@XZ ; Eigen::Matrix<float,-1,-1,0,-1,-1>::Matrix<float,-1,-1,0,-1,-1>
+PUBLIC	??R?$DenseCoeffsBase@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@$00@Eigen@@QEAAAEAM_J0@Z ; Eigen::DenseCoeffsBase<Eigen::Matrix<float,6,21,0,6,21>,1>::operator()
+PUBLIC	?resize@?$PlainObjectBase@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@Eigen@@QEAAX_J0@Z ; Eigen::PlainObjectBase<Eigen::Matrix<float,6,21,0,6,21> >::resize
+PUBLIC	??0?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@QEAA@XZ ; Eigen::Matrix<float,6,21,0,6,21>::Matrix<float,6,21,0,6,21>
 PUBLIC	?newGame@Board@@QEAAXXZ				; Board::newGame
 PUBLIC	?undoMove@Board@@QEAAXXZ			; Board::undoMove
 PUBLIC	?isOver@Board@@AEAAXXZ				; Board::isOver
@@ -504,16 +507,11 @@ PUBLIC	?doMove@Board@@QEAA_NH@Z			; Board::doMove
 PUBLIC	??ABoard@@QEBAAEB_KH@Z				; Board::operator[]
 PUBLIC	?printBoard@Board@@QEAAXXZ			; Board::printBoard
 PUBLIC	??0Board@@QEAA@XZ				; Board::Board
-PUBLIC	??1?$PlainObjectBase@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@Eigen@@QEAA@XZ ; Eigen::PlainObjectBase<Eigen::Matrix<float,-1,-1,0,-1,-1> >::~PlainObjectBase<Eigen::Matrix<float,-1,-1,0,-1,-1> >
-PUBLIC	??1?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@QEAA@XZ ; Eigen::Matrix<float,-1,-1,0,-1,-1>::~Matrix<float,-1,-1,0,-1,-1>
+PUBLIC	?popcount@@YA_K_K@Z				; popcount
 PUBLIC	??0all_t@internal@Eigen@@QEAA@XZ		; Eigen::internal::all_t::all_t
 PUBLIC	??$pstoreu@MT__m128@@@internal@Eigen@@YAXPEAMAEBT__m128@@@Z ; Eigen::internal::pstoreu<float,__m128>
 PUBLIC	??$pstore@MT__m128@@@internal@Eigen@@YAXPEAMAEBT__m128@@@Z ; Eigen::internal::pstore<float,__m128>
 PUBLIC	??$pset1@T__m128@@@internal@Eigen@@YA?AT__m128@@AEBM@Z ; Eigen::internal::pset1<__m128>
-PUBLIC	?aligned_free@internal@Eigen@@YAXPEAX@Z		; Eigen::internal::aligned_free
-PUBLIC	?aligned_malloc@internal@Eigen@@YAPEAX_K@Z	; Eigen::internal::aligned_malloc
-PUBLIC	?check_that_malloc_is_allowed@internal@Eigen@@YAXXZ ; Eigen::internal::check_that_malloc_is_allowed
-PUBLIC	?throw_std_bad_alloc@internal@Eigen@@YAXXZ	; Eigen::internal::throw_std_bad_alloc
 PUBLIC	?_Alloc_proxy@_Container_base0@std@@QEAAXAEBU_Fake_allocator@2@@Z ; std::_Container_base0::_Alloc_proxy
 PUBLIC	?_Orphan_all@_Container_base0@std@@QEAAXXZ	; std::_Container_base0::_Orphan_all
 PUBLIC	?_Adjust_manually_vector_aligned@std@@YAXAEAPEAXAEA_K@Z ; std::_Adjust_manually_vector_aligned
@@ -528,7 +526,6 @@ PUBLIC	??0bad_array_new_length@std@@QEAA@XZ		; std::bad_array_new_length::bad_ar
 PUBLIC	??1bad_alloc@std@@UEAA@XZ			; std::bad_alloc::~bad_alloc
 PUBLIC	??_Gbad_alloc@std@@UEAAPEAXI@Z			; std::bad_alloc::`scalar deleting destructor'
 PUBLIC	??0bad_alloc@std@@AEAA@QEBD@Z			; std::bad_alloc::bad_alloc
-PUBLIC	??0bad_alloc@std@@QEAA@XZ			; std::bad_alloc::bad_alloc
 PUBLIC	??_Gexception@std@@UEAAPEAXI@Z			; std::exception::`scalar deleting destructor'
 PUBLIC	?what@exception@std@@UEBAPEBDXZ			; std::exception::what
 PUBLIC	??1exception@std@@UEAA@XZ			; std::exception::~exception
@@ -540,18 +537,23 @@ PUBLIC	__real@3e112e0be826d695
 PUBLIC	__real@3f800000
 PUBLIC	__real@3ff0000000000000
 PUBLIC	__real@4059000000000000
+PUBLIC	__real@41cdcd6500000000
 PUBLIC	__real@42c80000
+PUBLIC	__real@43088e6d68b00000
 PUBLIC	__real@bff0000000000000
 PUBLIC	__real@c059000000000000
-PUBLIC	__xmm@00000000000000010000000000000000
-PUBLIC	__xmm@00000000000000150000000000000006
+PUBLIC	__real@c2c80000
+PUBLIC	__xmm@00000001000000020000000100000001
+PUBLIC	__xmm@00000001000000020000000200000002
+PUBLIC	__xmm@00000002000000030000000200000002
+PUBLIC	__xmm@00000003000000040000000200000002
+PUBLIC	__xmm@00000004000000050000000200000002
 PUBLIC	__xmm@00000004000186a000000003000186a0
 PUBLIC	__xmm@00000005000000020000000400000003
+PUBLIC	__xmm@00000005000000060000000200000002
 PUBLIC	__xmm@00000005000186a000000002000186a0
 PUBLIC	__xmm@00000006000186a000000001000186a0
 PUBLIC	__xmm@80000000800000008000000080000000
-PUBLIC	__xmm@ffffffffffffffff0000000000000000
-PUBLIC	__xmm@ffffffffffffffffffffffffffffffff
 EXTRN	??_Eexception@std@@UEAAPEAXI@Z:PROC		; std::exception::`vector deleting destructor'
 EXTRN	??_Ebad_alloc@std@@UEAAPEAXI@Z:PROC		; std::bad_alloc::`vector deleting destructor'
 EXTRN	??_Ebad_array_new_length@std@@UEAAPEAXI@Z:PROC	; std::bad_array_new_length::`vector deleting destructor'
@@ -567,153 +569,19 @@ EXTRN	memcpy:PROC
 EXTRN	memmove:PROC
 EXTRN	memset:PROC
 EXTRN	tanhf:PROC
-EXTRN	__ImageBase:BYTE
 EXTRN	__security_cookie:QWORD
 EXTRN	_fltused:DWORD
-EXTRN	_tls_index:DWORD
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$??$resize_if_allowed@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@2@MM@internal@Eigen@@YAXAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@1@AEBV?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@1@AEBU?$assign_op@MM@01@@Z DD imagerel $LN31@resize_if_
-	DD	imagerel $LN31@resize_if_+75
-	DD	imagerel $unwind$??$resize_if_allowed@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@2@MM@internal@Eigen@@YAXAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@1@AEBV?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@1@AEBU?$assign_op@MM@01@@Z
+$pdata$??$_set@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@?$PlainObjectBase@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@Eigen@@IEAAAEAV?$Matrix@M$05$0BF@$0A@$05$0BF@@1@AEBV?$DenseBase@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@1@@Z DD imagerel $LN1666@set
+	DD	imagerel $LN1666@set+253
+	DD	imagerel $unwind$??$_set@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@?$PlainObjectBase@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@Eigen@@IEAAAEAV?$Matrix@M$05$0BF@$0A@$05$0BF@@1@AEBV?$DenseBase@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@1@@Z
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$0$??$resize_if_allowed@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@2@MM@internal@Eigen@@YAXAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@1@AEBV?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@1@AEBU?$assign_op@MM@01@@Z DD imagerel $LN31@resize_if_+75
-	DD	imagerel $LN31@resize_if_+143
-	DD	imagerel $chain$0$??$resize_if_allowed@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@2@MM@internal@Eigen@@YAXAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@1@AEBV?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@1@AEBU?$assign_op@MM@01@@Z
-pdata	ENDS
-;	COMDAT pdata
-pdata	SEGMENT
-$pdata$1$??$resize_if_allowed@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@2@MM@internal@Eigen@@YAXAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@1@AEBV?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@1@AEBU?$assign_op@MM@01@@Z DD imagerel $LN31@resize_if_+143
-	DD	imagerel $LN31@resize_if_+165
-	DD	imagerel $chain$1$??$resize_if_allowed@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@2@MM@internal@Eigen@@YAXAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@1@AEBV?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@1@AEBU?$assign_op@MM@01@@Z
-pdata	ENDS
-;	COMDAT pdata
-pdata	SEGMENT
-$pdata$??$call_dense_assignment_loop@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@2@U?$assign_op@MM@internal@2@@internal@Eigen@@YAXAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@1@AEBV?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@1@AEBU?$assign_op@MM@01@@Z DD imagerel $LN89@call_dense
-	DD	imagerel $LN89@call_dense+111
-	DD	imagerel $unwind$??$call_dense_assignment_loop@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@2@U?$assign_op@MM@internal@2@@internal@Eigen@@YAXAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@1@AEBV?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@1@AEBU?$assign_op@MM@01@@Z
-pdata	ENDS
-;	COMDAT pdata
-pdata	SEGMENT
-$pdata$0$??$call_dense_assignment_loop@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@2@U?$assign_op@MM@internal@2@@internal@Eigen@@YAXAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@1@AEBV?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@1@AEBU?$assign_op@MM@01@@Z DD imagerel $LN89@call_dense+111
-	DD	imagerel $LN89@call_dense+183
-	DD	imagerel $chain$0$??$call_dense_assignment_loop@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@2@U?$assign_op@MM@internal@2@@internal@Eigen@@YAXAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@1@AEBV?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@1@AEBU?$assign_op@MM@01@@Z
-pdata	ENDS
-;	COMDAT pdata
-pdata	SEGMENT
-$pdata$1$??$call_dense_assignment_loop@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@2@U?$assign_op@MM@internal@2@@internal@Eigen@@YAXAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@1@AEBV?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@1@AEBU?$assign_op@MM@01@@Z DD imagerel $LN89@call_dense+183
-	DD	imagerel $LN89@call_dense+330
-	DD	imagerel $chain$1$??$call_dense_assignment_loop@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@2@U?$assign_op@MM@internal@2@@internal@Eigen@@YAXAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@1@AEBV?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@1@AEBU?$assign_op@MM@01@@Z
-pdata	ENDS
-;	COMDAT pdata
-pdata	SEGMENT
-$pdata$?run@?$Assignment@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@2@U?$assign_op@MM@internal@2@UDense2Dense@52@X@internal@Eigen@@SAXAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@AEBV?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@3@AEBU?$assign_op@MM@23@@Z DD imagerel $LN92@run
-	DD	imagerel $LN92@run+111
-	DD	imagerel $unwind$?run@?$Assignment@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@2@U?$assign_op@MM@internal@2@UDense2Dense@52@X@internal@Eigen@@SAXAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@AEBV?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@3@AEBU?$assign_op@MM@23@@Z
-pdata	ENDS
-;	COMDAT pdata
-pdata	SEGMENT
-$pdata$0$?run@?$Assignment@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@2@U?$assign_op@MM@internal@2@UDense2Dense@52@X@internal@Eigen@@SAXAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@AEBV?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@3@AEBU?$assign_op@MM@23@@Z DD imagerel $LN92@run+111
-	DD	imagerel $LN92@run+183
-	DD	imagerel $chain$0$?run@?$Assignment@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@2@U?$assign_op@MM@internal@2@UDense2Dense@52@X@internal@Eigen@@SAXAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@AEBV?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@3@AEBU?$assign_op@MM@23@@Z
-pdata	ENDS
-;	COMDAT pdata
-pdata	SEGMENT
-$pdata$1$?run@?$Assignment@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@2@U?$assign_op@MM@internal@2@UDense2Dense@52@X@internal@Eigen@@SAXAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@AEBV?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@3@AEBU?$assign_op@MM@23@@Z DD imagerel $LN92@run+183
-	DD	imagerel $LN92@run+330
-	DD	imagerel $chain$1$?run@?$Assignment@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@2@U?$assign_op@MM@internal@2@UDense2Dense@52@X@internal@Eigen@@SAXAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@AEBV?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@3@AEBU?$assign_op@MM@23@@Z
-pdata	ENDS
-;	COMDAT pdata
-pdata	SEGMENT
-$pdata$??$call_assignment_no_alias@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@2@U?$assign_op@MM@internal@2@@internal@Eigen@@YAXAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@1@AEBV?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@1@AEBU?$assign_op@MM@01@@Z DD imagerel $LN95@call_assig
-	DD	imagerel $LN95@call_assig+111
-	DD	imagerel $unwind$??$call_assignment_no_alias@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@2@U?$assign_op@MM@internal@2@@internal@Eigen@@YAXAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@1@AEBV?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@1@AEBU?$assign_op@MM@01@@Z
-pdata	ENDS
-;	COMDAT pdata
-pdata	SEGMENT
-$pdata$0$??$call_assignment_no_alias@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@2@U?$assign_op@MM@internal@2@@internal@Eigen@@YAXAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@1@AEBV?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@1@AEBU?$assign_op@MM@01@@Z DD imagerel $LN95@call_assig+111
-	DD	imagerel $LN95@call_assig+183
-	DD	imagerel $chain$0$??$call_assignment_no_alias@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@2@U?$assign_op@MM@internal@2@@internal@Eigen@@YAXAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@1@AEBV?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@1@AEBU?$assign_op@MM@01@@Z
-pdata	ENDS
-;	COMDAT pdata
-pdata	SEGMENT
-$pdata$1$??$call_assignment_no_alias@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@2@U?$assign_op@MM@internal@2@@internal@Eigen@@YAXAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@1@AEBV?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@1@AEBU?$assign_op@MM@01@@Z DD imagerel $LN95@call_assig+183
-	DD	imagerel $LN95@call_assig+330
-	DD	imagerel $chain$1$??$call_assignment_no_alias@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@2@U?$assign_op@MM@internal@2@@internal@Eigen@@YAXAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@1@AEBV?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@1@AEBU?$assign_op@MM@01@@Z
-pdata	ENDS
-;	COMDAT pdata
-pdata	SEGMENT
-$pdata$??$call_assignment@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@2@U?$assign_op@MM@internal@2@@internal@Eigen@@YAXAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@1@AEBV?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@1@AEBU?$assign_op@MM@01@PEAX@Z DD imagerel $LN98@call_assig
-	DD	imagerel $LN98@call_assig+111
-	DD	imagerel $unwind$??$call_assignment@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@2@U?$assign_op@MM@internal@2@@internal@Eigen@@YAXAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@1@AEBV?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@1@AEBU?$assign_op@MM@01@PEAX@Z
-pdata	ENDS
-;	COMDAT pdata
-pdata	SEGMENT
-$pdata$0$??$call_assignment@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@2@U?$assign_op@MM@internal@2@@internal@Eigen@@YAXAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@1@AEBV?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@1@AEBU?$assign_op@MM@01@PEAX@Z DD imagerel $LN98@call_assig+111
-	DD	imagerel $LN98@call_assig+183
-	DD	imagerel $chain$0$??$call_assignment@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@2@U?$assign_op@MM@internal@2@@internal@Eigen@@YAXAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@1@AEBV?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@1@AEBU?$assign_op@MM@01@PEAX@Z
-pdata	ENDS
-;	COMDAT pdata
-pdata	SEGMENT
-$pdata$1$??$call_assignment@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@2@U?$assign_op@MM@internal@2@@internal@Eigen@@YAXAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@1@AEBV?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@1@AEBU?$assign_op@MM@01@PEAX@Z DD imagerel $LN98@call_assig+183
-	DD	imagerel $LN98@call_assig+330
-	DD	imagerel $chain$1$??$call_assignment@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@2@U?$assign_op@MM@internal@2@@internal@Eigen@@YAXAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@1@AEBV?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@1@AEBU?$assign_op@MM@01@PEAX@Z
-pdata	ENDS
-;	COMDAT pdata
-pdata	SEGMENT
-$pdata$??$call_assignment@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@2@@internal@Eigen@@YAXAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@1@AEBV?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@1@@Z DD imagerel $LN101@call_assig
-	DD	imagerel $LN101@call_assig+109
-	DD	imagerel $unwind$??$call_assignment@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@2@@internal@Eigen@@YAXAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@1@AEBV?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@1@@Z
-pdata	ENDS
-;	COMDAT pdata
-pdata	SEGMENT
-$pdata$0$??$call_assignment@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@2@@internal@Eigen@@YAXAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@1@AEBV?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@1@@Z DD imagerel $LN101@call_assig+109
-	DD	imagerel $LN101@call_assig+181
-	DD	imagerel $chain$0$??$call_assignment@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@2@@internal@Eigen@@YAXAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@1@AEBV?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@1@@Z
-pdata	ENDS
-;	COMDAT pdata
-pdata	SEGMENT
-$pdata$1$??$call_assignment@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@2@@internal@Eigen@@YAXAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@1@AEBV?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@1@@Z DD imagerel $LN101@call_assig+181
-	DD	imagerel $LN101@call_assig+335
-	DD	imagerel $chain$1$??$call_assignment@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@2@@internal@Eigen@@YAXAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@1@AEBV?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@1@@Z
-pdata	ENDS
-;	COMDAT pdata
-pdata	SEGMENT
-$pdata$??$_set@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@Eigen@@@?$PlainObjectBase@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@Eigen@@IEAAAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@1@AEBV?$DenseBase@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@Eigen@@@1@@Z DD imagerel $LN104@set
-	DD	imagerel $LN104@set+109
-	DD	imagerel $unwind$??$_set@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@Eigen@@@?$PlainObjectBase@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@Eigen@@IEAAAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@1@AEBV?$DenseBase@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@Eigen@@@1@@Z
-pdata	ENDS
-;	COMDAT pdata
-pdata	SEGMENT
-$pdata$0$??$_set@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@Eigen@@@?$PlainObjectBase@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@Eigen@@IEAAAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@1@AEBV?$DenseBase@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@Eigen@@@1@@Z DD imagerel $LN104@set+109
-	DD	imagerel $LN104@set+181
-	DD	imagerel $chain$0$??$_set@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@Eigen@@@?$PlainObjectBase@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@Eigen@@IEAAAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@1@AEBV?$DenseBase@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@Eigen@@@1@@Z
-pdata	ENDS
-;	COMDAT pdata
-pdata	SEGMENT
-$pdata$1$??$_set@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@Eigen@@@?$PlainObjectBase@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@Eigen@@IEAAAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@1@AEBV?$DenseBase@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@Eigen@@@1@@Z DD imagerel $LN104@set+181
-	DD	imagerel $LN104@set+338
-	DD	imagerel $chain$1$??$_set@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@Eigen@@@?$PlainObjectBase@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@Eigen@@IEAAAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@1@AEBV?$DenseBase@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@Eigen@@@1@@Z
-pdata	ENDS
-;	COMDAT pdata
-pdata	SEGMENT
-$pdata$??$?4V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@Eigen@@@?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@QEAAAEAV01@AEBV?$DenseBase@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@Eigen@@@1@@Z DD imagerel $LN107@operator
-	DD	imagerel $LN107@operator+109
-	DD	imagerel $unwind$??$?4V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@Eigen@@@?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@QEAAAEAV01@AEBV?$DenseBase@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@Eigen@@@1@@Z
-pdata	ENDS
-;	COMDAT pdata
-pdata	SEGMENT
-$pdata$0$??$?4V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@Eigen@@@?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@QEAAAEAV01@AEBV?$DenseBase@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@Eigen@@@1@@Z DD imagerel $LN107@operator+109
-	DD	imagerel $LN107@operator+181
-	DD	imagerel $chain$0$??$?4V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@Eigen@@@?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@QEAAAEAV01@AEBV?$DenseBase@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@Eigen@@@1@@Z
-pdata	ENDS
-;	COMDAT pdata
-pdata	SEGMENT
-$pdata$1$??$?4V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@Eigen@@@?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@QEAAAEAV01@AEBV?$DenseBase@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@Eigen@@@1@@Z DD imagerel $LN107@operator+181
-	DD	imagerel $LN107@operator+338
-	DD	imagerel $chain$1$??$?4V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@Eigen@@@?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@QEAAAEAV01@AEBV?$DenseBase@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@Eigen@@@1@@Z
+$pdata$??$?4V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@QEAAAEAV01@AEBV?$DenseBase@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@1@@Z DD imagerel $LN1674@operator
+	DD	imagerel $LN1674@operator+253
+	DD	imagerel $unwind$??$?4V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@QEAAAEAV01@AEBV?$DenseBase@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@1@@Z
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
@@ -729,21 +597,9 @@ $pdata$??$_Allocate_manually_vector_aligned@U_Default_allocate_traits@std@@@std@
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$??$conditional_aligned_malloc@$00@internal@Eigen@@YAPEAX_K@Z DD imagerel $LN10@conditiona
-	DD	imagerel $LN10@conditiona+37
-	DD	imagerel $unwind$??$conditional_aligned_malloc@$00@internal@Eigen@@YAPEAX_K@Z
-pdata	ENDS
-;	COMDAT pdata
-pdata	SEGMENT
-$pdata$??$check_size_for_overflow@M@internal@Eigen@@YAX_K@Z DD imagerel $LN7@check_size
-	DD	imagerel $LN7@check_size+30
-	DD	imagerel $unwind$??$check_size_for_overflow@M@internal@Eigen@@YAX_K@Z
-pdata	ENDS
-;	COMDAT pdata
-pdata	SEGMENT
-$pdata$?setConstant@?$DenseBase@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@Eigen@@QEAAAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@2@AEBM@Z DD imagerel $LN120@setConstan
-	DD	imagerel $LN120@setConstan+174
-	DD	imagerel $unwind$?setConstant@?$DenseBase@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@Eigen@@QEAAAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@2@AEBM@Z
+$pdata$?setConstant@?$DenseBase@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@Eigen@@QEAAAEAV?$Matrix@M$05$0BF@$0A@$05$0BF@@2@AEBM@Z DD imagerel $LN1670@setConstan
+	DD	imagerel $LN1670@setConstan+252
+	DD	imagerel $unwind$?setConstant@?$DenseBase@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@Eigen@@QEAAAEAV?$Matrix@M$05$0BF@$0A@$05$0BF@@2@AEBM@Z
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
@@ -777,24 +633,6 @@ $pdata$??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z DD 
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$??$conditional_aligned_new_auto@M$00@internal@Eigen@@YAPEAM_K@Z DD imagerel $LN25@conditiona
-	DD	imagerel $LN25@conditiona+26
-	DD	imagerel $unwind$??$conditional_aligned_new_auto@M$00@internal@Eigen@@YAPEAM_K@Z
-pdata	ENDS
-;	COMDAT pdata
-pdata	SEGMENT
-$pdata$0$??$conditional_aligned_new_auto@M$00@internal@Eigen@@YAPEAM_K@Z DD imagerel $LN25@conditiona+26
-	DD	imagerel $LN25@conditiona+73
-	DD	imagerel $chain$0$??$conditional_aligned_new_auto@M$00@internal@Eigen@@YAPEAM_K@Z
-pdata	ENDS
-;	COMDAT pdata
-pdata	SEGMENT
-$pdata$2$??$conditional_aligned_new_auto@M$00@internal@Eigen@@YAPEAM_K@Z DD imagerel $LN25@conditiona+73
-	DD	imagerel $LN25@conditiona+79
-	DD	imagerel $chain$2$??$conditional_aligned_new_auto@M$00@internal@Eigen@@YAPEAM_K@Z
-pdata	ENDS
-;	COMDAT pdata
-pdata	SEGMENT
 $pdata$??$_Emplace_reallocate@UPoint@@@?$vector@UPoint@@V?$allocator@UPoint@@@std@@@std@@QEAAPEAUPoint@@QEAU2@$$QEAU2@@Z DD imagerel $LN94@Emplace_re
 	DD	imagerel $LN94@Emplace_re+71
 	DD	imagerel $unwind$??$_Emplace_reallocate@UPoint@@@?$vector@UPoint@@V?$allocator@UPoint@@@std@@@std@@QEAAPEAUPoint@@QEAU2@$$QEAU2@@Z
@@ -825,15 +663,9 @@ $pdata$6$??$_Emplace_reallocate@UPoint@@@?$vector@UPoint@@V?$allocator@UPoint@@@
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$??$run@_J@?$check_rows_cols_for_overflow@$0?0@internal@Eigen@@SAX_J0@Z DD imagerel $LN9@run
-	DD	imagerel $LN9@run+48
-	DD	imagerel $unwind$??$run@_J@?$check_rows_cols_for_overflow@$0?0@internal@Eigen@@SAX_J0@Z
-pdata	ENDS
-;	COMDAT pdata
-pdata	SEGMENT
-$pdata$?setZero@?$DenseBase@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@Eigen@@QEAAAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@2@XZ DD imagerel $LN123@setZero
-	DD	imagerel $LN123@setZero+174
-	DD	imagerel $unwind$?setZero@?$DenseBase@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@Eigen@@QEAAAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@2@XZ
+$pdata$?setZero@?$DenseBase@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@Eigen@@QEAAAEAV?$Matrix@M$05$0BF@$0A@$05$0BF@@2@XZ DD imagerel $LN1718@setZero
+	DD	imagerel $LN1718@setZero+227
+	DD	imagerel $unwind$?setZero@?$DenseBase@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@Eigen@@QEAAAEAV?$Matrix@M$05$0BF@$0A@$05$0BF@@2@XZ
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
@@ -897,12 +729,6 @@ $pdata$?_Xlength@?$vector@UPoint@@V?$allocator@UPoint@@@std@@@std@@CAXXZ DD imag
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$?resize@?$DenseStorage@M$0?0$0?0$0?0$0A@@Eigen@@QEAAX_J00@Z DD imagerel $LN15@resize
-	DD	imagerel $LN15@resize+127
-	DD	imagerel $unwind$?resize@?$DenseStorage@M$0?0$0?0$0?0$0A@@Eigen@@QEAAX_J00@Z
-pdata	ENDS
-;	COMDAT pdata
-pdata	SEGMENT
 $pdata$??0sentry@?$basic_ostream@DU?$char_traits@D@std@@@std@@QEAA@AEAV12@@Z DD imagerel $LN24@sentry
 	DD	imagerel $LN24@sentry+122
 	DD	imagerel $unwind$??0sentry@?$basic_ostream@DU?$char_traits@D@std@@@std@@QEAA@AEAV12@@Z
@@ -921,62 +747,44 @@ $pdata$??1?$vector@UPoint@@V?$allocator@UPoint@@@std@@@std@@QEAA@XZ DD imagerel 
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$?resize@?$PlainObjectBase@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@Eigen@@QEAAX_J0@Z DD imagerel $LN24@resize
-	DD	imagerel $LN24@resize+63
-	DD	imagerel $unwind$?resize@?$PlainObjectBase@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@Eigen@@QEAAX_J0@Z
-pdata	ENDS
-;	COMDAT pdata
-pdata	SEGMENT
-$pdata$0$?resize@?$PlainObjectBase@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@Eigen@@QEAAX_J0@Z DD imagerel $LN24@resize+63
-	DD	imagerel $LN24@resize+143
-	DD	imagerel $chain$0$?resize@?$PlainObjectBase@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@Eigen@@QEAAX_J0@Z
-pdata	ENDS
-;	COMDAT pdata
-pdata	SEGMENT
-$pdata$1$?resize@?$PlainObjectBase@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@Eigen@@QEAAX_J0@Z DD imagerel $LN24@resize+143
-	DD	imagerel $LN24@resize+149
-	DD	imagerel $chain$1$?resize@?$PlainObjectBase@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@Eigen@@QEAAX_J0@Z
-pdata	ENDS
-;	COMDAT pdata
-pdata	SEGMENT
-$pdata$?newGame@Board@@QEAAXXZ DD imagerel $LN326@newGame
-	DD	imagerel $LN326@newGame+572
+$pdata$?newGame@Board@@QEAAXXZ DD imagerel $LN3453@newGame
+	DD	imagerel $LN3453@newGame+619
 	DD	imagerel $unwind$?newGame@Board@@QEAAXXZ
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$?undoMove@Board@@QEAAXXZ DD imagerel $LN134@undoMove
-	DD	imagerel $LN134@undoMove+426
+$pdata$?undoMove@Board@@QEAAXXZ DD imagerel $LN133@undoMove
+	DD	imagerel $LN133@undoMove+398
 	DD	imagerel $unwind$?undoMove@Board@@QEAAXXZ
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$?isOver@Board@@AEAAXXZ DD imagerel $LN85@isOver
-	DD	imagerel $LN85@isOver+714
+$pdata$?isOver@Board@@AEAAXXZ DD imagerel $LN101@isOver
+	DD	imagerel $LN101@isOver+762
 	DD	imagerel $unwind$?isOver@Board@@AEAAXXZ
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$?doMove@Board@@QEAA_NH@Z DD imagerel $LN140@doMove
-	DD	imagerel $LN140@doMove+59
+$pdata$?doMove@Board@@QEAA_NH@Z DD imagerel $LN139@doMove
+	DD	imagerel $LN139@doMove+56
 	DD	imagerel $unwind$?doMove@Board@@QEAA_NH@Z
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$1$?doMove@Board@@QEAA_NH@Z DD imagerel $LN140@doMove+59
-	DD	imagerel $LN140@doMove+182
+$pdata$1$?doMove@Board@@QEAA_NH@Z DD imagerel $LN139@doMove+56
+	DD	imagerel $LN139@doMove+179
 	DD	imagerel $chain$1$?doMove@Board@@QEAA_NH@Z
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$2$?doMove@Board@@QEAA_NH@Z DD imagerel $LN140@doMove+182
-	DD	imagerel $LN140@doMove+512
+$pdata$2$?doMove@Board@@QEAA_NH@Z DD imagerel $LN139@doMove+179
+	DD	imagerel $LN139@doMove+478
 	DD	imagerel $chain$2$?doMove@Board@@QEAA_NH@Z
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$3$?doMove@Board@@QEAA_NH@Z DD imagerel $LN140@doMove+512
-	DD	imagerel $LN140@doMove+579
+$pdata$3$?doMove@Board@@QEAA_NH@Z DD imagerel $LN139@doMove+478
+	DD	imagerel $LN139@doMove+537
 	DD	imagerel $chain$3$?doMove@Board@@QEAA_NH@Z
 pdata	ENDS
 ;	COMDAT pdata
@@ -993,21 +801,9 @@ $pdata$?printBoard@Board@@QEAAXXZ DD imagerel $LN23@printBoard
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$??0Board@@QEAA@XZ DD imagerel $LN367@Board
-	DD	imagerel $LN367@Board+751
+$pdata$??0Board@@QEAA@XZ DD imagerel $LN3483@Board
+	DD	imagerel $LN3483@Board+771
 	DD	imagerel $unwind$??0Board@@QEAA@XZ
-pdata	ENDS
-;	COMDAT pdata
-pdata	SEGMENT
-$pdata$?aligned_malloc@internal@Eigen@@YAPEAX_K@Z DD imagerel $LN7@aligned_ma
-	DD	imagerel $LN7@aligned_ma+37
-	DD	imagerel $unwind$?aligned_malloc@internal@Eigen@@YAPEAX_K@Z
-pdata	ENDS
-;	COMDAT pdata
-pdata	SEGMENT
-$pdata$?throw_std_bad_alloc@internal@Eigen@@YAXXZ DD imagerel $LN4@throw_std_
-	DD	imagerel $LN4@throw_std_+32
-	DD	imagerel $unwind$?throw_std_bad_alloc@internal@Eigen@@YAXXZ
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
@@ -1062,16 +858,6 @@ pdata	SEGMENT
 $pdata$??0exception@std@@QEAA@QEBD@Z DD imagerel $LN5@exception
 	DD	imagerel $LN5@exception+94
 	DD	imagerel $unwind$??0exception@std@@QEAA@QEBD@Z
-;	COMDAT __xmm@ffffffffffffffffffffffffffffffff
-CONST	SEGMENT
-__xmm@ffffffffffffffffffffffffffffffff DB 0ffH, 0ffH, 0ffH, 0ffH, 0ffH, 0ffH
-	DB	0ffH, 0ffH, 0ffH, 0ffH, 0ffH, 0ffH, 0ffH, 0ffH, 0ffH, 0ffH
-CONST	ENDS
-;	COMDAT __xmm@ffffffffffffffff0000000000000000
-CONST	SEGMENT
-__xmm@ffffffffffffffff0000000000000000 DB 00H, 00H, 00H, 00H, 00H, 00H, 00H
-	DB	00H, 0ffH, 0ffH, 0ffH, 0ffH, 0ffH, 0ffH, 0ffH, 0ffH
-CONST	ENDS
 ;	COMDAT __xmm@80000000800000008000000080000000
 CONST	SEGMENT
 __xmm@80000000800000008000000080000000 DB 00H, 00H, 00H, 080H, 00H, 00H, 00H
@@ -1087,6 +873,11 @@ CONST	SEGMENT
 __xmm@00000005000186a000000002000186a0 DB 0a0H, 086H, 01H, 00H, 02H, 00H, 00H
 	DB	00H, 0a0H, 086H, 01H, 00H, 05H, 00H, 00H, 00H
 CONST	ENDS
+;	COMDAT __xmm@00000005000000060000000200000002
+CONST	SEGMENT
+__xmm@00000005000000060000000200000002 DB 02H, 00H, 00H, 00H, 02H, 00H, 00H
+	DB	00H, 06H, 00H, 00H, 00H, 05H, 00H, 00H, 00H
+CONST	ENDS
 ;	COMDAT __xmm@00000005000000020000000400000003
 CONST	SEGMENT
 __xmm@00000005000000020000000400000003 DB 03H, 00H, 00H, 00H, 04H, 00H, 00H
@@ -1097,15 +888,34 @@ CONST	SEGMENT
 __xmm@00000004000186a000000003000186a0 DB 0a0H, 086H, 01H, 00H, 03H, 00H, 00H
 	DB	00H, 0a0H, 086H, 01H, 00H, 04H, 00H, 00H, 00H
 CONST	ENDS
-;	COMDAT __xmm@00000000000000150000000000000006
+;	COMDAT __xmm@00000004000000050000000200000002
 CONST	SEGMENT
-__xmm@00000000000000150000000000000006 DB 06H, 00H, 00H, 00H, 00H, 00H, 00H
-	DB	00H, 015H, 00H, 00H, 00H, 00H, 00H, 00H, 00H
+__xmm@00000004000000050000000200000002 DB 02H, 00H, 00H, 00H, 02H, 00H, 00H
+	DB	00H, 05H, 00H, 00H, 00H, 04H, 00H, 00H, 00H
 CONST	ENDS
-;	COMDAT __xmm@00000000000000010000000000000000
+;	COMDAT __xmm@00000003000000040000000200000002
 CONST	SEGMENT
-__xmm@00000000000000010000000000000000 DB 00H, 00H, 00H, 00H, 00H, 00H, 00H
-	DB	00H, 01H, 00H, 00H, 00H, 00H, 00H, 00H, 00H
+__xmm@00000003000000040000000200000002 DB 02H, 00H, 00H, 00H, 02H, 00H, 00H
+	DB	00H, 04H, 00H, 00H, 00H, 03H, 00H, 00H, 00H
+CONST	ENDS
+;	COMDAT __xmm@00000002000000030000000200000002
+CONST	SEGMENT
+__xmm@00000002000000030000000200000002 DB 02H, 00H, 00H, 00H, 02H, 00H, 00H
+	DB	00H, 03H, 00H, 00H, 00H, 02H, 00H, 00H, 00H
+CONST	ENDS
+;	COMDAT __xmm@00000001000000020000000200000002
+CONST	SEGMENT
+__xmm@00000001000000020000000200000002 DB 02H, 00H, 00H, 00H, 02H, 00H, 00H
+	DB	00H, 02H, 00H, 00H, 00H, 01H, 00H, 00H, 00H
+CONST	ENDS
+;	COMDAT __xmm@00000001000000020000000100000001
+CONST	SEGMENT
+__xmm@00000001000000020000000100000001 DB 01H, 00H, 00H, 00H, 01H, 00H, 00H
+	DB	00H, 02H, 00H, 00H, 00H, 01H, 00H, 00H, 00H
+CONST	ENDS
+;	COMDAT __real@c2c80000
+CONST	SEGMENT
+__real@c2c80000 DD 0c2c80000r			; -100
 CONST	ENDS
 ;	COMDAT __real@c059000000000000
 CONST	SEGMENT
@@ -1115,9 +925,17 @@ CONST	ENDS
 CONST	SEGMENT
 __real@bff0000000000000 DQ 0bff0000000000000r	; -1
 CONST	ENDS
+;	COMDAT __real@43088e6d68b00000
+CONST	SEGMENT
+__real@43088e6d68b00000 DQ 043088e6d68b00000r	; 8.64e+14
+CONST	ENDS
 ;	COMDAT __real@42c80000
 CONST	SEGMENT
 __real@42c80000 DD 042c80000r			; 100
+CONST	ENDS
+;	COMDAT __real@41cdcd6500000000
+CONST	SEGMENT
+__real@41cdcd6500000000 DQ 041cdcd6500000000r	; 1e+09
 CONST	ENDS
 ;	COMDAT __real@4059000000000000
 CONST	SEGMENT
@@ -1178,26 +996,20 @@ $unwind$?_Adjust_manually_vector_aligned@std@@YAXAEAPEAXAEA_K@Z DQ 0000042040001
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$unwind$?throw_std_bad_alloc@internal@Eigen@@YAXXZ DQ 00000820400010401r ; 7.06285e-310
+$ip2state$??0Board@@QEAA@XZ DQ 0038906030102d808r ; 1.25378e-291
+	DD	036108H
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$unwind$?aligned_malloc@internal@Eigen@@YAPEAX_K@Z DQ 03002320600020601r ; 1.96423e-77
-xdata	ENDS
-;	COMDAT xdata
-xdata	SEGMENT
-$ip2state$??0Board@@QEAA@XZ DD 06026904H
-	DW	08a5H
-	DB	00H
-xdata	ENDS
-;	COMDAT xdata
-xdata	SEGMENT
-$stateUnwindMap$??0Board@@QEAA@XZ DW 0e06H
+$stateUnwindMap$??0Board@@QEAA@XZ DW 0e08H
 	DD	imagerel ?dtor$0@?0???0Board@@QEAA@XZ@4HA
-	DB	02eH
-	DD	imagerel ?dtor$1@?0???0Board@@QEAA@XZ@4HA
-	DB	02eH
-	DD	imagerel ?dtor$2@?0???0Board@@QEAA@XZ@4HA
+	DB	02aH
+	DD	imagerel ??1?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@internal@Eigen@@QEAA@XZ
+	DW	03260H
+	DD	imagerel ??1?$evaluator_base@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@internal@Eigen@@QEAA@XZ
+	DW	06270H
+	DD	imagerel ??1?$evaluator_base@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@internal@Eigen@@QEAA@XZ
+	DB	080H
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
@@ -1207,13 +1019,12 @@ $cppxdata$??0Board@@QEAA@XZ DB 028H
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$unwind$??0Board@@QEAA@XZ DQ 00008681e000b2c19r	; 1.1691e-308
-	DQ	00017341a0018641ar		; 3.22685e-308
-	DQ	0700de00f0012011ar		; 5.79773e+231
-	DD	0500cH
+$unwind$??0Board@@QEAA@XZ DQ 00005681400082319r	; 7.51874e-309
+	DQ	0000f340f0010640fr		; 2.11429e-308
+	DD	0700bb20fH
 	DD	imagerel __GSHandlerCheck_EH4
 	DD	imagerel $cppxdata$??0Board@@QEAA@XZ
-	DD	07aH
+	DD	04aH
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
@@ -1228,29 +1039,29 @@ xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
 $chain$3$?doMove@Board@@QEAA_NH@Z DD 021H
-	DD	imagerel $LN140@doMove
-	DD	imagerel $LN140@doMove+59
+	DD	imagerel $LN139@doMove
+	DD	imagerel $LN139@doMove+56
 	DD	imagerel $unwind$?doMove@Board@@QEAA_NH@Z
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$chain$2$?doMove@Board@@QEAA_NH@Z DQ 00007640000020021r ; 1.02779e-308
-	DD	imagerel $LN140@doMove
-	DD	imagerel $LN140@doMove+59
+$chain$2$?doMove@Board@@QEAA_NH@Z DQ 00006640000020021r ; 8.88726e-309
+	DD	imagerel $LN139@doMove
+	DD	imagerel $LN139@doMove+56
 	DD	imagerel $unwind$?doMove@Board@@QEAA_NH@Z
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$chain$1$?doMove@Board@@QEAA_NH@Z DQ 00007641c00041c21r ; 1.02785e-308
-	DD	065405H
-	DD	imagerel $LN140@doMove
-	DD	imagerel $LN140@doMove+59
+$chain$1$?doMove@Board@@QEAA_NH@Z DQ 00006641c00041c21r ; 8.88785e-309
+	DD	0c5405H
+	DD	imagerel $LN139@doMove
+	DD	imagerel $LN139@doMove+56
 	DD	imagerel $unwind$?doMove@Board@@QEAA_NH@Z
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$unwind$?doMove@Board@@QEAA_NH@Z DQ 00009340a00040a01r ; 1.27987e-308
-	DD	07006320aH
+$unwind$?doMove@Board@@QEAA_NH@Z DQ 07003620700030701r ; 3.76154e+231
+	DD	03002H
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
@@ -1261,34 +1072,38 @@ $unwind$?isOver@Board@@AEAAXXZ DQ 00007741a000b1a01r ; 1.03654e-308
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$unwind$?undoMove@Board@@QEAAXXZ DQ 00001340500020501r ; 1.67326e-309
+$unwind$?undoMove@Board@@QEAAXXZ DQ 00002340500020501r ; 3.06393e-309
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$unwind$?newGame@Board@@QEAAXXZ DQ 00007681f000a2d19r ; 1.03003e-308
-	DQ	00014641a0015741ar		; 2.83572e-308
-	DQ	05010f21a0013341ar		; 4.90545e+77
-	DD	imagerel __GSHandlerCheck
-	DD	060H
+$ip2state$?newGame@Board@@QEAAXXZ DQ 0060389046200d208r ; 1.0762e-279
+	DW	0355H
+	DB	00H
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$chain$1$?resize@?$PlainObjectBase@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@Eigen@@QEAAX_J0@Z DD 021H
-	DD	imagerel $LN24@resize
-	DD	imagerel $LN24@resize+63
-	DD	imagerel $unwind$?resize@?$PlainObjectBase@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@Eigen@@QEAAX_J0@Z
+$stateUnwindMap$?newGame@Board@@QEAAXXZ DW 0a06H
+	DD	imagerel ??1?$evaluator@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@internal@Eigen@@QEAA@XZ
+	DW	03240H
+	DD	imagerel ??1?$evaluator_base@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@internal@Eigen@@QEAA@XZ
+	DW	06250H
+	DD	imagerel ??1?$evaluator_base@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@internal@Eigen@@QEAA@XZ
+	DB	060H
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$chain$0$?resize@?$PlainObjectBase@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@Eigen@@QEAAX_J0@Z DQ 00006640500020521r ; 8.88736e-309
-	DD	imagerel $LN24@resize
-	DD	imagerel $LN24@resize+63
-	DD	imagerel $unwind$?resize@?$PlainObjectBase@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@Eigen@@QEAAX_J0@Z
+$cppxdata$?newGame@Board@@QEAAXXZ DB 028H
+	DD	imagerel $stateUnwindMap$?newGame@Board@@QEAAXXZ
+	DD	imagerel $ip2state$?newGame@Board@@QEAAXXZ
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$unwind$?resize@?$PlainObjectBase@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@Eigen@@QEAAX_J0@Z DQ 00008540f00060f01r ; 1.1582e-308
-	DQ	0700b320f0007340fr		; 5.2777e+231
+$unwind$?newGame@Board@@QEAAXXZ DQ 00004681400082319r ; 6.12807e-309
+	DQ	0000d340f000e640fr		; 1.83615e-308
+	DD	0700b920fH
+	DD	imagerel __GSHandlerCheck_EH4
+	DD	imagerel $cppxdata$?newGame@Board@@QEAAXXZ
+	DD	03aH
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
@@ -1339,12 +1154,6 @@ $unwind$??0sentry@?$basic_ostream@DU?$char_traits@D@std@@@std@@QEAA@AEAV12@@Z DQ
 	DD	0700b320fH
 	DD	imagerel __CxxFrameHandler4
 	DD	imagerel $cppxdata$??0sentry@?$basic_ostream@DU?$char_traits@D@std@@@std@@QEAA@AEAV12@@Z
-xdata	ENDS
-;	COMDAT xdata
-xdata	SEGMENT
-$unwind$?resize@?$DenseStorage@M$0?0$0?0$0?0$0A@@Eigen@@QEAAX_J00@Z DQ 00008641400081401r ; 1.1669e-308
-	DQ	00006341400075414r		; 8.62693e-309
-	DD	070103214H
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
@@ -1444,13 +1253,7 @@ $unwind$??$?6U?$char_traits@D@std@@@std@@YAAEAV?$basic_ostream@DU?$char_traits@D
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$unwind$?setZero@?$DenseBase@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@Eigen@@QEAAAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@2@XZ DQ 03004d20800021719r ; 2.24761e-77
-	DD	imagerel __GSHandlerCheck
-	DD	060H
-xdata	ENDS
-;	COMDAT xdata
-xdata	SEGMENT
-$unwind$??$run@_J@?$check_rows_cols_for_overflow@$0?0@internal@Eigen@@SAX_J0@Z DQ 00000420400010401r ; 3.58617e-310
+$unwind$?setZero@?$DenseBase@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@Eigen@@QEAAAEAV?$Matrix@M$05$0BF@$0A@$05$0BF@@2@XZ DQ 03002320600020601r ; 1.96423e-77
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
@@ -1490,24 +1293,6 @@ $unwind$??$_Emplace_reallocate@UPoint@@@?$vector@UPoint@@V?$allocator@UPoint@@@s
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$chain$2$??$conditional_aligned_new_auto@M$00@internal@Eigen@@YAPEAM_K@Z DQ 00004340000020021r ; 5.84516e-309
-	DD	imagerel $LN25@conditiona
-	DD	imagerel $LN25@conditiona+26
-	DD	imagerel $unwind$??$conditional_aligned_new_auto@M$00@internal@Eigen@@YAPEAM_K@Z
-xdata	ENDS
-;	COMDAT xdata
-xdata	SEGMENT
-$chain$0$??$conditional_aligned_new_auto@M$00@internal@Eigen@@YAPEAM_K@Z DQ 00004340500020521r ; 5.84527e-309
-	DD	imagerel $LN25@conditiona
-	DD	imagerel $LN25@conditiona+26
-	DD	imagerel $unwind$??$conditional_aligned_new_auto@M$00@internal@Eigen@@YAPEAM_K@Z
-xdata	ENDS
-;	COMDAT xdata
-xdata	SEGMENT
-$unwind$??$conditional_aligned_new_auto@M$00@internal@Eigen@@YAPEAM_K@Z DQ 00000420400010401r ; 3.58617e-310
-xdata	ENDS
-;	COMDAT xdata
-xdata	SEGMENT
 $unwind$??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z DQ 00000420400010401r ; 3.58617e-310
 xdata	ENDS
 ;	COMDAT xdata
@@ -1530,17 +1315,8 @@ $unwind$?_Umove@?$vector@UPoint@@V?$allocator@UPoint@@@std@@@std@@AEAAPEAUPoint@
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$unwind$?setConstant@?$DenseBase@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@Eigen@@QEAAAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@2@AEBM@Z DQ 03004d20800021719r ; 2.24761e-77
-	DD	imagerel __GSHandlerCheck
-	DD	060H
-xdata	ENDS
-;	COMDAT xdata
-xdata	SEGMENT
-$unwind$??$check_size_for_overflow@M@internal@Eigen@@YAX_K@Z DQ 00000420400010401r ; 3.58617e-310
-xdata	ENDS
-;	COMDAT xdata
-xdata	SEGMENT
-$unwind$??$conditional_aligned_malloc@$00@internal@Eigen@@YAPEAX_K@Z DQ 03002320600020601r ; 1.96423e-77
+$unwind$?setConstant@?$DenseBase@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@Eigen@@QEAAAEAV?$Matrix@M$05$0BF@$0A@$05$0BF@@2@AEBM@Z DQ 00002680b00040b01r ; 3.34654e-309
+	DD	030025206H
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
@@ -1553,169 +1329,13 @@ $unwind$??$_Copy_memmove@PEAUPoint@@PEAU1@@std@@YAPEAUPoint@@PEAU1@00@Z DQ 00006
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$chain$1$??$?4V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@Eigen@@@?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@QEAAAEAV01@AEBV?$DenseBase@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@Eigen@@@1@@Z DD 021H
-	DD	imagerel $LN107@operator
-	DD	imagerel $LN107@operator+109
-	DD	imagerel $unwind$??$?4V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@Eigen@@@?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@QEAAAEAV01@AEBV?$DenseBase@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@Eigen@@@1@@Z
+$unwind$??$?4V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@QEAAAEAV01@AEBV?$DenseBase@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@1@@Z DQ 00002680b00040b01r ; 3.34654e-309
+	DD	030025206H
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$chain$0$??$?4V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@Eigen@@@?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@QEAAAEAV01@AEBV?$DenseBase@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@Eigen@@@1@@Z DQ 00014540800020821r ; 2.82699e-308
-	DD	imagerel $LN107@operator
-	DD	imagerel $LN107@operator+109
-	DD	imagerel $unwind$??$?4V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@Eigen@@@?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@QEAAAEAV01@AEBV?$DenseBase@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@Eigen@@@1@@Z
-xdata	ENDS
-;	COMDAT xdata
-xdata	SEGMENT
-$unwind$??$?4V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@Eigen@@@?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@QEAAAEAV01@AEBV?$DenseBase@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@Eigen@@@1@@Z DQ 00015340d00061c19r ; 2.94869e-308
-	DQ	060067007e009d20dr		; 3.76049e+154
-	DD	imagerel __GSHandlerCheck
-	DD	060H
-xdata	ENDS
-;	COMDAT xdata
-xdata	SEGMENT
-$chain$1$??$_set@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@Eigen@@@?$PlainObjectBase@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@Eigen@@IEAAAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@1@AEBV?$DenseBase@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@Eigen@@@1@@Z DD 021H
-	DD	imagerel $LN104@set
-	DD	imagerel $LN104@set+109
-	DD	imagerel $unwind$??$_set@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@Eigen@@@?$PlainObjectBase@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@Eigen@@IEAAAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@1@AEBV?$DenseBase@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@Eigen@@@1@@Z
-xdata	ENDS
-;	COMDAT xdata
-xdata	SEGMENT
-$chain$0$??$_set@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@Eigen@@@?$PlainObjectBase@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@Eigen@@IEAAAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@1@AEBV?$DenseBase@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@Eigen@@@1@@Z DQ 00014540800020821r ; 2.82699e-308
-	DD	imagerel $LN104@set
-	DD	imagerel $LN104@set+109
-	DD	imagerel $unwind$??$_set@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@Eigen@@@?$PlainObjectBase@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@Eigen@@IEAAAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@1@AEBV?$DenseBase@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@Eigen@@@1@@Z
-xdata	ENDS
-;	COMDAT xdata
-xdata	SEGMENT
-$unwind$??$_set@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@Eigen@@@?$PlainObjectBase@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@Eigen@@IEAAAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@1@AEBV?$DenseBase@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@Eigen@@@1@@Z DQ 00015340d00061c19r ; 2.94869e-308
-	DQ	060067007e009d20dr		; 3.76049e+154
-	DD	imagerel __GSHandlerCheck
-	DD	060H
-xdata	ENDS
-;	COMDAT xdata
-xdata	SEGMENT
-$chain$1$??$call_assignment@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@2@@internal@Eigen@@YAXAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@1@AEBV?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@1@@Z DD 021H
-	DD	imagerel $LN101@call_assig
-	DD	imagerel $LN101@call_assig+109
-	DD	imagerel $unwind$??$call_assignment@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@2@@internal@Eigen@@YAXAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@1@AEBV?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@1@@Z
-xdata	ENDS
-;	COMDAT xdata
-xdata	SEGMENT
-$chain$0$??$call_assignment@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@2@@internal@Eigen@@YAXAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@1@AEBV?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@1@@Z DQ 00014540800020821r ; 2.82699e-308
-	DD	imagerel $LN101@call_assig
-	DD	imagerel $LN101@call_assig+109
-	DD	imagerel $unwind$??$call_assignment@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@2@@internal@Eigen@@YAXAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@1@AEBV?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@1@@Z
-xdata	ENDS
-;	COMDAT xdata
-xdata	SEGMENT
-$unwind$??$call_assignment@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@2@@internal@Eigen@@YAXAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@1@AEBV?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@1@@Z DQ 00015340d00061c19r ; 2.94869e-308
-	DQ	060067007e009d20dr		; 3.76049e+154
-	DD	imagerel __GSHandlerCheck
-	DD	060H
-xdata	ENDS
-;	COMDAT xdata
-xdata	SEGMENT
-$chain$1$??$call_assignment@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@2@U?$assign_op@MM@internal@2@@internal@Eigen@@YAXAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@1@AEBV?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@1@AEBU?$assign_op@MM@01@PEAX@Z DD 021H
-	DD	imagerel $LN98@call_assig
-	DD	imagerel $LN98@call_assig+111
-	DD	imagerel $unwind$??$call_assignment@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@2@U?$assign_op@MM@internal@2@@internal@Eigen@@YAXAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@1@AEBV?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@1@AEBU?$assign_op@MM@01@PEAX@Z
-xdata	ENDS
-;	COMDAT xdata
-xdata	SEGMENT
-$chain$0$??$call_assignment@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@2@U?$assign_op@MM@internal@2@@internal@Eigen@@YAXAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@1@AEBV?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@1@AEBU?$assign_op@MM@01@PEAX@Z DQ 00014540800020821r ; 2.82699e-308
-	DD	imagerel $LN98@call_assig
-	DD	imagerel $LN98@call_assig+111
-	DD	imagerel $unwind$??$call_assignment@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@2@U?$assign_op@MM@internal@2@@internal@Eigen@@YAXAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@1@AEBV?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@1@AEBU?$assign_op@MM@01@PEAX@Z
-xdata	ENDS
-;	COMDAT xdata
-xdata	SEGMENT
-$unwind$??$call_assignment@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@2@U?$assign_op@MM@internal@2@@internal@Eigen@@YAXAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@1@AEBV?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@1@AEBU?$assign_op@MM@01@PEAX@Z DQ 0f008b20c00061b19r ; -4.79253e+231
-	DQ	0300260037004e006r		; 1.98363e-77
-	DD	imagerel __GSHandlerCheck
-	DD	058H
-xdata	ENDS
-;	COMDAT xdata
-xdata	SEGMENT
-$chain$1$??$call_assignment_no_alias@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@2@U?$assign_op@MM@internal@2@@internal@Eigen@@YAXAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@1@AEBV?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@1@AEBU?$assign_op@MM@01@@Z DD 021H
-	DD	imagerel $LN95@call_assig
-	DD	imagerel $LN95@call_assig+111
-	DD	imagerel $unwind$??$call_assignment_no_alias@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@2@U?$assign_op@MM@internal@2@@internal@Eigen@@YAXAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@1@AEBV?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@1@AEBU?$assign_op@MM@01@@Z
-xdata	ENDS
-;	COMDAT xdata
-xdata	SEGMENT
-$chain$0$??$call_assignment_no_alias@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@2@U?$assign_op@MM@internal@2@@internal@Eigen@@YAXAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@1@AEBV?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@1@AEBU?$assign_op@MM@01@@Z DQ 00014540800020821r ; 2.82699e-308
-	DD	imagerel $LN95@call_assig
-	DD	imagerel $LN95@call_assig+111
-	DD	imagerel $unwind$??$call_assignment_no_alias@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@2@U?$assign_op@MM@internal@2@@internal@Eigen@@YAXAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@1@AEBV?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@1@AEBU?$assign_op@MM@01@@Z
-xdata	ENDS
-;	COMDAT xdata
-xdata	SEGMENT
-$unwind$??$call_assignment_no_alias@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@2@U?$assign_op@MM@internal@2@@internal@Eigen@@YAXAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@1@AEBV?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@1@AEBU?$assign_op@MM@01@@Z DQ 0f008b20c00061b19r ; -4.79253e+231
-	DQ	0300260037004e006r		; 1.98363e-77
-	DD	imagerel __GSHandlerCheck
-	DD	058H
-xdata	ENDS
-;	COMDAT xdata
-xdata	SEGMENT
-$chain$1$?run@?$Assignment@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@2@U?$assign_op@MM@internal@2@UDense2Dense@52@X@internal@Eigen@@SAXAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@AEBV?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@3@AEBU?$assign_op@MM@23@@Z DD 021H
-	DD	imagerel $LN92@run
-	DD	imagerel $LN92@run+111
-	DD	imagerel $unwind$?run@?$Assignment@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@2@U?$assign_op@MM@internal@2@UDense2Dense@52@X@internal@Eigen@@SAXAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@AEBV?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@3@AEBU?$assign_op@MM@23@@Z
-xdata	ENDS
-;	COMDAT xdata
-xdata	SEGMENT
-$chain$0$?run@?$Assignment@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@2@U?$assign_op@MM@internal@2@UDense2Dense@52@X@internal@Eigen@@SAXAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@AEBV?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@3@AEBU?$assign_op@MM@23@@Z DQ 00014540800020821r ; 2.82699e-308
-	DD	imagerel $LN92@run
-	DD	imagerel $LN92@run+111
-	DD	imagerel $unwind$?run@?$Assignment@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@2@U?$assign_op@MM@internal@2@UDense2Dense@52@X@internal@Eigen@@SAXAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@AEBV?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@3@AEBU?$assign_op@MM@23@@Z
-xdata	ENDS
-;	COMDAT xdata
-xdata	SEGMENT
-$unwind$?run@?$Assignment@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@2@U?$assign_op@MM@internal@2@UDense2Dense@52@X@internal@Eigen@@SAXAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@AEBV?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@3@AEBU?$assign_op@MM@23@@Z DQ 0f008b20c00061b19r ; -4.79253e+231
-	DQ	0300260037004e006r		; 1.98363e-77
-	DD	imagerel __GSHandlerCheck
-	DD	058H
-xdata	ENDS
-;	COMDAT xdata
-xdata	SEGMENT
-$chain$1$??$call_dense_assignment_loop@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@2@U?$assign_op@MM@internal@2@@internal@Eigen@@YAXAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@1@AEBV?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@1@AEBU?$assign_op@MM@01@@Z DD 021H
-	DD	imagerel $LN89@call_dense
-	DD	imagerel $LN89@call_dense+111
-	DD	imagerel $unwind$??$call_dense_assignment_loop@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@2@U?$assign_op@MM@internal@2@@internal@Eigen@@YAXAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@1@AEBV?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@1@AEBU?$assign_op@MM@01@@Z
-xdata	ENDS
-;	COMDAT xdata
-xdata	SEGMENT
-$chain$0$??$call_dense_assignment_loop@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@2@U?$assign_op@MM@internal@2@@internal@Eigen@@YAXAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@1@AEBV?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@1@AEBU?$assign_op@MM@01@@Z DQ 00014540800020821r ; 2.82699e-308
-	DD	imagerel $LN89@call_dense
-	DD	imagerel $LN89@call_dense+111
-	DD	imagerel $unwind$??$call_dense_assignment_loop@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@2@U?$assign_op@MM@internal@2@@internal@Eigen@@YAXAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@1@AEBV?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@1@AEBU?$assign_op@MM@01@@Z
-xdata	ENDS
-;	COMDAT xdata
-xdata	SEGMENT
-$unwind$??$call_dense_assignment_loop@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@2@U?$assign_op@MM@internal@2@@internal@Eigen@@YAXAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@1@AEBV?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@1@AEBU?$assign_op@MM@01@@Z DQ 0f008b20c00061b19r ; -4.79253e+231
-	DQ	0300260037004e006r		; 1.98363e-77
-	DD	imagerel __GSHandlerCheck
-	DD	058H
-xdata	ENDS
-;	COMDAT xdata
-xdata	SEGMENT
-$chain$1$??$resize_if_allowed@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@2@MM@internal@Eigen@@YAXAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@1@AEBV?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@1@AEBU?$assign_op@MM@01@@Z DD 021H
-	DD	imagerel $LN31@resize_if_
-	DD	imagerel $LN31@resize_if_+75
-	DD	imagerel $unwind$??$resize_if_allowed@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@2@MM@internal@Eigen@@YAXAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@1@AEBV?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@1@AEBU?$assign_op@MM@01@@Z
-xdata	ENDS
-;	COMDAT xdata
-xdata	SEGMENT
-$chain$0$??$resize_if_allowed@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@2@MM@internal@Eigen@@YAXAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@1@AEBV?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@1@AEBU?$assign_op@MM@01@@Z DQ 00006640500020521r ; 8.88736e-309
-	DD	imagerel $LN31@resize_if_
-	DD	imagerel $LN31@resize_if_+75
-	DD	imagerel $unwind$??$resize_if_allowed@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@2@MM@internal@Eigen@@YAXAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@1@AEBV?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@1@AEBU?$assign_op@MM@01@@Z
-xdata	ENDS
-;	COMDAT xdata
-xdata	SEGMENT
-$unwind$??$resize_if_allowed@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@2@MM@internal@Eigen@@YAXAEAV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@1@AEBV?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@1@AEBU?$assign_op@MM@01@@Z DQ 00008540f00060f01r ; 1.1582e-308
-	DQ	0700b320f0007340fr		; 5.2777e+231
+$unwind$??$_set@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@?$PlainObjectBase@V?$Matrix@M$05$0BF@$0A@$05$0BF@@Eigen@@@Eigen@@IEAAAEAV?$Matrix@M$05$0BF@$0A@$05$0BF@@1@AEBV?$DenseBase@V?$CwiseNullaryOp@U?$scalar_constant_op@M@internal@Eigen@@V?$Matrix@M$05$0BF@$0A@$05$0BF@@3@@Eigen@@@1@@Z DQ 00002680b00040b01r ; 3.34654e-309
+	DD	030025206H
 xdata	ENDS
 CRT$XCU	ENDS
 CRT$XCU	ENDS

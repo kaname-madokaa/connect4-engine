@@ -4,6 +4,21 @@
 #include "NN.h"
 
 
+//#define HAS_POPCNT
+#ifndef HAS_POPCNT
+#define __popcnt64 popcount
+
+unsigned long long popcount(unsigned long long n)
+{
+	unsigned long long count = 0;
+	while (n) {
+		n &= (n - 1);
+		count++;
+	}
+	return count;
+}
+#endif
+
 Board::Board() :pieceBitboards{ 0,0 }, result{ COLOR_NONE }, gamePly{ 0 }, reachedMinimalHeight{ false }
 {
 	moveHistory.reserve(42);

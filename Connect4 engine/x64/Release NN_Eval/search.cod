@@ -4,23 +4,26 @@ include listing.inc
 
 INCLUDELIB OLDNAMES
 
-PUBLIC	?run@?$first_aligned_impl@$0BA@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@$00@internal@Eigen@@SA_JAEBV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@3@@Z ; Eigen::internal::first_aligned_impl<16,Eigen::Matrix<float,-1,-1,0,-1,-1>,1>::run
 PUBLIC	??0gameInfo@@QEAA@XZ				; gameInfo::gameInfo
 PUBLIC	??$?0V?$tuple@AEB_K@std@@V?$tuple@$$V@1@$0A@$$Z$S@?$pair@$$CB_KUgameInfo@@@std@@QEAA@AEAV?$tuple@AEB_K@1@AEAV?$tuple@$$V@1@U?$integer_sequence@_K$0A@@1@U?$integer_sequence@_K$S@1@@Z ; std::pair<unsigned __int64 const ,gameInfo>::pair<unsigned __int64 const ,gameInfo><std::tuple<unsigned __int64 const &>,std::tuple<>,0>
+PUBLIC	??$packetwise_redux_empty_value@T__m128@@U?$scalar_sum_op@MM@internal@Eigen@@@internal@Eigen@@YA?AT__m128@@AEBU?$scalar_sum_op@MM@01@@Z ; Eigen::internal::packetwise_redux_empty_value<__m128,Eigen::internal::scalar_sum_op<float,float> >
 PUBLIC	??$forward@AEAPEAU?$_Tree_node@U?$pair@$$CB_KUgameInfo@@@std@@PEAX@std@@@std@@YAAEAPEAU?$_Tree_node@U?$pair@$$CB_KUgameInfo@@@std@@PEAX@0@AEAPEAU10@@Z ; std::forward<std::_Tree_node<std::pair<unsigned __int64 const ,gameInfo>,void *> * &>
 PUBLIC	??$?0AEB_K$$Z$$V@?$pair@$$CB_KUgameInfo@@@std@@QEAA@Upiecewise_construct_t@1@V?$tuple@AEB_K@1@V?$tuple@$$V@1@@Z ; std::pair<unsigned __int64 const ,gameInfo>::pair<unsigned __int64 const ,gameInfo><unsigned __int64 const &>
+PUBLIC	??$run@T__m128@@@?$redux_vec_unroller@U?$scalar_sum_op@MM@internal@Eigen@@V?$redux_evaluator@V?$Matrix@M$00$00$0A@$00$00@Eigen@@@23@$0A@$0A@@internal@Eigen@@SA?AT__m128@@AEBV?$redux_evaluator@V?$Matrix@M$00$00$0A@$00$00@Eigen@@@12@AEBU?$scalar_sum_op@MM@12@@Z ; Eigen::internal::redux_vec_unroller<Eigen::internal::scalar_sum_op<float,float>,Eigen::internal::redux_evaluator<Eigen::Matrix<float,1,1,0,1,1> >,0,0>::run<__m128>
+PUBLIC	?coeffByOuterInner@?$redux_evaluator@V?$Matrix@M$00$00$0A@$00$00@Eigen@@@internal@Eigen@@QEBAAEBM_J0@Z ; Eigen::internal::redux_evaluator<Eigen::Matrix<float,1,1,0,1,1> >::coeffByOuterInner
+PUBLIC	?run@?$redux_novec_unroller@U?$scalar_sum_op@MM@internal@Eigen@@V?$redux_evaluator@V?$Matrix@M$00$00$0A@$00$00@Eigen@@@23@$0A@$00@internal@Eigen@@SAMAEBV?$redux_evaluator@V?$Matrix@M$00$00$0A@$00$00@Eigen@@@23@AEBU?$scalar_sum_op@MM@23@@Z ; Eigen::internal::redux_novec_unroller<Eigen::internal::scalar_sum_op<float,float>,Eigen::internal::redux_evaluator<Eigen::Matrix<float,1,1,0,1,1> >,0,1>::run
 PUBLIC	??$forward@PEAU?$_Tree_node@U?$pair@$$CB_KUgameInfo@@@std@@PEAX@std@@@std@@YA$$QEAPEAU?$_Tree_node@U?$pair@$$CB_KUgameInfo@@@std@@PEAX@0@AEAPEAU10@@Z ; std::forward<std::_Tree_node<std::pair<unsigned __int64 const ,gameInfo>,void *> *>
 PUBLIC	??$_Construct_in_place@PEAU?$_Tree_node@U?$pair@$$CB_KUgameInfo@@@std@@PEAX@std@@AEAPEAU12@@std@@YAXAEAPEAU?$_Tree_node@U?$pair@$$CB_KUgameInfo@@@std@@PEAX@0@0@Z ; std::_Construct_in_place<std::_Tree_node<std::pair<unsigned __int64 const ,gameInfo>,void *> *,std::_Tree_node<std::pair<unsigned __int64 const ,gameInfo>,void *> * &>
 PUBLIC	??$construct@U?$pair@$$CB_KUgameInfo@@@std@@AEBUpiecewise_construct_t@2@V?$tuple@AEB_K@2@V?$tuple@$$V@2@@?$_Default_allocator_traits@V?$allocator@U?$_Tree_node@U?$pair@$$CB_KUgameInfo@@@std@@PEAX@std@@@std@@@std@@SAXAEAV?$allocator@U?$_Tree_node@U?$pair@$$CB_KUgameInfo@@@std@@PEAX@std@@@1@QEAU?$pair@$$CB_KUgameInfo@@@1@AEBUpiecewise_construct_t@1@$$QEAV?$tuple@AEB_K@1@$$QEAV?$tuple@$$V@1@@Z ; std::_Default_allocator_traits<std::allocator<std::_Tree_node<std::pair<unsigned __int64 const ,gameInfo>,void *> > >::construct<std::pair<unsigned __int64 const ,gameInfo>,std::piecewise_construct_t const &,std::tuple<unsigned __int64 const &>,std::tuple<> >
 PUBLIC	??$_Kfn@$$CB_KUgameInfo@@@?$_Tmap_traits@_KUgameInfo@@U?$less@_K@std@@V?$allocator@U?$pair@$$CB_KUgameInfo@@@std@@@3@$0A@@std@@SAAEB_KAEBU?$pair@$$CB_KUgameInfo@@@1@@Z ; std::_Tmap_traits<unsigned __int64,gameInfo,std::less<unsigned __int64>,std::allocator<std::pair<unsigned __int64 const ,gameInfo> >,0>::_Kfn<unsigned __int64 const ,gameInfo>
-PUBLIC	??$run@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@?$redux_impl@U?$scalar_sum_op@MM@internal@Eigen@@V?$redux_evaluator@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@23@$02$0A@@internal@Eigen@@SAMAEBV?$redux_evaluator@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@12@AEBU?$scalar_sum_op@MM@12@AEBV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@2@@Z ; Eigen::internal::redux_impl<Eigen::internal::scalar_sum_op<float,float>,Eigen::internal::redux_evaluator<Eigen::Matrix<float,-1,-1,0,-1,-1> >,3,0>::run<Eigen::Matrix<float,-1,-1,0,-1,-1> >
+PUBLIC	??$run@V?$Matrix@M$00$00$0A@$00$00@Eigen@@@?$redux_impl@U?$scalar_sum_op@MM@internal@Eigen@@V?$redux_evaluator@V?$Matrix@M$00$00$0A@$00$00@Eigen@@@23@$02$01@internal@Eigen@@SAMAEBV?$redux_evaluator@V?$Matrix@M$00$00$0A@$00$00@Eigen@@@12@AEBU?$scalar_sum_op@MM@12@AEBV?$Matrix@M$00$00$0A@$00$00@2@@Z ; Eigen::internal::redux_impl<Eigen::internal::scalar_sum_op<float,float>,Eigen::internal::redux_evaluator<Eigen::Matrix<float,1,1,0,1,1> >,3,2>::run<Eigen::Matrix<float,1,1,0,1,1> >
 PUBLIC	?_Get_first@?$_Compressed_pair@U?$less@_K@std@@V?$_Compressed_pair@V?$allocator@U?$_Tree_node@U?$pair@$$CB_KUgameInfo@@@std@@PEAX@std@@@std@@V?$_Tree_val@U?$_Tree_simple_types@U?$pair@$$CB_KUgameInfo@@@std@@@std@@@2@$00@2@$00@std@@QEBAAEBU?$less@_K@2@XZ ; std::_Compressed_pair<std::less<unsigned __int64>,std::_Compressed_pair<std::allocator<std::_Tree_node<std::pair<unsigned __int64 const ,gameInfo>,void *> >,std::_Tree_val<std::_Tree_simple_types<std::pair<unsigned __int64 const ,gameInfo> > >,1>,1>::_Get_first
 PUBLIC	??0?$_Alloc_construct_ptr@V?$allocator@U?$_Tree_node@U?$pair@$$CB_KUgameInfo@@@std@@PEAX@std@@@std@@@std@@QEAA@AEAV?$allocator@U?$_Tree_node@U?$pair@$$CB_KUgameInfo@@@std@@PEAX@std@@@1@@Z ; std::_Alloc_construct_ptr<std::allocator<std::_Tree_node<std::pair<unsigned __int64 const ,gameInfo>,void *> > >::_Alloc_construct_ptr<std::allocator<std::_Tree_node<std::pair<unsigned __int64 const ,gameInfo>,void *> > >
 PUBLIC	?_Allocate@?$_Alloc_construct_ptr@V?$allocator@U?$_Tree_node@U?$pair@$$CB_KUgameInfo@@@std@@PEAX@std@@@std@@@std@@QEAAXXZ ; std::_Alloc_construct_ptr<std::allocator<std::_Tree_node<std::pair<unsigned __int64 const ,gameInfo>,void *> > >::_Allocate
 PUBLIC	?_Getcomp@?$_Tree@V?$_Tmap_traits@_KUgameInfo@@U?$less@_K@std@@V?$allocator@U?$pair@$$CB_KUgameInfo@@@std@@@3@$0A@@std@@@std@@IEBAAEBU?$less@_K@2@XZ ; std::_Tree<std::_Tmap_traits<unsigned __int64,gameInfo,std::less<unsigned __int64>,std::allocator<std::pair<unsigned __int64 const ,gameInfo> >,0> >::_Getcomp
 PUBLIC	??0?$_Tree_temp_node_alloc@V?$allocator@U?$_Tree_node@U?$pair@$$CB_KUgameInfo@@@std@@PEAX@std@@@std@@@std@@QEAA@AEAV?$allocator@U?$_Tree_node@U?$pair@$$CB_KUgameInfo@@@std@@PEAX@std@@@1@@Z ; std::_Tree_temp_node_alloc<std::allocator<std::_Tree_node<std::pair<unsigned __int64 const ,gameInfo>,void *> > >::_Tree_temp_node_alloc<std::allocator<std::_Tree_node<std::pair<unsigned __int64 const ,gameInfo>,void *> > >
-PUBLIC	??0?$redux_evaluator@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@internal@Eigen@@QEAA@AEBV?$Matrix@M$0?0$0?0$0A@$0?0$0?0@2@@Z ; Eigen::internal::redux_evaluator<Eigen::Matrix<float,-1,-1,0,-1,-1> >::redux_evaluator<Eigen::Matrix<float,-1,-1,0,-1,-1> >
-PUBLIC	??1?$redux_evaluator@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@internal@Eigen@@QEAA@XZ ; Eigen::internal::redux_evaluator<Eigen::Matrix<float,-1,-1,0,-1,-1> >::~redux_evaluator<Eigen::Matrix<float,-1,-1,0,-1,-1> >
+PUBLIC	??0?$redux_evaluator@V?$Matrix@M$00$00$0A@$00$00@Eigen@@@internal@Eigen@@QEAA@AEBV?$Matrix@M$00$00$0A@$00$00@2@@Z ; Eigen::internal::redux_evaluator<Eigen::Matrix<float,1,1,0,1,1> >::redux_evaluator<Eigen::Matrix<float,1,1,0,1,1> >
+PUBLIC	??1?$redux_evaluator@V?$Matrix@M$00$00$0A@$00$00@Eigen@@@internal@Eigen@@QEAA@XZ ; Eigen::internal::redux_evaluator<Eigen::Matrix<float,1,1,0,1,1> >::~redux_evaluator<Eigen::Matrix<float,1,1,0,1,1> >
 PUBLIC	??$addressof@$$CBV?$_Tree_val@U?$_Tree_simple_types@U?$pair@$$CB_KUgameInfo@@@std@@@std@@@std@@@std@@YAPEBV?$_Tree_val@U?$_Tree_simple_types@U?$pair@$$CB_KUgameInfo@@@std@@@std@@@0@AEBV10@@Z ; std::addressof<std::_Tree_val<std::_Tree_simple_types<std::pair<unsigned __int64 const ,gameInfo> > > const >
 PUBLIC	??$exchange@PEAU?$_Tree_node@U?$pair@$$CB_KUgameInfo@@@std@@PEAX@std@@$$T@std@@YAPEAU?$_Tree_node@U?$pair@$$CB_KUgameInfo@@@std@@PEAX@0@AEAPEAU10@$$QEA$$T@Z ; std::exchange<std::_Tree_node<std::pair<unsigned __int64 const ,gameInfo>,void *> *,std::nullptr_t>
 PUBLIC	??$?0PEAU?$_Tree_node@U?$pair@$$CB_KUgameInfo@@@std@@PEAX@std@@_N$0A@@?$pair@PEAU?$_Tree_node@U?$pair@$$CB_KUgameInfo@@@std@@PEAX@std@@_N@std@@QEAA@$$QEAPEAU?$_Tree_node@U?$pair@$$CB_KUgameInfo@@@std@@PEAX@1@$$QEA_N@Z ; std::pair<std::_Tree_node<std::pair<unsigned __int64 const ,gameInfo>,void *> *,bool>::pair<std::_Tree_node<std::pair<unsigned __int64 const ,gameInfo>,void *> *,bool><std::_Tree_node<std::pair<unsigned __int64 const ,gameInfo>,void *> *,bool,0>
@@ -30,7 +33,7 @@ PUBLIC	??$_Lower_bound_duplicate@_K@?$_Tree@V?$_Tmap_traits@_KUgameInfo@@U?$less
 PUBLIC	??$_Find_lower_bound@_K@?$_Tree@V?$_Tmap_traits@_KUgameInfo@@U?$less@_K@std@@V?$allocator@U?$pair@$$CB_KUgameInfo@@@std@@@3@$0A@@std@@@std@@IEBA?AU?$_Tree_find_result@PEAU?$_Tree_node@U?$pair@$$CB_KUgameInfo@@@std@@PEAX@std@@@1@AEB_K@Z ; std::_Tree<std::_Tmap_traits<unsigned __int64,gameInfo,std::less<unsigned __int64>,std::allocator<std::pair<unsigned __int64 const ,gameInfo> >,0> >::_Find_lower_bound<unsigned __int64>
 PUBLIC	??$forward@H@std@@YA$$QEAHAEAH@Z		; std::forward<int>
 PUBLIC	??$forward@W4Score@@@std@@YA$$QEAW4Score@@AEAW41@@Z ; std::forward<enum Score>
-PUBLIC	??$redux@U?$scalar_sum_op@MM@internal@Eigen@@@?$DenseBase@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@Eigen@@QEBAMAEBU?$scalar_sum_op@MM@internal@1@@Z ; Eigen::DenseBase<Eigen::Matrix<float,-1,-1,0,-1,-1> >::redux<Eigen::internal::scalar_sum_op<float,float> >
+PUBLIC	??$redux@U?$scalar_sum_op@MM@internal@Eigen@@@?$DenseBase@V?$Matrix@M$00$00$0A@$00$00@Eigen@@@Eigen@@QEBAMAEBU?$scalar_sum_op@MM@internal@1@@Z ; Eigen::DenseBase<Eigen::Matrix<float,1,1,0,1,1> >::redux<Eigen::internal::scalar_sum_op<float,float> >
 PUBLIC	?_Get_first@?$_Compressed_pair@V?$allocator@U?$_Tree_node@U?$pair@$$CB_KUgameInfo@@@std@@PEAX@std@@@std@@V?$_Tree_val@U?$_Tree_simple_types@U?$pair@$$CB_KUgameInfo@@@std@@@std@@@2@$00@std@@QEBAAEBV?$allocator@U?$_Tree_node@U?$pair@$$CB_KUgameInfo@@@std@@PEAX@std@@@2@XZ ; std::_Compressed_pair<std::allocator<std::_Tree_node<std::pair<unsigned __int64 const ,gameInfo>,void *> >,std::_Tree_val<std::_Tree_simple_types<std::pair<unsigned __int64 const ,gameInfo> > >,1>::_Get_first
 PUBLIC	?deallocate@?$allocator@U?$_Tree_node@U?$pair@$$CB_KUgameInfo@@@std@@PEAX@std@@@std@@QEAAXQEAU?$_Tree_node@U?$pair@$$CB_KUgameInfo@@@std@@PEAX@2@_K@Z ; std::allocator<std::_Tree_node<std::pair<unsigned __int64 const ,gameInfo>,void *> >::deallocate
 PUBLIC	?max_size@?$_Default_allocator_traits@V?$allocator@U?$_Tree_node@U?$pair@$$CB_KUgameInfo@@@std@@PEAX@std@@@std@@@std@@SA_KAEBV?$allocator@U?$_Tree_node@U?$pair@$$CB_KUgameInfo@@@std@@PEAX@std@@@2@@Z ; std::_Default_allocator_traits<std::allocator<std::_Tree_node<std::pair<unsigned __int64 const ,gameInfo>,void *> > >::max_size
@@ -49,7 +52,7 @@ PUBLIC	??$_Find@_K@?$_Tree@V?$_Tmap_traits@_KUgameInfo@@U?$less@_K@std@@V?$alloc
 PUBLIC	??$_Try_emplace@AEB_K$$V@?$map@_KUgameInfo@@U?$less@_K@std@@V?$allocator@U?$pair@$$CB_KUgameInfo@@@std@@@3@@std@@AEAA?AU?$pair@PEAU?$_Tree_node@U?$pair@$$CB_KUgameInfo@@@std@@PEAX@std@@_N@1@AEB_K@Z ; std::map<unsigned __int64,gameInfo,std::less<unsigned __int64>,std::allocator<std::pair<unsigned __int64 const ,gameInfo> > >::_Try_emplace<unsigned __int64 const &>
 PUBLIC	??$?0W4Score@@H$0A@@?$pair@W4Score@@H@std@@QEAA@$$QEAW4Score@@$$QEAH@Z ; std::pair<enum Score,int>::pair<enum Score,int><enum Score,int,0>
 PUBLIC	??$?0W4Score@@H$0A@@?$pair@W4Score@@H@std@@QEAA@XZ ; std::pair<enum Score,int>::pair<enum Score,int><enum Score,int,0>
-PUBLIC	?sum@?$DenseBase@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@Eigen@@QEBAMXZ ; Eigen::DenseBase<Eigen::Matrix<float,-1,-1,0,-1,-1> >::sum
+PUBLIC	?sum@?$DenseBase@V?$Matrix@M$00$00$0A@$00$00@Eigen@@@Eigen@@QEBAMXZ ; Eigen::DenseBase<Eigen::Matrix<float,1,1,0,1,1> >::sum
 PUBLIC	??0?$_Tree_unchecked_const_iterator@V?$_Tree_val@U?$_Tree_simple_types@U?$pair@$$CB_KUgameInfo@@@std@@@std@@@std@@U_Iterator_base0@2@@std@@QEAA@PEAU?$_Tree_node@U?$pair@$$CB_KUgameInfo@@@std@@PEAX@1@PEBV?$_Tree_val@U?$_Tree_simple_types@U?$pair@$$CB_KUgameInfo@@@std@@@std@@@1@@Z ; std::_Tree_unchecked_const_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<unsigned __int64 const ,gameInfo> > >,std::_Iterator_base0>::_Tree_unchecked_const_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<unsigned __int64 const ,gameInfo> > >,std::_Iterator_base0>
 PUBLIC	??8?$_Tree_const_iterator@V?$_Tree_val@U?$_Tree_simple_types@U?$pair@$$CB_KUgameInfo@@@std@@@std@@@std@@@std@@QEBA_NAEBV01@@Z ; std::_Tree_const_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<unsigned __int64 const ,gameInfo> > > >::operator==
 PUBLIC	??0?$_Tree_const_iterator@V?$_Tree_val@U?$_Tree_simple_types@U?$pair@$$CB_KUgameInfo@@@std@@@std@@@std@@@std@@QEAA@PEAU?$_Tree_node@U?$pair@$$CB_KUgameInfo@@@std@@PEAX@1@PEBV?$_Tree_val@U?$_Tree_simple_types@U?$pair@$$CB_KUgameInfo@@@std@@@std@@@1@@Z ; std::_Tree_const_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<unsigned __int64 const ,gameInfo> > > >::_Tree_const_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<unsigned __int64 const ,gameInfo> > > >
@@ -61,7 +64,6 @@ PUBLIC	??9?$_Tree_const_iterator@V?$_Tree_val@U?$_Tree_simple_types@U?$pair@$$CB
 PUBLIC	?_Unchecked_begin@?$array@U?$pair@W4Score@@H@std@@$06@std@@QEAAPEAU?$pair@W4Score@@H@2@XZ ; std::array<std::pair<enum Score,int>,7>::_Unchecked_begin
 PUBLIC	?_Unchecked_end@?$array@U?$pair@W4Score@@H@std@@$06@std@@QEAAPEAU?$pair@W4Score@@H@2@XZ ; std::array<std::pair<enum Score,int>,7>::_Unchecked_end
 PUBLIC	??A?$array@U?$pair@W4Score@@H@std@@$06@std@@QEAAAEAU?$pair@W4Score@@H@1@_K@Z ; std::array<std::pair<enum Score,int>,7>::operator[]
-PUBLIC	??_H@YAXPEAX_K1P6APEAX0@Z@Z			; `vector constructor iterator'
 PUBLIC	??0?$array@U?$pair@W4Score@@H@std@@$06@std@@QEAA@XZ ; std::array<std::pair<enum Score,int>,7>::array<std::pair<enum Score,int>,7>
 PUBLIC	?orderMoves@search@@YA?AV?$array@U?$pair@W4Score@@H@std@@$06@std@@AEAVBoard@@_K@Z ; search::orderMoves
 PUBLIC	?probeEntry@search@@YA_N_KAEAW4Score@@W42@2H@Z	; search::probeEntry
@@ -104,12 +106,6 @@ $pdata$??$?0AEBUpiecewise_construct_t@std@@V?$tuple@AEB_K@1@V?$tuple@$$V@1@@?$_T
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$??$redux@U?$scalar_sum_op@MM@internal@Eigen@@@?$DenseBase@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@Eigen@@QEBAMAEBU?$scalar_sum_op@MM@internal@1@@Z DD imagerel $LN15@redux
-	DD	imagerel $LN15@redux+67
-	DD	imagerel $unwind$??$redux@U?$scalar_sum_op@MM@internal@Eigen@@@?$DenseBase@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@Eigen@@QEBAMAEBU?$scalar_sum_op@MM@internal@1@@Z
-pdata	ENDS
-;	COMDAT pdata
-pdata	SEGMENT
 $pdata$?_Check_grow_by_1@?$_Tree@V?$_Tmap_traits@_KUgameInfo@@U?$less@_K@std@@V?$allocator@U?$pair@$$CB_KUgameInfo@@@std@@@3@$0A@@std@@@std@@IEAAXXZ DD imagerel $LN7@Check_grow
 	DD	imagerel $LN7@Check_grow+34
 	DD	imagerel $unwind$?_Check_grow_by_1@?$_Tree@V?$_Tmap_traits@_KUgameInfo@@U?$less@_K@std@@V?$allocator@U?$pair@$$CB_KUgameInfo@@@std@@@3@$0A@@std@@@std@@IEAAXXZ
@@ -128,21 +124,9 @@ $pdata$??$_Try_emplace@AEB_K$$V@?$map@_KUgameInfo@@U?$less@_K@std@@V?$allocator@
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$?sum@?$DenseBase@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@Eigen@@QEBAMXZ DD imagerel $LN21@sum
-	DD	imagerel $LN21@sum+101
-	DD	imagerel $unwind$?sum@?$DenseBase@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@Eigen@@QEBAMXZ
-pdata	ENDS
-;	COMDAT pdata
-pdata	SEGMENT
 $pdata$??A?$map@_KUgameInfo@@U?$less@_K@std@@V?$allocator@U?$pair@$$CB_KUgameInfo@@@std@@@3@@std@@QEAAAEAUgameInfo@@AEB_K@Z DD imagerel $LN131@operator
 	DD	imagerel $LN131@operator+247
 	DD	imagerel $unwind$??A?$map@_KUgameInfo@@U?$less@_K@std@@V?$allocator@U?$pair@$$CB_KUgameInfo@@@std@@@3@@std@@QEAAAEAUgameInfo@@AEB_K@Z
-pdata	ENDS
-;	COMDAT pdata
-pdata	SEGMENT
-$pdata$??_H@YAXPEAX_K1P6APEAX0@Z@Z DD imagerel $LN11@vector
-	DD	imagerel $LN11@vector+47
-	DD	imagerel $unwind$??_H@YAXPEAX_K1P6APEAX0@Z@Z
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
@@ -170,8 +154,8 @@ $pdata$??__Egenerator@@YAXXZ DD imagerel ??__Egenerator@@YAXXZ
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$?search@0@YA?AW4Score@@AEAVBoard@@HW41@1N@Z DD imagerel $LN153@search
-	DD	imagerel $LN153@search+737
+$pdata$?search@0@YA?AW4Score@@AEAVBoard@@HW41@1N@Z DD imagerel $LN303@search
+	DD	imagerel $LN303@search+776
 	DD	imagerel $unwind$?search@0@YA?AW4Score@@AEAVBoard@@HW41@1N@Z
 pdata	ENDS
 ;	COMDAT pdata
@@ -188,34 +172,13 @@ $pdata$?init@search@@YAXXZ DD imagerel $LN40@init
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$?evaluate@search@@YA?AW4Score@@AEAVBoard@@NAEAVNN@@@Z DD imagerel $LN184@evaluate
-	DD	imagerel $LN184@evaluate+354
+$pdata$?evaluate@search@@YA?AW4Score@@AEAVBoard@@NAEAVNN@@@Z DD imagerel $LN153@evaluate
+	DD	imagerel $LN153@evaluate+56
 	DD	imagerel $unwind$?evaluate@search@@YA?AW4Score@@AEAVBoard@@NAEAVNN@@@Z
 pdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$ip2state$?evaluate@search@@YA?AW4Score@@AEAVBoard@@NAEAVNN@@@Z DQ 0c200ae02ae009a08r ; -8.95486e+09
-	DB	02H
-xdata	ENDS
-;	COMDAT xdata
-xdata	SEGMENT
-$stateUnwindMap$?evaluate@search@@YA?AW4Score@@AEAVBoard@@NAEAVNN@@@Z DW 0a02H
-	DD	imagerel ??1?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@QEAA@XZ
-	DB	040H
-xdata	ENDS
-;	COMDAT xdata
-xdata	SEGMENT
-$cppxdata$?evaluate@search@@YA?AW4Score@@AEAVBoard@@NAEAVNN@@@Z DB 028H
-	DD	imagerel $stateUnwindMap$?evaluate@search@@YA?AW4Score@@AEAVBoard@@NAEAVNN@@@Z
-	DD	imagerel $ip2state$?evaluate@search@@YA?AW4Score@@AEAVBoard@@NAEAVNN@@@Z
-xdata	ENDS
-;	COMDAT xdata
-xdata	SEGMENT
-$unwind$?evaluate@search@@YA?AW4Score@@AEAVBoard@@NAEAVNN@@@Z DQ 0000f340c00061b19r ; 2.11428e-308
-	DQ	0500660077008920cr		; 3.23858e+77
-	DD	imagerel __GSHandlerCheck_EH4
-	DD	imagerel $cppxdata$?evaluate@search@@YA?AW4Score@@AEAVBoard@@NAEAVNN@@@Z
-	DD	04aH
+$unwind$?evaluate@search@@YA?AW4Score@@AEAVBoard@@NAEAVNN@@@Z DQ 00000420400010401r ; 3.58617e-310
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
@@ -309,11 +272,6 @@ $unwind$??0?$array@U?$pair@W4Score@@H@std@@$06@std@@QEAA@XZ DQ 00007640f00060f19
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$unwind$??_H@YAXPEAX_K1P6APEAX0@Z@Z DQ 00006340a00040a01r ; 8.62672e-309
-	DD	07006320aH
-xdata	ENDS
-;	COMDAT xdata
-xdata	SEGMENT
 $ip2state$??A?$map@_KUgameInfo@@U?$less@_K@std@@V?$allocator@U?$pair@$$CB_KUgameInfo@@@std@@@3@@std@@QEAAAEAUgameInfo@@AEB_K@Z DD 02024904H
 	DW	0beH
 xdata	ENDS
@@ -335,12 +293,6 @@ $unwind$??A?$map@_KUgameInfo@@U?$less@_K@std@@V?$allocator@U?$pair@$$CB_KUgameIn
 	DQ	0700b920f000c340fr		; 5.35047e+231
 	DD	imagerel __CxxFrameHandler4
 	DD	imagerel $cppxdata$??A?$map@_KUgameInfo@@U?$less@_K@std@@V?$allocator@U?$pair@$$CB_KUgameInfo@@@std@@@3@@std@@QEAAAEAUgameInfo@@AEB_K@Z
-xdata	ENDS
-;	COMDAT xdata
-xdata	SEGMENT
-$unwind$?sum@?$DenseBase@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@Eigen@@QEBAMXZ DQ 00000820400011319r ; 7.06285e-310
-	DD	imagerel __GSHandlerCheck
-	DD	030H
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
@@ -375,12 +327,6 @@ xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
 $unwind$?_Check_grow_by_1@?$_Tree@V?$_Tmap_traits@_KUgameInfo@@U?$less@_K@std@@V?$allocator@U?$pair@$$CB_KUgameInfo@@@std@@@3@$0A@@std@@@std@@IEAAXXZ DQ 00000420400010401r ; 3.58617e-310
-xdata	ENDS
-;	COMDAT xdata
-xdata	SEGMENT
-$unwind$??$redux@U?$scalar_sum_op@MM@internal@Eigen@@@?$DenseBase@V?$Matrix@M$0?0$0?0$0A@$0?0$0?0@Eigen@@@Eigen@@QEBAMAEBU?$scalar_sum_op@MM@internal@1@@Z DQ 00000820400011319r ; 7.06285e-310
-	DD	imagerel __GSHandlerCheck
-	DD	030H
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT

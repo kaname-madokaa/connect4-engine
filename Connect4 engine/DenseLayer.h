@@ -1,6 +1,10 @@
 #pragma once
 #include "Layer.h"
 #include <iostream>
+#include <fstream>
+
+
+#ifdef EMBEDED
 class DenseLayer :
     public Layer
 {
@@ -13,6 +17,7 @@ public:
     {
         m_weights = weights;
         m_biases = biases;
+        printWeights();
     }
     const Eigen::MatrixXf& forward(const Eigen::MatrixXf& input)
     {
@@ -43,8 +48,7 @@ public:
     }
     void printWeights()
     {
-        std::cout << m_weights << "\n\n";
-        std::cout << m_biases << "\n\n";
+        std::ofstream a("weights.txt", std::ios::app);
     }
     char layerType()
     {
@@ -59,4 +63,39 @@ private:
     int m_input_layer_channels;
     
 };
+#else
+template <typename input_type, typename output_type, typename weights_type, typename biases_type,  int input_layer_channels>
+class DenseLayer 
+{
+public:
+    DenseLayer(const weights_type& weights, const biases_type& biases, std::function<void(output_type&)> activation_function =
+        [&](output_type& matrix) {for (auto& val : matrix.reshaped())
+    {
+        val = val > 0 ? val : 0;
+    }}) : m_activation_function(activation_function), m_input_layer_channels(input_layer_channels)
+    {
+        m_weights = weights;
+        m_biases = biases;
+    }
+    DenseLayer()
+    {
 
+    }
+
+    const output_type& forward(const input_type& input)
+    {
+        m_output = m_weights * input + m_biases;
+        m_activation_function(m_output);
+        return m_output;
+    }
+
+private:
+    output_type m_output;
+    weights_type m_weights;
+    biases_type m_biases;
+    std::function<void(output_type&)> m_activation_function;
+
+    int m_input_layer_channels;
+};
+
+#endif

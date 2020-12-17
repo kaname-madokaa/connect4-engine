@@ -5,6 +5,15 @@
 #include <vector>
 #include <deque>
 #include <Eigen/Dense>
+#include "info.h"
+
+
+#ifndef EMBEDED
+
+#define MatrixXf Matrix<float,6,7*input_channels>
+
+#endif
+
 
 enum Color
 {

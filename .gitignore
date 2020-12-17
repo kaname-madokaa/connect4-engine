@@ -2,3 +2,4 @@
 Connect4 engine/games 0bin
 Connect4 engine/x64
 .vs
+*.txt

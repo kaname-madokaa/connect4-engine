@@ -7,10 +7,11 @@
 #include <chrono>
 #include <thread>
 #include <mutex>
-
+#include <random>
 //#define NN_VALUE
 //#define NN_POLICY
-
+    using namespace std::chrono_literals;
+inline bool is_paused = 0;
 #ifdef NN_POLICY
 static Eigen::MatrixXf currentOutput;
 #endif
@@ -259,7 +260,7 @@ int NN_go(Board& pos, double noise, NN& net = network)
 			} 
 			else
 			{
-				score = (Score)-search::evaluate(pos, 0.0, net);
+				score = (Score)-search::evaluate(pos, 0.0, std::ref(net));
 				mu.lock();
 				NN_eval_cache[posKey] = score;
 				evalCacheMisses++;
@@ -289,6 +290,11 @@ void playGames(int numGames, std::vector<Game>& games, std::vector<float>& resul
 
 	for (int gameNum = 0; gameNum < numGames; gameNum++)
 	{
+		while (is_paused)
+		{
+			using namespace std::chrono_literals;
+			std::this_thread::sleep_for(3s);
+		}
 		Game currGame;
 		int moveNum = 0;
 		currGame.inputs.emplace_back(network.boardToInput(pos));
@@ -302,11 +308,11 @@ void playGames(int numGames, std::vector<Game>& games, std::vector<float>& resul
 			//std::cout << pos.ply() << "\n";
 			int move;
 			noise = 0;
-			if ((chance(generator) < 25) || (pos.ply() > 14 && (chance(generator) < 35)))
+			if ((chance(generator) < 20) || (pos.ply() > 12 && (chance(generator) < 10)))
 			{
 				noise = 1.0;
 			}
-			move = NN_go(pos, noise, net);
+			move = NN_go(pos, noise, std::ref(net));
 			
 			if (pos.doMove(move))
 			{
@@ -354,9 +360,13 @@ void playGames(int numGames, std::vector<Game>& games, std::vector<float>& resul
 void selfplay(int numGames, int threads)
 {
 #ifndef NN_POLICY
-	int batches = numGames / 2000;
+	int batches = numGames / 2400;
 	int gamesPerBatch = numGames / batches;
-	std::vector<NN> networks(threads);
+	std::vector<NN> networks(threads
+#ifndef EMBEDED
+		, NN("abcd")
+#endif
+	);
 	for (auto& net : networks)
 	{
 		net = NN("C:/Users/Anastazja/abcd");
@@ -446,46 +456,49 @@ void selfplay(int numGames, int threads)
 
 void rate()
 {
-	network = NN("C:/Users/Anastazja/abcd");
-	constexpr int numGames = 1000;
-	std::random_device device;
-	std::mt19937_64 generator(device());
-	std::uniform_int_distribution<int> abcd(0, 6);
-	double score = 0;
-	int wins = 0;
-	int draws = 0;
-	int loses = 0;
-	for (int game = 0; game < numGames; game++)
+	while (1)
 	{
-		Board pos;
-		while (pos.gameResult() == COLOR_NONE)
+		network = NN("C:/Users/Anastazja/abcd");
+		constexpr int numGames = 1000;
+		std::random_device device;
+		std::mt19937_64 generator(device());
+		std::uniform_int_distribution<int> abcd(0, 6);
+		double score = 0;
+		int wins = 0;
+		int draws = 0;
+		int loses = 0;
+		for (int game = 0; game < numGames; game++)
 		{
-			int move;
-			if ((pos.side() == COLOR_YELLOW && (game % 2)) || (pos.side() == COLOR_RED && !(game % 2)))
+			Board pos;
+			while (pos.gameResult() == COLOR_NONE)
 			{
-				while (!pos.doMove(abcd(generator)));
+				int move;
+				if ((pos.side() == COLOR_YELLOW && (game % 2)) || (pos.side() == COLOR_RED && !(game % 2)))
+				{
+					while (!pos.doMove(abcd(generator)));
+				}
+				else
+				{
+					move = NN_go(pos, 0.0);
+					pos.doMove(move);
+				}
+			}
+			if ((pos.gameResult() == COLOR_YELLOW && (game % 2)) || (pos.gameResult() == COLOR_RED && !(game % 2)))
+			{
+				score -= 1.0; loses++;
+			}
+			else if ((pos.gameResult() == COLOR_RED && (game % 2)) || (pos.gameResult() == COLOR_YELLOW && !(game % 2)))
+			{
+				score += 1.0; wins++;
 			}
 			else
 			{
-				move = NN_go(pos, 0.0);
-				pos.doMove(move);
+				draws++;
 			}
 		}
-		if ((pos.gameResult() == COLOR_YELLOW && (game % 2)) || (pos.gameResult() == COLOR_RED && !(game % 2))) 
-		{
-			score -= 1.0; loses++;
-		}
-		else if ((pos.gameResult() == COLOR_RED && (game % 2)) || (pos.gameResult() == COLOR_YELLOW && !(game % 2)))
-		{
-			score += 1.0; wins++;
-		}
-		else
-		{
-			draws++;
-		}
+		std::cout << "score: " << score << "\n";
+		std::cout << "W/D/L: " << wins << "/" << draws << "/" << loses << "\n";
 	}
-	std::cout << "score: " << score << "\n";
-	std::cout << "W/D/L: " << wins << "/" << draws << "/" << loses << "\n";
 	exit(1);
 }
 

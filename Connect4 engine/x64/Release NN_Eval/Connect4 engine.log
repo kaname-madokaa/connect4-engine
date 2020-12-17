@@ -1,17 +1,17 @@
 ﻿  Connect4 engine.cpp
-C:\connect4-engine\Connect4 engine\uci.h(246,68): warning C4244: 'argument': conversion from 'double' to '_Ty', possible loss of data
+C:\connect4-engine\Connect4 engine\uci.h(247,68): warning C4244: 'argument': conversion from 'double' to '_Ty', possible loss of data
           with
           [
               _Ty=int
           ]
-C:\connect4-engine\Connect4 engine\uci.h(246,55): warning C4244: 'argument': conversion from 'double' to '_Ty', possible loss of data
+C:\connect4-engine\Connect4 engine\uci.h(247,55): warning C4244: 'argument': conversion from 'double' to '_Ty', possible loss of data
           with
           [
               _Ty=int
           ]
   Generating code
-  1 of 2221 functions (<0.1%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    19 functions had inline decision re-evaluated but remain unchanged
+  32 of 3512 functions ( 0.9%) were compiled, the rest were copied from previous compilation.
+    22 functions were new in current compilation
+    51 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   Connect4 engine.vcxproj -> C:\connect4-engine\x64\Release NN_Eval\Connect4 engine.exe

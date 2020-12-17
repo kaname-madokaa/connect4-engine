@@ -1,6 +1,6 @@
 #include "ConvLayer.h"
-
-
+#include <fstream>
+#ifdef EMBEDED
 ConvLayer::ConvLayer(std::vector<std::vector<Eigen::MatrixXf>>& weights_data, std::vector<float>& bias_data, int input_rows, int input_cols, std::function<void(Eigen::MatrixXf&)> activation_function)
 	: m_activation_function(activation_function)
 {
@@ -61,3 +61,4 @@ const Eigen::MatrixXf& ConvLayer::forward(const Eigen::MatrixXf& input)
 	m_activation_function(m_output);
 	return m_output;
 }
+#endif
